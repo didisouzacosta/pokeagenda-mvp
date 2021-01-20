@@ -1,2 +1,3 @@
-# pokeagenda-mvp
-Construção de uma pokeagenda utilizando Swift com o pattern MVP
+# Pokédex MVP
+Construção de uma pokédex utilizando Swift com o pattern MVP
+
