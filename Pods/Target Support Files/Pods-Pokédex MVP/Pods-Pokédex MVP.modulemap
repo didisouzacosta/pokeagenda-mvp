@@ -1,0 +1,6 @@
+framework module Pods_Poke_dex_MVP {
+  umbrella header "Pods-Pokédex MVP-umbrella.h"
+
+  export *
+  module * { export * }
+}
