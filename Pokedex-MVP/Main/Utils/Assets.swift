@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class Assets {
+struct Assets {
     
     static let icons = Icons()
     
@@ -15,7 +15,7 @@ final class Assets {
 
 extension Assets {
     
-    class Icons {
+    struct Icons {
         let filter = UIImage(named: "filter-icon")!
         let sort = UIImage(named: "sort-icon")!
         let generations = UIImage(named: "generations-icon")!
@@ -24,19 +24,19 @@ extension Assets {
         let types = Types()
     }
     
-    class Heigths {
+    struct Heigths {
         let sort = UIImage(named: "sort-height-icon")!
         let medium = UIImage(named: "medium-height-icon")!
         let tall = UIImage(named: "tall-height-icon")!
     }
     
-    class Weights {
+    struct Weights {
         let light = UIImage(named: "light-weight-icon")!
         let normal = UIImage(named: "normal-weight-icon")!
         let heavy = UIImage(named: "heavy-weight-icon")!
     }
     
-    class Types {
+    struct Types {
         let normal = UIImage(named: "normal-type-icon")!
         let fire = UIImage(named: "fire-type-icon")!
         let water = UIImage(named: "water-type-icon")!
