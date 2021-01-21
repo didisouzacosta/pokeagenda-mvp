@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		B385E1DB25B98C750017E94D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B385E1DA25B98C750017E94D /* Assets.xcassets */; };
 		B385E1DE25B98C750017E94D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B385E1DC25B98C750017E94D /* LaunchScreen.storyboard */; };
 		B385E1EF25B98CD80017E94D /* Pokedex_MVPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B385E1EE25B98CD80017E94D /* Pokedex_MVPTests.swift */; };
+		B38C5D1E25B9958600B83845 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C5D1D25B9958600B83845 /* Assets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		B385E1EC25B98CD80017E94D /* Pokedex-MVPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pokedex-MVPTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B385E1EE25B98CD80017E94D /* Pokedex_MVPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokedex_MVPTests.swift; sourceTree = "<group>"; };
 		B385E1F025B98CD80017E94D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B38C5D1D25B9958600B83845 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		C4CC712EDFD8FEE760EF2080 /* Pods-Pokedex-MVP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex-MVP.debug.xcconfig"; path = "Target Support Files/Pods-Pokedex-MVP/Pods-Pokedex-MVP.debug.xcconfig"; sourceTree = "<group>"; };
 		E643606DFBFE171B76EF2E94 /* Pods_Pokedex_MVP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokedex_MVP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFACCE02681017B33A2CACBA /* Pods-Pokedex-MVPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex-MVPTests.debug.xcconfig"; path = "Target Support Files/Pods-Pokedex-MVPTests/Pods-Pokedex-MVPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		B385E1FC25B98D590017E94D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B38C5D1825B9920F00B83845 /* UseCases */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -145,6 +148,8 @@
 		B385E1FF25B98D670017E94D /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B38C5D1A25B9923000B83845 /* Models */,
+				B38C5D1925B9922800B83845 /* Repositories */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -152,6 +157,8 @@
 		B385E20025B98D6B0017E94D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B38C5D1C25B9957600B83845 /* Utils */,
+				B38C5D1B25B9924600B83845 /* Coordinators */,
 				B385E20225B98D820017E94D /* Scenes */,
 				B385E20125B98D750017E94D /* Resources */,
 				B385E1D125B98C740017E94D /* AppDelegate.swift */,
@@ -198,6 +205,42 @@
 			children = (
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		B38C5D1825B9920F00B83845 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		B38C5D1925B9922800B83845 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B38C5D1A25B9923000B83845 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B38C5D1B25B9924600B83845 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		B38C5D1C25B9957600B83845 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B38C5D1D25B9958600B83845 /* Assets.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +430,7 @@
 			files = (
 				B385E1D625B98C740017E94D /* ViewController.swift in Sources */,
 				B385E1D225B98C740017E94D /* AppDelegate.swift in Sources */,
+				B38C5D1E25B9958600B83845 /* Assets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
