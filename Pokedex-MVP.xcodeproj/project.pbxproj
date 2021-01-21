@@ -101,12 +101,10 @@
 		B385E1D025B98C740017E94D /* Pokedex-MVP */ = {
 			isa = PBXGroup;
 			children = (
-				B385E1D125B98C740017E94D /* AppDelegate.swift */,
-				B385E1D525B98C740017E94D /* ViewController.swift */,
-				B385E1D725B98C740017E94D /* Main.storyboard */,
-				B385E1DA25B98C750017E94D /* Assets.xcassets */,
-				B385E1DC25B98C750017E94D /* LaunchScreen.storyboard */,
-				B385E1DF25B98C750017E94D /* Info.plist */,
+				B385E20025B98D6B0017E94D /* Main */,
+				B385E1FF25B98D670017E94D /* Domain */,
+				B385E1FD25B98D5D0017E94D /* Infra */,
+				B385E1FC25B98D590017E94D /* Data */,
 			);
 			path = "Pokedex-MVP";
 			sourceTree = "<group>";
@@ -118,6 +116,80 @@
 				B385E1F025B98CD80017E94D /* Info.plist */,
 			);
 			path = "Pokedex-MVPTests";
+			sourceTree = "<group>";
+		};
+		B385E1FC25B98D590017E94D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B385E1FD25B98D5D0017E94D /* Infra */ = {
+			isa = PBXGroup;
+			children = (
+				B385E20925B98DB80017E94D /* Services */,
+				B385E20825B98DB30017E94D /* Network */,
+			);
+			path = Infra;
+			sourceTree = "<group>";
+		};
+		B385E1FF25B98D670017E94D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B385E20025B98D6B0017E94D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B385E20225B98D820017E94D /* Scenes */,
+				B385E20125B98D750017E94D /* Resources */,
+				B385E1D125B98C740017E94D /* AppDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B385E20125B98D750017E94D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B385E1D725B98C740017E94D /* Main.storyboard */,
+				B385E1DA25B98C750017E94D /* Assets.xcassets */,
+				B385E1DC25B98C750017E94D /* LaunchScreen.storyboard */,
+				B385E1DF25B98C750017E94D /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B385E20225B98D820017E94D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B385E20325B98D880017E94D /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B385E20325B98D880017E94D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B385E1D525B98C740017E94D /* ViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B385E20825B98DB30017E94D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B385E20925B98DB80017E94D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,7 +485,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3Y3T2VA3Q3;
-				INFOPLIST_FILE = "Pokedex-MVP/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Pokedex-MVP/Main/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -435,7 +507,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3Y3T2VA3Q3;
-				INFOPLIST_FILE = "Pokedex-MVP/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Pokedex-MVP/Main/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
