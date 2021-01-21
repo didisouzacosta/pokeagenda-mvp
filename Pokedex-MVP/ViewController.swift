@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Pokédex MVP
+//  Pokedex-MVP
 //
 //  Created by Adriano Souza Costa on 21/01/21.
 //
@@ -11,7 +11,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
 

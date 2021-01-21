@@ -1,13 +1,13 @@
 //
-//  Poke_dex_MVP_Tests.swift
-//  Pokédex MVP Tests
+//  Pokedex_MVPTests.swift
+//  Pokedex-MVPTests
 //
 //  Created by Adriano Souza Costa on 21/01/21.
 //
 
 import XCTest
 
-class Poke_dex_MVP_Tests: XCTestCase {
+class Pokedex_MVPTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

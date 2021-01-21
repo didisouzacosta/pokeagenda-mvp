@@ -1,8 +1,6 @@
-platform :ios, '11.4'
+platform :ios, '12.4'
 
-target 'Pokédex MVP' do
+target 'Pokedex-MVP' do
   use_frameworks!
-
-  # Pods for Pokédex MVP
 
 end
