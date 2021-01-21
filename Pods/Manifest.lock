@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (5.4.1)
   - Nimble (9.0.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.2)
   - Nimble
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Nimble
 
 SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
 
-PODFILE CHECKSUM: 946d4190d7c9f172aef260097aca3dcbed667c6b
+PODFILE CHECKSUM: 5f78f7dc6afad90cc4870d08ff887986b4adbd20
 
 COCOAPODS: 1.10.0
