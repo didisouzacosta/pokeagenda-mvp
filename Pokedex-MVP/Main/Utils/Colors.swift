@@ -10,18 +10,18 @@ import UIKit
 
 struct Colors {
     
-    static let types = Types()
-    static let heights = Height()
-    static let weights = Weights()
-    static let button = Button()
-    static let text = Text()
-    static let background = Background()
+    static let type = TypeColor()
+    static let height = HeightColor()
+    static let weight = WeightColor()
+    static let button = ButtonColor()
+    static let text = TextColor()
+    static let background = BackgroundColor()
     
 }
 
 extension Colors {
     
-    struct Types {
+    struct TypeColor {
         let bug = UIColor.hex("#8CB230")
         let dark = UIColor.hex("#58575F")
         let dragon = UIColor.hex("#0F6AC0")
@@ -42,31 +42,31 @@ extension Colors {
         let water = UIColor.hex("#4A90DA")
     }
     
-    struct Height {
+    struct HeightColor {
         let sort = UIColor.hex("#FFC5E6")
         let medium = UIColor.hex("#AEBFD7")
         let tall = UIColor.hex("#AAACB8")
     }
     
-    struct Weights {
+    struct WeightColor {
         let light = UIColor.hex("#99CD7C")
         let normal = UIColor.hex("#57B2DC")
         let heavy = UIColor.hex("#5A92A5")
     }
     
-    struct Button {
+    struct ButtonColor {
         let unselect = UIColor.hex("#F2F2F2")
         let selected = UIColor.hex("#EA5D60")
     }
     
-    struct Text {
+    struct TextColor {
         let white = UIColor.hex("#FFFFFF")
         let black = UIColor.hex("#17171B")
         let gray = UIColor.hex("#747476")
         let text = UIColor.hex("#17171B")
     }
     
-    struct Background {
+    struct BackgroundColor {
         let white = UIColor.hex("#FFFFFF")
         let defaultInput = UIColor.hex("#F2F2F2")
         let pressedInput = UIColor.hex("#E2E2E2")
