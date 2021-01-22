@@ -9,34 +9,34 @@ import UIKit
 
 struct Assets {
     
-    static let icons = Icons()
+    static let icon = AppIcon()
     
 }
 
 extension Assets {
     
-    struct Icons {
+    struct AppIcon {
         let filter = UIImage(named: "filter-icon")!
         let sort = UIImage(named: "sort-icon")!
-        let generations = UIImage(named: "generations-icon")!
-        let heigths = Heigths()
-        let weights = Weights()
-        let types = Types()
+        let generation = UIImage(named: "generations-icon")!
+        let heigth = HeigthIcon()
+        let weight = WeightIcon()
+        let type = TypeIcon()
     }
     
-    struct Heigths {
+    struct HeigthIcon {
         let sort = UIImage(named: "sort-height-icon")!
         let medium = UIImage(named: "medium-height-icon")!
         let tall = UIImage(named: "tall-height-icon")!
     }
     
-    struct Weights {
+    struct WeightIcon {
         let light = UIImage(named: "light-weight-icon")!
         let normal = UIImage(named: "normal-weight-icon")!
         let heavy = UIImage(named: "heavy-weight-icon")!
     }
     
-    struct Types {
+    struct TypeIcon {
         let normal = UIImage(named: "normal-type-icon")!
         let fire = UIImage(named: "fire-type-icon")!
         let water = UIImage(named: "water-type-icon")!
