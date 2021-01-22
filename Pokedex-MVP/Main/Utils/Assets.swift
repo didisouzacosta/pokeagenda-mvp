@@ -41,6 +41,20 @@ extension Assets {
         let fire = UIImage(named: "fire-type-icon")!
         let water = UIImage(named: "water-type-icon")!
         let ground = UIImage(named: "ground-type-icon")!
+        let bug = UIImage(named: "bug-type-icon")!
+        let dark = UIImage(named: "dark-type-icon")!
+        let dragon = UIImage(named: "dragon-type-icon")!
+        let eletric = UIImage(named: "eletric-type-icon")!
+        let fairy = UIImage(named: "fairy-type-icon")!
+        let fighing = UIImage(named: "fighing-type-icon")!
+        let flying = UIImage(named: "flying-type-icon")!
+        let ghost = UIImage(named: "ghost-type-icon")!
+        let grass = UIImage(named: "grass-type-icon")!
+        let ice = UIImage(named: "ice-type-icon")!
+        let poison = UIImage(named: "poison-type-icon")!
+        let psychic = UIImage(named: "psychic-type-icon")!
+        let rock = UIImage(named: "rock-type-icon")!
+        let steel = UIImage(named: "steel-type-icon")!
     }
     
 }
