@@ -11,6 +11,10 @@ struct Assets {
     
     static let icon = AppIcon()
     
+    static func getPokemonImage(with code: String) -> UIImage {
+        return UIImage(named: code) ?? UIImage(named: "unkown_pokemon")!
+    }
+    
 }
 
 extension Assets {
