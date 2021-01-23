@@ -31,7 +31,7 @@ extension Colors {
         let fire = UIColor.hex("#FD7D24")
         let flying = UIColor.hex("#748FC9")
         let ghost = UIColor.hex("#556AAE")
-        let glass = UIColor.hex("#62B957")
+        let grass = UIColor.hex("#62B957")
         let ground = UIColor.hex("#DD7748")
         let ice = UIColor.hex("#61CEC0")
         let normal = UIColor.hex("#9DA0AA")
