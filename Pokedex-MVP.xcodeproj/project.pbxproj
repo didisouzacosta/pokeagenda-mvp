@@ -175,8 +175,8 @@
 		B385E20125B98D750017E94D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B385E1D725B98C740017E94D /* Main.storyboard */,
 				B385E1DA25B98C750017E94D /* Assets.xcassets */,
+				B385E1D725B98C740017E94D /* Main.storyboard */,
 				B385E1DC25B98C750017E94D /* LaunchScreen.storyboard */,
 				B385E1DF25B98C750017E94D /* Info.plist */,
 			);
