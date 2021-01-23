@@ -11,8 +11,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let useCase = UseCaseFactory.makeGetGenerationsUseCase()
+        
+        useCase.execute { response in
+            print(response)
+        }
     }
-
 
 }
 

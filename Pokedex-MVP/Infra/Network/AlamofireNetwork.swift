@@ -8,13 +8,13 @@
 import Foundation
 import Alamofire
 
-final class AlamofireNetwork: Network {
+final class AlamofireNetwork: NetworkProtocol {
     
-    func request<T: Decodable, P: Encodable>(
+    func request<T: Decodable>(
         type: T.Type,
-        endpoint: String,
+        endpoint: URL,
         method: RequestMethod,
-        parameters: P? = nil,
+        parameters: [String: Any]? = nil,
         completionHandler: @escaping (Result<T, Error>) -> Void
     ) {
         AF.request(
@@ -42,7 +42,7 @@ final class AlamofireNetwork: Network {
                     } catch {
                         completionHandler(.failure(error))
                     }
-                case 400:
+                case 404:
                     completionHandler(.failure(NotFoundNetworkError()))
                 case 403:
                     completionHandler(.failure(NoPermissionNetworkError()))
