@@ -18,6 +18,8 @@
 		B3873D9525B9AE5C00BE6780 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3873D9425B9AE5C00BE6780 /* Typography.swift */; };
 		B38C5D1E25B9958600B83845 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C5D1D25B9958600B83845 /* Assets.swift */; };
 		B398EDFA25BC7FA8009F7666 /* ColorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398EDF925BC7FA8009F7666 /* ColorsTests.swift */; };
+		B398EE0925BC83F6009F7666 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398EE0825BC83F6009F7666 /* Network.swift */; };
+		B398EE0D25BC8460009F7666 /* AlamofireNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398EE0C25BC8460009F7666 /* AlamofireNetwork.swift */; };
 		B3AAC56A25BC622C00E42043 /* AssetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AAC56925BC622C00E42043 /* AssetsTests.swift */; };
 		B3D8D7C225BAE40A007E68B7 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D8D7C125BAE40A007E68B7 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +51,8 @@
 		B3873D9425B9AE5C00BE6780 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		B38C5D1D25B9958600B83845 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		B398EDF925BC7FA8009F7666 /* ColorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsTests.swift; sourceTree = "<group>"; };
+		B398EE0825BC83F6009F7666 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		B398EE0C25BC8460009F7666 /* AlamofireNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetwork.swift; sourceTree = "<group>"; };
 		B3AAC56925BC622C00E42043 /* AssetsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTests.swift; sourceTree = "<group>"; };
 		B3D8D7C125BAE40A007E68B7 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		C4CC712EDFD8FEE760EF2080 /* Pods-Pokedex-MVP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex-MVP.debug.xcconfig"; path = "Target Support Files/Pods-Pokedex-MVP/Pods-Pokedex-MVP.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,8 +151,8 @@
 		B385E1FD25B98D5D0017E94D /* Infra */ = {
 			isa = PBXGroup;
 			children = (
-				B385E20925B98DB80017E94D /* Services */,
 				B385E20825B98DB30017E94D /* Network */,
+				B385E20925B98DB80017E94D /* Services */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -204,6 +208,8 @@
 		B385E20825B98DB30017E94D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B398EE0825BC83F6009F7666 /* Network.swift */,
+				B398EE0C25BC8460009F7666 /* AlamofireNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -458,10 +464,12 @@
 			files = (
 				B3873D9525B9AE5C00BE6780 /* Typography.swift in Sources */,
 				B385E1D625B98C740017E94D /* ViewController.swift in Sources */,
+				B398EE0D25BC8460009F7666 /* AlamofireNetwork.swift in Sources */,
 				B3873D9125B9AE4300BE6780 /* Colors.swift in Sources */,
 				B3D8D7C225BAE40A007E68B7 /* ColorExtension.swift in Sources */,
 				B385E1D225B98C740017E94D /* AppDelegate.swift in Sources */,
 				B38C5D1E25B9958600B83845 /* Assets.swift in Sources */,
+				B398EE0925BC83F6009F7666 /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
