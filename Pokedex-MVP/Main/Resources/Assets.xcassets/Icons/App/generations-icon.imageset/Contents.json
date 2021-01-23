@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "heavy-weight-icon.png",
+      "filename" : "generations.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "heavy-weight-icon@2x.png",
+      "filename" : "generations@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "heavy-weight-icon@3x.png",
+      "filename" : "generations@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

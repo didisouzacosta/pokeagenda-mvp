@@ -22,7 +22,7 @@ extension Assets {
     struct AppIcon {
         let filter = UIImage(named: "filter-icon")!
         let sort = UIImage(named: "sort-icon")!
-        let generation = UIImage(named: "generations-icon")!
+        let generations = UIImage(named: "generations-icon")!
         let heigth = HeigthIcon()
         let weight = WeightIcon()
         let type = TypeIcon()
@@ -50,7 +50,7 @@ extension Assets {
         let dragon = UIImage(named: "dragon-type-icon")!
         let eletric = UIImage(named: "eletric-type-icon")!
         let fairy = UIImage(named: "fairy-type-icon")!
-        let fighing = UIImage(named: "fighing-type-icon")!
+        let fighing = UIImage(named: "fighting-type-icon")!
         let flying = UIImage(named: "flying-type-icon")!
         let ghost = UIImage(named: "ghost-type-icon")!
         let grass = UIImage(named: "grass-type-icon")!
