@@ -15,10 +15,16 @@ protocol PokemonRepositoryProtocol {
 
 final class PokemonRepository: PokemonRepositoryProtocol {
     
-    private let api: PokemonAPI
+    // MARK: - Private Properties
     
-    init(api: PokemonAPI) {
+    private let api: PokemonAPIProtocol
+    private let cache: CacheProtocol
+    
+    // MARK: - Public Methods
+    
+    init(api: PokemonAPIProtocol, cache: CacheProtocol) {
         self.api = api
+        self.cache = cache
     }
     
     func fetchGenerations(
