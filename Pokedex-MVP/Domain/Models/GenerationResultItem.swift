@@ -9,5 +9,4 @@ import Foundation
 
 struct GenerationResultItem: Decodable {
     let name: String
-    let url: URL
 }

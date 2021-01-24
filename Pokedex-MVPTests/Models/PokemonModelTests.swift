@@ -12,7 +12,7 @@ import Nimble
 
 class PokemonModelTests: XCTestCase {
     
-    func testEnsureDecodePokemonModel() throws {
+    func testEnsureDecodeModel() throws {
         let json = """
         {
             "sprites": {

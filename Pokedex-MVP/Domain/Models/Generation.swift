@@ -18,5 +18,4 @@ struct Generation: Decodable {
 
 struct PokemonSpecieResultItem: Decodable {
     let name: String
-    let url: URL
 }
