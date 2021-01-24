@@ -166,9 +166,8 @@
 		B347F65925BCB98700D1ECBE /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				B347F65A25BCB98700D1ECBE /* FetchGenerationsUseCase.swift */,
-				B36E3D7825BD89C20067F8BF /* FetchPokemonUseCase.swift */,
-				B3C9D23425BE28C8008770FE /* FetchPokemonsUseCase.swift */,
+				B39992C225BE318400486D05 /* Pokemon */,
+				B3C9D23825BE315F008770FE /* Generation */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -368,6 +367,23 @@
 				B3873D9425B9AE5C00BE6780 /* Typography.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B39992C225BE318400486D05 /* Pokemon */ = {
+			isa = PBXGroup;
+			children = (
+				B36E3D7825BD89C20067F8BF /* FetchPokemonUseCase.swift */,
+				B3C9D23425BE28C8008770FE /* FetchPokemonsUseCase.swift */,
+			);
+			path = Pokemon;
+			sourceTree = "<group>";
+		};
+		B3C9D23825BE315F008770FE /* Generation */ = {
+			isa = PBXGroup;
+			children = (
+				B347F65A25BCB98700D1ECBE /* FetchGenerationsUseCase.swift */,
+			);
+			path = Generation;
 			sourceTree = "<group>";
 		};
 		B3D8D7C025BAE3F5007E68B7 /* Extensions */ = {
