@@ -9,7 +9,7 @@ import Foundation
 
 struct Pagination<T: Codable>: Codable {
     let count: Int
-    let next: Int?
-    let prev: Int?
+    let next: URL?
+    let prev: URL?
     let results: [T]
 }

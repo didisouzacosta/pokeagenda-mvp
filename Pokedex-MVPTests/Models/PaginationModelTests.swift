@@ -17,7 +17,7 @@ class PaginationModelTests: XCTestCase {
         {
             "count": 1,
             "next": null,
-            "prev": 1,
+            "prev": "https://pokeapi.co/api/v2/pokemon?offset=60&limit=20",
             "results": [
                 {
                     "name": "generation-ii"
@@ -30,7 +30,7 @@ class PaginationModelTests: XCTestCase {
         let pagination = try decoder.decode(Pagination<GenerationResultItem>.self, from: json)
         
         expect(pagination.count) == 1
-        expect(pagination.prev) == 1
+        expect(pagination.prev) == URL(string: "https://pokeapi.co/api/v2/pokemon?offset=60&limit=20")
         expect(pagination.next).to(beNil())
         expect(pagination.results[0].name) == "generation-ii"
     }
