@@ -65,60 +65,6 @@ class PokemonAPITests: XCTestCase {
         }
     }
     
-    func testShouldBeReturnGenerationIfFetchGenerationSuccess() {
-        let networkSpy = NetworkSpy()
-        networkSpy.result = Generation(
-            id: 2,
-            pokemons: [
-                .init(name: "bulbasour"),
-                .init(name: "charmander")
-            ]
-        )
-        
-        let api = PokemonAPI(network: networkSpy)
-        
-        waitUntil { done in
-            api.fetchGeneration("generation-i") { response in
-                do {
-                    let result = try response.get()
-                    
-                    expect(result.id) == 2
-                    expect(result.pokemons.count) == 2
-                    expect(result.pokemons.first?.name) == "bulbasour"
-                    expect(result.pokemons.last?.name) == "charmander"
-                    
-                    expect(networkSpy.endpoint?.absoluteString) == "https://pokeapi.co/api/v2/generation/generation-i"
-                    expect(networkSpy.method) == .get
-                    expect(networkSpy.parameters).to(beNil())
-                } catch {
-                    fail(error.localizedDescription)
-                }
-                
-                done()
-            }
-        }
-    }
-    
-    func testThrowErrorIfFetchGenerationFails() {
-        let networkSpy = NetworkSpy()
-        networkSpy.error = "Error example"
-        
-        let api = PokemonAPI(network: networkSpy)
-        
-        waitUntil { done in
-            api.fetchGeneration("generation-i") { response in
-                do {
-                    _ = try response.get()
-                    fail()
-                } catch {
-                    expect(error.localizedDescription) == "Error example"
-                }
-                
-                done()
-            }
-        }
-    }
-    
     func testShouldBeReturnPokemonIfFetchPokemonSuccess() {
         let networkSpy = NetworkSpy()
         networkSpy.result = Pokemon(

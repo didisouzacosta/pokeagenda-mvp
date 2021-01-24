@@ -17,14 +17,6 @@ final class UseCaseFactory {
         return FetchGenerationsUseCase(pokemonRepository: repository)
     }
     
-    static func makeFetchGenerationUseCase() -> FetchGenerationUseCase {
-        let network = AlamofireNetwork()
-        let api = PokemonAPI(network: network)
-        let cache = MemoryCache.instance
-        let repository = PokemonRepository(api: api, cache: cache)
-        return FetchGenerationUseCase(pokemonRepository: repository)
-    }
-    
     static func makeFetchPokemonUseCase() -> FetchPokemonUseCase {
         let network = AlamofireNetwork()
         let api = PokemonAPI(network: network)

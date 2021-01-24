@@ -9,7 +9,7 @@ import Foundation
 
 protocol PokemonRepositoryProtocol {
     func fetchGenerations(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
-    func fetchGeneration(_ name: String, completionHandler: @escaping (Result<Generation, Error>) -> Void)
+    func fetchPokemons(page: Int, limit: Int, completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
     func fetchPokemon(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
 }
 
@@ -52,20 +52,21 @@ final class PokemonRepository: PokemonRepositoryProtocol {
         }
     }
     
-    func fetchGeneration(
-        _ name: String,
-        completionHandler: @escaping (Result<Generation, Error>) -> Void
+    func fetchPokemons(
+        page: Int,
+        limit: Int,
+        completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void
     ) {
-        let cacheKey = CacheKey(name)
-        let cacheData = try? cache.get(type: Generation.self, key: cacheKey)
+        let cacheKey = CacheKey("\(page)/\(limit)")
+        let cacheData = try? cache.get(type: Pagination<PaginationResultItem>.self, key: cacheKey)
         
         if let cache = cacheData {
-            print("Using cached data to `fetchGeneration:\(name)`")
+            print("Using cached data to `fetchPokemons:\(page)/\(limit)`")
             completionHandler(.success(cache))
             return
         }
         
-        api.fetchGeneration(name) { [weak self] response in
+        api.fetchPokemons(page: page, limit: limit) { [weak self] response in
             do {
                 let result = try response.get()
                 

@@ -12,15 +12,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let useCase = UseCaseFactory.makeFetchGenerationsUseCase()
+        let useCase = UseCaseFactory.makeFetchPokemonUseCase()
         
-        useCase.execute { response in
+        useCase.execute("charmander") { response in
             do {
                 let result = try response.get()
                 print(result)
             } catch {
                 print(error)
-                
             }
         }
     }

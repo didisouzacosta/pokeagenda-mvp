@@ -13,8 +13,7 @@ protocol APIProtocol {
 
 protocol PokemonAPIProtocol: APIProtocol {
     func fetchGenerations(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
-    func fetchGeneration(_ name: String, completionHandler: @escaping (Result<Generation, Error>) -> Void)
-    func fetchPokemons(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
+    func fetchPokemons(page: Int, limit: Int, completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
     func fetchPokemon(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
 }
 
@@ -41,21 +40,9 @@ final class PokemonAPI: PokemonAPIProtocol {
         }
     }
     
-    func fetchGeneration(
-        _ name: String,
-        completionHandler: @escaping (Result<Generation, Error>) -> Void
-    ) {
-        network.request(
-            type: Generation.self,
-            endpoint: baseURL.appendingPathComponent("generation/\(name)"),
-            method: .get,
-            parameters: nil
-        ) { (response) in
-            completionHandler(response)
-        }
-    }
-    
     func fetchPokemons(
+        page: Int,
+        limit: Int,
         completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void
     ) {
         network.request(

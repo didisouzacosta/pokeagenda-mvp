@@ -20,7 +20,7 @@ final class FetchGenerationUseCase: FetchGenerationUseCaseProtocol {
     }
     
     func execute(_ name: String, completionHandler: @escaping (Result<Generation, Error>) -> Void) {
-        pokemonRepository.fetchGeneration(name, completionHandler: completionHandler)
+        
     }
     
 }

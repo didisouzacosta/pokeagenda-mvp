@@ -21,34 +21,15 @@ final class AlamofireNetwork: NetworkProtocol {
             endpoint,
             method: method.alamofireHTTPMethod,
             parameters: parameters
-        ).responseData { responseData in
-            guard let response = responseData.response else {
-                completionHandler(.failure(NoResponseNetworkError()))
+        )
+        .validate()
+        .responseDecodable(of: T.self) { response in
+            guard let data = response.value else {
+                completionHandler(.failure(NotFoundNetworkError()))
                 return
             }
             
-            switch (response.statusCode) {
-                case 200...299:
-                    guard let data = responseData.data else {
-                        completionHandler(.failure(NoDataNetworkError()))
-                        return
-                    }
-                    
-                    do {
-                        let decoder = JSONDecoder()
-                        let result = try decoder.decode(T.self, from: data)
-                        
-                        completionHandler(.success(result))
-                    } catch {
-                        completionHandler(.failure(error))
-                    }
-                case 404:
-                    completionHandler(.failure(NotFoundNetworkError()))
-                case 403:
-                    completionHandler(.failure(NoPermissionNetworkError()))
-                default:
-                    completionHandler(.failure(UnkownNetworkError()))
-            }
+            completionHandler(.success(data))
         }
     }
     
