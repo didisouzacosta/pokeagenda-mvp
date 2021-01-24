@@ -27,11 +27,11 @@ class MemoryCacheTests: XCTestCase {
     func testSetAndRetrieveCodableObjectInCache() throws {
         let cache = MemoryCache()
         let cacheKey = CacheKey("generation")
-        let generation = GenerationResultItem(name: "generation-iii")
+        let generation = PaginationResultItem(name: "generation-iii")
         
         try cache.set(generation, key: cacheKey)
         
-        let cachedData = try cache.get(type: GenerationResultItem.self, key: cacheKey)
+        let cachedData = try cache.get(type: PaginationResultItem.self, key: cacheKey)
         
         expect(cachedData?.name) == "generation-iii"
     }

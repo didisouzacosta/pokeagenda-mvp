@@ -20,7 +20,7 @@ class GenerationResultItemModelTests: XCTestCase {
         """.data(using: .utf8)!
         
         let decoder = JSONDecoder()
-        let item = try decoder.decode(GenerationResultItem.self, from: json)
+        let item = try decoder.decode(PaginationResultItem.self, from: json)
         
         expect(item.name) == "generation-i"
     }

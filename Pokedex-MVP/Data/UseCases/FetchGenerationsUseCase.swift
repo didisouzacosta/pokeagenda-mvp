@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FetchGenerationsUseCaseProtocol {
-    func execute(completionHandler: @escaping (Result<[GenerationResultItem], Error>) -> Void)
+    func execute(completionHandler: @escaping (Result<[PaginationResultItem], Error>) -> Void)
 }
 
 final class FetchGenerationsUseCase: FetchGenerationsUseCaseProtocol {
@@ -19,7 +19,7 @@ final class FetchGenerationsUseCase: FetchGenerationsUseCaseProtocol {
         self.pokemonRepository = pokemonRepository
     }
     
-    func execute(completionHandler: @escaping (Result<[GenerationResultItem], Error>) -> Void) {
+    func execute(completionHandler: @escaping (Result<[PaginationResultItem], Error>) -> Void) {
         pokemonRepository.fetchGenerations { response in
             do {
                 let result = try response.get()

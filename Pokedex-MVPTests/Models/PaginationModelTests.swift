@@ -25,7 +25,7 @@ class PaginationModelTests: XCTestCase {
         """.data(using: .utf8)!
         
         let decoder = JSONDecoder()
-        let pagination = try decoder.decode(Pagination<GenerationResultItem>.self, from: json)
+        let pagination = try decoder.decode(Pagination<PaginationResultItem>.self, from: json)
         
         expect(pagination.count) == 1
         expect(pagination.results[0].name) == "generation-ii"

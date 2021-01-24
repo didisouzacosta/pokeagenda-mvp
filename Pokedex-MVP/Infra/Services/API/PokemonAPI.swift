@@ -12,8 +12,9 @@ protocol APIProtocol {
 }
 
 protocol PokemonAPIProtocol: APIProtocol {
-    func fetchGenerations(completionHandler: @escaping (Result<Pagination<GenerationResultItem>, Error>) -> Void)
+    func fetchGenerations(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
     func fetchGeneration(_ name: String, completionHandler: @escaping (Result<Generation, Error>) -> Void)
+    func fetchPokemons(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
     func fetchPokemon(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
 }
 
@@ -29,9 +30,9 @@ final class PokemonAPI: PokemonAPIProtocol {
         self.network = network
     }
     
-    func fetchGenerations(completionHandler: @escaping (Result<Pagination<GenerationResultItem>, Error>) -> Void) {
+    func fetchGenerations(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void) {
         network.request(
-            type: Pagination<GenerationResultItem>.self,
+            type: Pagination<PaginationResultItem>.self,
             endpoint: baseURL.appendingPathComponent("generation"),
             method: .get,
             parameters: nil
@@ -47,6 +48,19 @@ final class PokemonAPI: PokemonAPIProtocol {
         network.request(
             type: Generation.self,
             endpoint: baseURL.appendingPathComponent("generation/\(name)"),
+            method: .get,
+            parameters: nil
+        ) { (response) in
+            completionHandler(response)
+        }
+    }
+    
+    func fetchPokemons(
+        completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void
+    ) {
+        network.request(
+            type: Pagination<PaginationResultItem>.self,
+            endpoint: baseURL.appendingPathComponent("pokemon"),
             method: .get,
             parameters: nil
         ) { (response) in

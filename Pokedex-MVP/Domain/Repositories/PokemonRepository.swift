@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PokemonRepositoryProtocol {
-    func fetchGenerations(completionHandler: @escaping (Result<Pagination<GenerationResultItem>, Error>) -> Void)
+    func fetchGenerations(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
     func fetchGeneration(_ name: String, completionHandler: @escaping (Result<Generation, Error>) -> Void)
     func fetchPokemon(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
 }
@@ -28,10 +28,10 @@ final class PokemonRepository: PokemonRepositoryProtocol {
     }
     
     func fetchGenerations(
-        completionHandler: @escaping (Result<Pagination<GenerationResultItem>, Error>) -> Void
+        completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void
     ) {
         let cacheKey = CacheKey("generations")
-        let cacheData = try? cache.get(type: Pagination<GenerationResultItem>.self, key: cacheKey)
+        let cacheData = try? cache.get(type: Pagination<PaginationResultItem>.self, key: cacheKey)
         
         if let cache = cacheData {
             print("Using cached data to `fetchGenerations`")

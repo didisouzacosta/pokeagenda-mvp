@@ -11,3 +11,7 @@ struct Pagination<T: Codable>: Codable {
     let count: Int 
     let results: [T]
 }
+
+struct PaginationResultItem: Codable {
+    let name: String
+}

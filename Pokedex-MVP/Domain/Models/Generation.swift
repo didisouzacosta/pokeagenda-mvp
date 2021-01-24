@@ -9,13 +9,13 @@ import Foundation
 
 struct Generation: Codable {
     let id: Int
-    let pokemons: [PokemonSpecieResultItem]
+    let pokemons: [PokemonGenerationItem]
     
     private enum CodingKeys: String, CodingKey {
         case id, pokemons = "pokemon_species"
     }
 }
 
-struct PokemonSpecieResultItem: Codable {
+struct PokemonGenerationItem: Codable {
     let name: String
 }

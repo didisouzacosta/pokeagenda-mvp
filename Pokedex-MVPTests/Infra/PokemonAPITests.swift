@@ -14,7 +14,7 @@ class PokemonAPITests: XCTestCase {
     
     func testShouldBeReturnGenerationsIfFetchGenerationsSuccess() {
         let networkSpy = NetworkSpy()
-        networkSpy.result = Pagination<GenerationResultItem>(
+        networkSpy.result = Pagination<PaginationResultItem>(
             count: 3,
             results: [
                 .init(name: "generation-i"),
