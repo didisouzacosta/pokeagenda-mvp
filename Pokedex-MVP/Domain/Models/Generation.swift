@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Generation: Decodable {
+struct Generation: Codable {
     let id: Int
     let pokemons: [PokemonSpecieResultItem]
     
@@ -16,6 +16,6 @@ struct Generation: Decodable {
     }
 }
 
-struct PokemonSpecieResultItem: Decodable {
+struct PokemonSpecieResultItem: Codable {
     let name: String
 }

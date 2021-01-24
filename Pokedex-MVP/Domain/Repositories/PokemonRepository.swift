@@ -30,20 +30,74 @@ final class PokemonRepository: PokemonRepositoryProtocol {
     func fetchGenerations(
         completionHandler: @escaping (Result<Pagination<GenerationResultItem>, Error>) -> Void
     ) {
-        api.fetchGenerations(completionHandler: completionHandler)
+        let cacheKey = CacheKey("generations")
+        
+        if let cacheData = try? cache.get(type: Pagination<GenerationResultItem>.self, key: cacheKey) {
+            print("Using cache data from `fetchGenerations`")
+            completionHandler(.success(cacheData))
+            return
+        }
+        
+        api.fetchGenerations { [weak self] response in
+            do {
+                let result = try response.get()
+                
+                try self?.cache.set(result, key: cacheKey)
+                
+                completionHandler(.success(result))
+            } catch {
+                completionHandler(.failure(error))
+            }
+        }
     }
     
     func fetchGeneration(
         _ name: String,
         completionHandler: @escaping (Result<Generation, Error>) -> Void
     ) {
-        api.fetchGeneration(name, completionHandler: completionHandler)
+        let cacheKey = CacheKey(name)
+        
+        if let cacheData = try? cache.get(type: Generation.self, key: cacheKey) {
+            print("Using cache data from `fetchGeneration:\(name)`")
+            completionHandler(.success(cacheData))
+            return
+        }
+        
+        api.fetchGeneration(name) { [weak self] response in
+            do {
+                let result = try response.get()
+                
+                try self?.cache.set(result, key: cacheKey)
+                
+                completionHandler(.success(result))
+            } catch {
+                completionHandler(.failure(error))
+            }
+        }
     }
     
     func fetchPokemon(
         _ name: String,
         completionHandler: @escaping (Result<Pokemon, Error>) -> Void
     ) {
-        api.fetchPokemon(name, completionHandler: completionHandler)
+        let cacheKey = CacheKey(name)
+        
+        if let cacheData = try? cache.get(type: Pokemon.self, key: cacheKey) {
+            print("Using cache data from `fetchPokemon:\(name)`")
+            completionHandler(.success(cacheData))
+            return
+        }
+        
+        api.fetchPokemon(name) { [weak self] response in
+            do {
+                let result = try response.get()
+                
+                try self?.cache.set(result, key: cacheKey)
+                
+                completionHandler(.success(result))
+            } catch {
+                completionHandler(.failure(error))
+            }
+        }
     }
 }

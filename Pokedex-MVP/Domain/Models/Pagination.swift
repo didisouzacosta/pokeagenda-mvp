@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Pagination<T: Decodable>: Decodable {
+struct Pagination<T: Codable>: Codable {
     let count: Int
     let next: Int?
     let prev: Int?

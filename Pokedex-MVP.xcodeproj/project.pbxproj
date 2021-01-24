@@ -226,6 +226,7 @@
 		B385E1FD25B98D5D0017E94D /* Infra */ = {
 			isa = PBXGroup;
 			children = (
+				B36E3D8D25BDA1A80067F8BF /* Utils */,
 				B385E20825B98DB30017E94D /* Network */,
 				B385E20925B98DB80017E94D /* Services */,
 			);
@@ -235,7 +236,6 @@
 		B385E1FF25B98D670017E94D /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				B36E3D8D25BDA1A80067F8BF /* Utils */,
 				B38C5D1A25B9923000B83845 /* Models */,
 				B38C5D1925B9922800B83845 /* Repositories */,
 			);

@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct GenerationResultItem: Decodable {
+struct GenerationResultItem: Codable {
     let name: String
 }

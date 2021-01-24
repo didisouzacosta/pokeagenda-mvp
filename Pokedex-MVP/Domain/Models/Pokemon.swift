@@ -7,25 +7,25 @@
 
 import Foundation
 
-struct Pokemon: Decodable {
+struct Pokemon: Codable {
     let weight: Int
     let types: [TypeItem]
     let sprites: Sprites
 }
 
-struct TypeItem: Decodable {
+struct TypeItem: Codable {
     let slot: Int
     let type: Type
     
-    struct `Type`: Decodable {
+    struct `Type`: Codable {
         let name: String?
     }
 }
 
-struct Sprites: Decodable {
+struct Sprites: Codable {
     let other: Other
     
-    struct Other: Decodable {
+    struct Other: Codable {
         let officialArtwork: Sprite
         
         private enum CodingKeys: String, CodingKey {
@@ -33,7 +33,7 @@ struct Sprites: Decodable {
         }
     }
     
-    struct Sprite: Decodable {
+    struct Sprite: Codable {
         let frontDefault: URL
         
         private enum CodingKeys: String, CodingKey {
