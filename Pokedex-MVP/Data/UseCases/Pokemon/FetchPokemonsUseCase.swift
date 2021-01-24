@@ -20,17 +20,14 @@ final class FetchPokemonsUseCase: FetchPokemonsUseCaseProtocol {
     
     // MARK: - Public Methods
     
-    init(pokemonRepository: PokemonRepositoryProtocol) {
+    init(_ pokemonRepository: PokemonRepositoryProtocol) {
         self.pokemonRepository = pokemonRepository
     }
     
     func execute(page: Int, completionHandler: @escaping (Result<[PaginationResultItem], Error>) -> Void) {
         let offset = calculateOffset(with: page)
         
-        pokemonRepository.fetchPokemons(
-            offset: offset,
-            limit: limit
-        ) { response in
+        pokemonRepository.fetchPokemons(offset, limit: limit) { response in
             do {
                 let result = try response.get()
                 completionHandler(.success(result.results))

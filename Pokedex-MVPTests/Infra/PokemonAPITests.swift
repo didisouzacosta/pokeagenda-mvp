@@ -128,7 +128,7 @@ class PokemonAPITests: XCTestCase {
         let api = PokemonAPI(network: networkSpy)
         
         waitUntil { done in
-            api.fetchPokemons(offset: 3, limit: 10) { response in
+            api.fetchPokemons(3, limit: 10) { response in
                 do {
                     let result = try response.get()
                     
@@ -155,7 +155,7 @@ class PokemonAPITests: XCTestCase {
         let api = PokemonAPI(network: networkSpy)
         
         waitUntil { done in
-            api.fetchPokemons(offset: 1, limit: 10) { response in
+            api.fetchPokemons(1, limit: 10) { response in
                 do {
                     _ = try response.get()
                     fail()

@@ -37,6 +37,7 @@
 		B398EDFA25BC7FA8009F7666 /* ColorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398EDF925BC7FA8009F7666 /* ColorsTests.swift */; };
 		B398EE0925BC83F6009F7666 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398EE0825BC83F6009F7666 /* NetworkProtocol.swift */; };
 		B398EE0D25BC8460009F7666 /* AlamofireNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398EE0C25BC8460009F7666 /* AlamofireNetwork.swift */; };
+		B39992C825BE328300486D05 /* GenerationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39992C725BE328300486D05 /* GenerationRepository.swift */; };
 		B3AAC56A25BC622C00E42043 /* AssetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AAC56925BC622C00E42043 /* AssetsTests.swift */; };
 		B3C9D23525BE28C8008770FE /* FetchPokemonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9D23425BE28C8008770FE /* FetchPokemonsUseCase.swift */; };
 		B3D8D7C225BAE40A007E68B7 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D8D7C125BAE40A007E68B7 /* ColorExtension.swift */; };
@@ -88,6 +89,7 @@
 		B398EDF925BC7FA8009F7666 /* ColorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsTests.swift; sourceTree = "<group>"; };
 		B398EE0825BC83F6009F7666 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		B398EE0C25BC8460009F7666 /* AlamofireNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetwork.swift; sourceTree = "<group>"; };
+		B39992C725BE328300486D05 /* GenerationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationRepository.swift; sourceTree = "<group>"; };
 		B3AAC56925BC622C00E42043 /* AssetsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTests.swift; sourceTree = "<group>"; };
 		B3C9D23425BE28C8008770FE /* FetchPokemonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPokemonsUseCase.swift; sourceTree = "<group>"; };
 		B3D8D7C125BAE40A007E68B7 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 		B385E1ED25B98CD80017E94D /* Pokedex-MVPTests */ = {
 			isa = PBXGroup;
 			children = (
+				B39992C525BE325400486D05 /* Domain */,
 				B3115A9325BDE9DC001C6BF4 /* Main */,
 				B3115A9225BDE9CA001C6BF4 /* Infra */,
 				B359DE5C25BDE50000593765 /* Spy */,
@@ -337,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				B347F65F25BCBA2B00D1ECBE /* PokemonRepository.swift */,
+				B39992C725BE328300486D05 /* GenerationRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -376,6 +380,21 @@
 				B3C9D23425BE28C8008770FE /* FetchPokemonsUseCase.swift */,
 			);
 			path = Pokemon;
+			sourceTree = "<group>";
+		};
+		B39992C525BE325400486D05 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B39992C625BE325900486D05 /* Repository */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B39992C625BE325900486D05 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		B3C9D23825BE315F008770FE /* Generation */ = {
@@ -593,6 +612,7 @@
 				B38C5D1E25B9958600B83845 /* Assets.swift in Sources */,
 				B36E3D8F25BDA1BD0067F8BF /* MemoryCache.swift in Sources */,
 				B3115A9B25BDEC9E001C6BF4 /* StringExtension.swift in Sources */,
+				B39992C825BE328300486D05 /* GenerationRepository.swift in Sources */,
 				B347F63325BC9C3600D1ECBE /* Pagination.swift in Sources */,
 				B347F66025BCBA2B00D1ECBE /* PokemonRepository.swift in Sources */,
 				B347F62F25BC9B4200D1ECBE /* PokemonAPI.swift in Sources */,

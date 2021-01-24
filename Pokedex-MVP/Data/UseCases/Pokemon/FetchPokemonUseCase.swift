@@ -16,16 +16,16 @@ final class FetchPokemonUseCase: FetchPokemonUseCaseProtocol {
     // MARK: - Private Properties
     
     private let pokemonRepository: PokemonRepositoryProtocol
-    private let minNameCount = 3
+    private let minNameLength = 3
     
     // MARK: - Public Methods
     
-    init(pokemonRepository: PokemonRepositoryProtocol) {
+    init(_ pokemonRepository: PokemonRepositoryProtocol) {
         self.pokemonRepository = pokemonRepository
     }
     
     func execute(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void) {
-        guard name.count >= minNameCount else { return }
+        guard name.count >= minNameLength else { return }
         pokemonRepository.fetchPokemon(name, completionHandler: completionHandler)
     }
     

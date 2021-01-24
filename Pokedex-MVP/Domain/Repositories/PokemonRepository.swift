@@ -8,8 +8,7 @@
 import Foundation
 
 protocol PokemonRepositoryProtocol {
-    func fetchGenerations(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
-    func fetchPokemons(offset: Int, limit: Int, completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
+    func fetchPokemons(_ offset: Int, limit: Int, completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
     func fetchPokemon(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
 }
 
@@ -22,38 +21,13 @@ final class PokemonRepository: PokemonRepositoryProtocol {
     
     // MARK: - Public Methods
     
-    init(api: PokemonAPIProtocol, cache: CacheProtocol) {
+    init(_ api: PokemonAPIProtocol, cache: CacheProtocol) {
         self.api = api
         self.cache = cache
     }
     
-    func fetchGenerations(
-        completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void
-    ) {
-        let cacheKey = CacheKey("generations")
-        let cacheData = try? cache.get(type: Pagination<PaginationResultItem>.self, key: cacheKey)
-        
-        if let cache = cacheData {
-            print("Using cached data to `fetchGenerations`")
-            completionHandler(.success(cache))
-            return
-        }
-        
-        api.fetchGenerations { [weak self] response in
-            do {
-                let result = try response.get()
-                
-                try self?.cache.set(result, key: cacheKey)
-                
-                completionHandler(.success(result))
-            } catch {
-                completionHandler(.failure(error))
-            }
-        }
-    }
-    
     func fetchPokemons(
-        offset: Int,
+        _ offset: Int,
         limit: Int,
         completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void
     ) {
@@ -66,7 +40,7 @@ final class PokemonRepository: PokemonRepositoryProtocol {
             return
         }
         
-        api.fetchPokemons(offset: offset, limit: limit) { [weak self] response in
+        api.fetchPokemons(offset, limit: limit) { [weak self] response in
             do {
                 let result = try response.get()
                 

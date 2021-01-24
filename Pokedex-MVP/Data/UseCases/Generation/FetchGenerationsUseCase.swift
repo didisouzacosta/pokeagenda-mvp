@@ -13,14 +13,14 @@ protocol FetchGenerationsUseCaseProtocol {
 
 final class FetchGenerationsUseCase: FetchGenerationsUseCaseProtocol {
     
-    private let pokemonRepository: PokemonRepositoryProtocol
+    private let generationRepository: GenerationRepositoryProtocol
     
-    init(pokemonRepository: PokemonRepositoryProtocol) {
-        self.pokemonRepository = pokemonRepository
+    init(_ generationRepository: GenerationRepositoryProtocol) {
+        self.generationRepository = generationRepository
     }
     
     func execute(completionHandler: @escaping (Result<[PaginationResultItem], Error>) -> Void) {
-        pokemonRepository.fetchGenerations { response in
+        generationRepository.fetchGenerations { response in
             do {
                 let result = try response.get()
                 let generations = result.results
