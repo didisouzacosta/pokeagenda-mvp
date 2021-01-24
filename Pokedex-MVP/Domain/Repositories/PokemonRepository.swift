@@ -9,7 +9,7 @@ import Foundation
 
 protocol PokemonRepositoryProtocol {
     func fetchGenerations(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
-    func fetchPokemons(page: Int, limit: Int, completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
+    func fetchPokemons(offset: Int, limit: Int, completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
     func fetchPokemon(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
 }
 
@@ -53,20 +53,20 @@ final class PokemonRepository: PokemonRepositoryProtocol {
     }
     
     func fetchPokemons(
-        page: Int,
+        offset: Int,
         limit: Int,
         completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void
     ) {
-        let cacheKey = CacheKey("\(page)/\(limit)")
+        let cacheKey = CacheKey("\(offset)/\(limit)")
         let cacheData = try? cache.get(type: Pagination<PaginationResultItem>.self, key: cacheKey)
         
         if let cache = cacheData {
-            print("Using cached data to `fetchPokemons:\(page)/\(limit)`")
+            print("Using cached data to `fetchPokemons:\(offset)/\(limit)`")
             completionHandler(.success(cache))
             return
         }
         
-        api.fetchPokemons(page: page, limit: limit) { [weak self] response in
+        api.fetchPokemons(offset: offset, limit: limit) { [weak self] response in
             do {
                 let result = try response.get()
                 

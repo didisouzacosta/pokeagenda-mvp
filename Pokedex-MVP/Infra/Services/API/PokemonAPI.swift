@@ -13,7 +13,7 @@ protocol APIProtocol {
 
 protocol PokemonAPIProtocol: APIProtocol {
     func fetchGenerations(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
-    func fetchPokemons(page: Int, limit: Int, completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
+    func fetchPokemons(offset: Int, limit: Int, completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
     func fetchPokemon(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
 }
 
@@ -41,7 +41,7 @@ final class PokemonAPI: PokemonAPIProtocol {
     }
     
     func fetchPokemons(
-        page: Int,
+        offset: Int,
         limit: Int,
         completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void
     ) {
@@ -49,7 +49,10 @@ final class PokemonAPI: PokemonAPIProtocol {
             type: Pagination<PaginationResultItem>.self,
             endpoint: baseURL.appendingPathComponent("pokemon"),
             method: .get,
-            parameters: nil
+            parameters: [
+                "offset": offset,
+                "limit": limit
+            ]
         ) { (response) in
             completionHandler(response)
         }

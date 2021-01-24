@@ -12,9 +12,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let useCase = UseCaseFactory.makeFetchPokemonUseCase()
+        let useCase = UseCaseFactory.makeFetchPokemonsUseCase()
         
-        useCase.execute("charmander") { response in
+        useCase.execute(page: 1) { response in
             do {
                 let result = try response.get()
                 print(result)

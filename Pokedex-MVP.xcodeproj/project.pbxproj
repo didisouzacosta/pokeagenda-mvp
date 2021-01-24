@@ -38,6 +38,7 @@
 		B398EE0925BC83F6009F7666 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398EE0825BC83F6009F7666 /* NetworkProtocol.swift */; };
 		B398EE0D25BC8460009F7666 /* AlamofireNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398EE0C25BC8460009F7666 /* AlamofireNetwork.swift */; };
 		B3AAC56A25BC622C00E42043 /* AssetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AAC56925BC622C00E42043 /* AssetsTests.swift */; };
+		B3C9D23525BE28C8008770FE /* FetchPokemonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9D23425BE28C8008770FE /* FetchPokemonsUseCase.swift */; };
 		B3D8D7C225BAE40A007E68B7 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D8D7C125BAE40A007E68B7 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		B398EE0825BC83F6009F7666 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		B398EE0C25BC8460009F7666 /* AlamofireNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetwork.swift; sourceTree = "<group>"; };
 		B3AAC56925BC622C00E42043 /* AssetsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTests.swift; sourceTree = "<group>"; };
+		B3C9D23425BE28C8008770FE /* FetchPokemonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPokemonsUseCase.swift; sourceTree = "<group>"; };
 		B3D8D7C125BAE40A007E68B7 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		C4CC712EDFD8FEE760EF2080 /* Pods-Pokedex-MVP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex-MVP.debug.xcconfig"; path = "Target Support Files/Pods-Pokedex-MVP/Pods-Pokedex-MVP.debug.xcconfig"; sourceTree = "<group>"; };
 		E643606DFBFE171B76EF2E94 /* Pods_Pokedex_MVP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokedex_MVP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +168,7 @@
 			children = (
 				B347F65A25BCB98700D1ECBE /* FetchGenerationsUseCase.swift */,
 				B36E3D7825BD89C20067F8BF /* FetchPokemonUseCase.swift */,
+				B3C9D23425BE28C8008770FE /* FetchPokemonsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				B347F66025BCBA2B00D1ECBE /* PokemonRepository.swift in Sources */,
 				B347F62F25BC9B4200D1ECBE /* PokemonAPI.swift in Sources */,
 				B36E3D7925BD89C20067F8BF /* FetchPokemonUseCase.swift in Sources */,
+				B3C9D23525BE28C8008770FE /* FetchPokemonsUseCase.swift in Sources */,
 				B398EE0925BC83F6009F7666 /* NetworkProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
