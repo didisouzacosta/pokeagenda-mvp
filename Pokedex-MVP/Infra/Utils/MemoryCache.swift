@@ -32,11 +32,11 @@ struct CacheKey: RawRepresentable {
     
 }
 
-final class Cache: CacheProtocol {
+final class MemoryCache: CacheProtocol {
     
     // MARK: - Public Properties
     
-    static var instance = Cache()
+    static var instance = MemoryCache()
     
     // MARK: - Private Properties
     

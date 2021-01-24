@@ -31,10 +31,11 @@ final class PokemonRepository: PokemonRepositoryProtocol {
         completionHandler: @escaping (Result<Pagination<GenerationResultItem>, Error>) -> Void
     ) {
         let cacheKey = CacheKey("generations")
+        let cacheData = try? cache.get(type: Pagination<GenerationResultItem>.self, key: cacheKey)
         
-        if let cacheData = try? cache.get(type: Pagination<GenerationResultItem>.self, key: cacheKey) {
-            print("Using cache data from `fetchGenerations`")
-            completionHandler(.success(cacheData))
+        if let cache = cacheData {
+            print("Using cached data to `fetchGenerations`")
+            completionHandler(.success(cache))
             return
         }
         
@@ -56,10 +57,11 @@ final class PokemonRepository: PokemonRepositoryProtocol {
         completionHandler: @escaping (Result<Generation, Error>) -> Void
     ) {
         let cacheKey = CacheKey(name)
+        let cacheData = try? cache.get(type: Generation.self, key: cacheKey)
         
-        if let cacheData = try? cache.get(type: Generation.self, key: cacheKey) {
-            print("Using cache data from `fetchGeneration:\(name)`")
-            completionHandler(.success(cacheData))
+        if let cache = cacheData {
+            print("Using cached data to `fetchGeneration:\(name)`")
+            completionHandler(.success(cache))
             return
         }
         
@@ -81,10 +83,11 @@ final class PokemonRepository: PokemonRepositoryProtocol {
         completionHandler: @escaping (Result<Pokemon, Error>) -> Void
     ) {
         let cacheKey = CacheKey(name)
+        let cacheData = try? cache.get(type: Pokemon.self, key: cacheKey)
         
-        if let cacheData = try? cache.get(type: Pokemon.self, key: cacheKey) {
-            print("Using cache data from `fetchPokemon:\(name)`")
-            completionHandler(.success(cacheData))
+        if let cache = cacheData {
+            print("Using cached data to `fetchPokemon:\(name)`")
+            completionHandler(.success(cache))
             return
         }
         
