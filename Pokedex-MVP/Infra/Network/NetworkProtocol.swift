@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NetworkProtocol {
+public protocol NetworkProtocol {
     
     func request<T: Decodable>(
         type: T.Type,
@@ -24,7 +24,7 @@ protocol Request {
     var method: RequestMethod { get }
 }
 
-enum RequestMethod {
+public enum RequestMethod {
     case get
     case post
 }
