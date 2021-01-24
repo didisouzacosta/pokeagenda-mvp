@@ -7,11 +7,16 @@
 
 import Foundation
 
-struct Pagination<T: Codable>: Codable {
+public struct Pagination<T: Codable>: Codable {
     let count: Int 
     let results: [T]
+    
+    public init(_ results: [T]) {
+        self.results = results
+        self.count = results.count
+    }
 }
 
-struct PaginationResultItem: Codable {
+public struct PaginationResultItem: Codable {
     let name: String
 }

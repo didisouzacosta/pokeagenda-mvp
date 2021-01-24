@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol CacheProtocol {
+public protocol CacheProtocol {
     func set<T: Encodable>(_ object: T, key: CacheKey) throws
     func get<T: Decodable>(type: T.Type, key: CacheKey) throws -> T?
     func remove(key: CacheKey)
     func clear()
 }
 
-struct CacheKey: RawRepresentable {
+public struct CacheKey: RawRepresentable {
     
     // MARK: - Public Variables
     

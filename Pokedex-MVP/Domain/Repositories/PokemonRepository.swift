@@ -12,7 +12,7 @@ protocol PokemonRepositoryProtocol {
     func fetchPokemon(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
 }
 
-final class PokemonRepository: PokemonRepositoryProtocol {
+public final class PokemonRepository: PokemonRepositoryProtocol {
     
     // MARK: - Private Properties
     
@@ -26,7 +26,7 @@ final class PokemonRepository: PokemonRepositoryProtocol {
         self.cache = cache
     }
     
-    func fetchPokemons(
+    public func fetchPokemons(
         _ offset: Int,
         limit: Int,
         completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void

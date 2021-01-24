@@ -11,7 +11,7 @@ protocol GenerationRepositoryProtocol {
     func fetchGenerations(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
 }
 
-final class GenerationRepository: GenerationRepositoryProtocol {
+public final class GenerationRepository: GenerationRepositoryProtocol {
     
     // MARK: - Private Properties
     
@@ -20,12 +20,12 @@ final class GenerationRepository: GenerationRepositoryProtocol {
     
     // MARK: - Public Methods
     
-    init(api: PokemonAPIProtocol, cache: CacheProtocol) {
+    init(_ api: PokemonAPIProtocol, cache: CacheProtocol) {
         self.api = api
         self.cache = cache
     }
     
-    func fetchGenerations(
+    public func fetchGenerations(
         completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void
     ) {
         let cacheKey = CacheKey("generations")

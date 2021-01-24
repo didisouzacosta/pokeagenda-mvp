@@ -15,8 +15,7 @@ class PokemonAPITests: XCTestCase {
     func testShouldBeReturnGenerationsIfFetchGenerationsSuccess() {
         let networkSpy = NetworkSpy()
         networkSpy.result = Pagination<PaginationResultItem>(
-            count: 3,
-            results: [
+            [
                 .init(name: "generation-i"),
                 .init(name: "generation-ii"),
                 .init(name: "generation-iii")
@@ -119,9 +118,8 @@ class PokemonAPITests: XCTestCase {
     func testShouldBeReturnPokemonsIfFetchPokemonsSuccess() {
         let networkSpy = NetworkSpy()
         networkSpy.result = Pagination<PaginationResultItem>(
-            count: 1,
-            results: [
-                .init(name: "charizard")
+            [
+               .init(name: "charizard")
             ]
         )
         

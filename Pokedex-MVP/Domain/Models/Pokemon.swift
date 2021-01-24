@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Pokemon: Codable {
+public struct Pokemon: Codable {
     let weight: Int
     let types: [TypeItem]
     let sprites: Sprites
 }
 
-struct TypeItem: Codable {
+public struct TypeItem: Codable {
     let slot: Int
     let type: Type
     
@@ -22,7 +22,7 @@ struct TypeItem: Codable {
     }
 }
 
-struct Sprites: Codable {
+public struct Sprites: Codable {
     let other: Other
     
     struct Other: Codable {

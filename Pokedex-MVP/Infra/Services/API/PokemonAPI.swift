@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol APIProtocol {
+public protocol APIProtocol {
     var baseURL: URL { get }
 }
 
-protocol PokemonAPIProtocol: APIProtocol {
+public protocol PokemonAPIProtocol: APIProtocol {
     func fetchGenerations(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
     func fetchPokemons(_ offset: Int, limit: Int, completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
     func fetchPokemon(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
