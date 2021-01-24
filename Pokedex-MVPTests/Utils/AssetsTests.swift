@@ -13,18 +13,6 @@ import UIKit
 
 class AssetsTests: XCTestCase {
 
-    func testMustBeReturnPokemonImage() {
-        let charmanderImage = Assets.getPokemonImage(with: "04")
-        
-        expect(charmanderImage).to(be(UIImage(named: "04")))
-    }
-    
-    func testFallbackWhenGetPokemonImageFails() {
-        let charmanderImage = Assets.getPokemonImage(with: "99999")
-        
-        expect(charmanderImage).to(be(UIImage(named: "unkown_pokemon")))
-    }
-    
     func testEnsureAppIcons() {
         expect(Assets.icon.filter).to(be(UIImage(named: "filter-icon")))
         expect(Assets.icon.sort).to(be(UIImage(named: "sort-icon")))

@@ -8,6 +8,15 @@
 import Foundation
 
 struct Generation: Decodable {
+    let id: Int
+    let pokemons: [PokemonSpecieResultItem]
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, pokemons = "pokemon_species"
+    }
+}
+
+struct PokemonSpecieResultItem: Decodable {
     let name: String
     let url: URL
 }

@@ -8,7 +8,9 @@
 import Foundation
 
 protocol PokemonRepositoryProtocol {
-    func getGenerations(completionHandler: @escaping (Result<Pagination<Generation>, Error>) -> Void)
+    func fetchGenerations(completionHandler: @escaping (Result<Pagination<GenerationResultItem>, Error>) -> Void)
+    func fetchGeneration(_ name: String, completionHandler: @escaping (Result<Generation, Error>) -> Void)
+    func fetchPokemon(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
 }
 
 final class PokemonRepository: PokemonRepositoryProtocol {
@@ -19,7 +21,23 @@ final class PokemonRepository: PokemonRepositoryProtocol {
         self.api = api
     }
     
-    func getGenerations(completionHandler: @escaping (Result<Pagination<Generation>, Error>) -> Void) {
-        api.getGenerations(completionHandler: completionHandler)
+    func fetchGenerations(
+        completionHandler: @escaping (Result<Pagination<GenerationResultItem>, Error>) -> Void
+    ) {
+        api.fetchGenerations(completionHandler: completionHandler)
+    }
+    
+    func fetchGeneration(
+        _ name: String,
+        completionHandler: @escaping (Result<Generation, Error>) -> Void
+    ) {
+        api.fetchGeneration(name, completionHandler: completionHandler)
+    }
+    
+    func fetchPokemon(
+        _ name: String,
+        completionHandler: @escaping (Result<Pokemon, Error>) -> Void
+    ) {
+        api.fetchPokemon(name, completionHandler: completionHandler)
     }
 }
