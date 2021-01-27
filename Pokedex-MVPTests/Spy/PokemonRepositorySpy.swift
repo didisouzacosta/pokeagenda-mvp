@@ -8,7 +8,7 @@
 import Foundation
 import Pokedex_MVP
 
-class PokemonRepository: PokemonRepositoryProtocol {
+class PokemonRepositorySpy: PokemonRepositoryProtocol {
     
     var offset: Int?
     var limit: Int?

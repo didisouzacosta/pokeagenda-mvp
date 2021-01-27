@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GenerationRepositoryProtocol {
+public protocol GenerationRepositoryProtocol {
     func fetchGenerations(completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
 }
 

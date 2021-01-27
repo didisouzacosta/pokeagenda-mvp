@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol FetchPokemonUseCaseProtocol {
+public protocol FetchPokemonUseCaseProtocol {
     func execute(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
 }
 
-final class FetchPokemonUseCase: FetchPokemonUseCaseProtocol {
+public final class FetchPokemonUseCase: FetchPokemonUseCaseProtocol {
     
     // MARK: - Private Properties
     
@@ -20,11 +20,11 @@ final class FetchPokemonUseCase: FetchPokemonUseCaseProtocol {
     
     // MARK: - Public Methods
     
-    init(_ pokemonRepository: PokemonRepositoryProtocol) {
+    public init(_ pokemonRepository: PokemonRepositoryProtocol) {
         self.pokemonRepository = pokemonRepository
     }
     
-    func execute(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void) {
+    public func execute(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void) {
         guard name.count >= minNameLength else { return }
         pokemonRepository.fetchPokemon(name, completionHandler: completionHandler)
     }

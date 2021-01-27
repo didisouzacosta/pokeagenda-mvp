@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol PokemonRepositoryProtocol {
+public protocol PokemonRepositoryProtocol {
     func fetchPokemons(_ offset: Int, limit: Int, completionHandler: @escaping (Result<Pagination<PaginationResultItem>, Error>) -> Void)
     func fetchPokemon(_ name: String, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
 }
@@ -53,7 +53,7 @@ public final class PokemonRepository: PokemonRepositoryProtocol {
         }
     }
     
-    func fetchPokemon(
+    public func fetchPokemon(
         _ name: String,
         completionHandler: @escaping (Result<Pokemon, Error>) -> Void
     ) {

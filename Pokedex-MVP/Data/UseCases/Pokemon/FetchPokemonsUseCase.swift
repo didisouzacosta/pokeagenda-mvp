@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol FetchPokemonsUseCaseProtocol {
+public protocol FetchPokemonsUseCaseProtocol {
     func execute(page: Int, completionHandler: @escaping (Result<[PaginationResultItem], Error>) -> Void)
 }
 
-final class FetchPokemonsUseCase: FetchPokemonsUseCaseProtocol {
+public final class FetchPokemonsUseCase: FetchPokemonsUseCaseProtocol {
     
     // MARK: - Private Properties
     
@@ -20,11 +20,11 @@ final class FetchPokemonsUseCase: FetchPokemonsUseCaseProtocol {
     
     // MARK: - Public Methods
     
-    init(_ pokemonRepository: PokemonRepositoryProtocol) {
+    public init(_ pokemonRepository: PokemonRepositoryProtocol) {
         self.pokemonRepository = pokemonRepository
     }
     
-    func execute(page: Int, completionHandler: @escaping (Result<[PaginationResultItem], Error>) -> Void) {
+    public func execute(page: Int, completionHandler: @escaping (Result<[PaginationResultItem], Error>) -> Void) {
         let offset = calculateOffset(with: page)
         
         pokemonRepository.fetchPokemons(offset, limit: limit) { response in
