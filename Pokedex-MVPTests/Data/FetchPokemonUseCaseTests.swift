@@ -37,6 +37,7 @@ class FetchPokemonUseCaseTests: XCTestCase {
                     
                     expect(result.types[0].slot) == 1
                     expect(result.types[0].type.name) == "fire"
+                    expect(repository.name) == "charmander"
                 } catch {
                     fail(error.localizedDescription)
                 }
@@ -61,6 +62,58 @@ class FetchPokemonUseCaseTests: XCTestCase {
                 } catch {
                     expect(error.localizedDescription) == "Simulação de erro"
                 }
+                
+                done()
+            }
+        }
+    }
+    
+    func testShouldReturnIfFetchPokemonsSuccess() throws {
+        let repository = PokemonRepositorySpy()
+        let useCase = FetchPokemonsUseCase(repository)
+        
+        repository.pagination = Pagination<PaginationResultItem>([
+            .init(name: "Charmander"),
+            .init(name: "Bulbasour")
+        ])
+        
+        waitUntil { done in
+            useCase.execute(page: 1) { response in
+                do {
+                    let result = try response.get()
+                    
+                    expect(result.count) == 2
+                    expect(result[0].name) == "Charmander"
+                    expect(result[1].name) == "Bulbasour"
+                    expect(repository.offset) == 0
+                    expect(repository.limit) == 20
+                } catch {
+                    fail(error.localizedDescription)
+                }
+                
+                done()
+            }
+        }
+    }
+    
+    func testThrowErrorIfFetchPokemonsFails() throws {
+        let repository = PokemonRepositorySpy()
+        let useCase = FetchPokemonsUseCase(repository)
+        
+        repository.error = "Simulação de erro"
+        
+        waitUntil { done in
+            useCase.execute(page: 33) { response in
+                do {
+                    _ = try response.get()
+                    
+                    fail()
+                } catch {
+                    expect(error.localizedDescription) == "Simulação de erro"
+                }
+                
+                expect(repository.offset) == 640
+                expect(repository.limit) == 20
                 
                 done()
             }
