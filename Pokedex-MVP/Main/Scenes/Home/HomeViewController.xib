@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Pokedex_MVP" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="mXR-Q5-xhD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="m3z-7Y-rdC">
+                    <rect key="frame" x="165" y="395" width="84" height="106"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eet-FJ-5gD">
+                            <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
+                            <state key="normal" title="Filter"/>
+                            <connections>
+                                <action selector="showFilterTapped" destination="-1" eventType="touchUpInside" id="jBF-fc-dkK"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awc-bF-Uaw">
+                            <rect key="frame" x="0.0" y="38" width="84" height="30"/>
+                            <state key="normal" title="Sort"/>
+                            <connections>
+                                <action selector="showSortTapped" destination="-1" eventType="touchUpInside" id="4xL-HB-C8Q"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8FQ-ny-Kj5">
+                            <rect key="frame" x="0.0" y="76" width="84" height="30"/>
+                            <state key="normal" title="Generations"/>
+                            <connections>
+                                <action selector="showGenerationsTapped" destination="-1" eventType="touchUpInside" id="cei-wQ-78N"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="m3z-7Y-rdC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lzP-DR-tUr"/>
+                <constraint firstItem="m3z-7Y-rdC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zoA-01-wj4"/>
+            </constraints>
+            <point key="canvasLocation" x="-278" y="-25"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
