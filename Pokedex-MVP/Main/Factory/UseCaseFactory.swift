@@ -9,11 +9,11 @@ import Foundation
 
 final class UseCaseFactory {
     
-    static let network = AlamofireNetwork()
-    static let api = PokemonAPI(network: network)
-    static let cache = MemoryCache.instance
-    static let pokemonRepository = PokemonRepository(api, cache: cache)
-    static let generationRepository = GenerationRepository(api, cache: cache)
+    static private let network = AlamofireNetwork()
+    static private let api = PokemonAPI(network: network)
+    static private let cache = MemoryCache.instance
+    static private let pokemonRepository = PokemonRepository(api, cache: cache)
+    static private let generationRepository = GenerationRepository(api, cache: cache)
     
     static func makeFetchGenerationsUseCase() -> FetchGenerationsUseCase {
         return FetchGenerationsUseCase(generationRepository)

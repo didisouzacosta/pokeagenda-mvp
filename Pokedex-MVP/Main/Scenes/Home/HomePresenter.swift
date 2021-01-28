@@ -17,12 +17,21 @@ class HomePresenter {
     
     // MARK: Private Properties
     
+    private let fetchPokemonsUseCase: FetchPokemonsUseCaseProtocol
+    private let fetchPokemonUseCase: FetchPokemonUseCaseProtocol
+    
     private weak var view: HomePresenterView?
     
     // MARK: Public Methods
     
-    init(view: HomePresenterView) {
+    init(
+        view: HomePresenterView,
+        fetchPokemonsUseCase: FetchPokemonsUseCaseProtocol,
+        fetchPokemonUseCase: FetchPokemonUseCaseProtocol
+    ) {
         self.view = view
+        self.fetchPokemonsUseCase = fetchPokemonsUseCase
+        self.fetchPokemonUseCase = fetchPokemonUseCase
     }
     
 }

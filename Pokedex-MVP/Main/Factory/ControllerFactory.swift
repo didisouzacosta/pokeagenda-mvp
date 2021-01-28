@@ -9,10 +9,20 @@ import Foundation
 
 class ControllerFactory {
     
-    static func makeHomeController() -> HomeViewController {
+    static func makeHomeViewController() -> HomeViewController {
+        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
+        let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
+        
         let view = HomeViewController()
-        let presenter = HomePresenter(view: view)
+        
+        let presenter = HomePresenter(
+            view: view,
+            fetchPokemonsUseCase: fetchPokemonsUseCase,
+            fetchPokemonUseCase: fetchPokemonUseCase
+        )
+        
         view.presenter = presenter
+        
         return view
     }
     

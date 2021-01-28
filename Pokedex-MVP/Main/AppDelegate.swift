@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         
-        let homeViewController = ControllerFactory.makeHomeController()
+        let homeViewController = ControllerFactory.makeHomeViewController()
         
         window = UIWindow()
         window?.rootViewController = UINavigationController(rootViewController: homeViewController)
