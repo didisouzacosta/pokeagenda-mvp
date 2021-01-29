@@ -8,9 +8,16 @@
 import Foundation
 
 protocol HomeViewPresenter {
+    var items: [PaginationResultItem] { get }
+    
+    func fetchPokemons()
+    func fetchPokemon(_ name: String)
+    func loadNextPage()
+    
     func generationsButtonTapped()
     func sortButtonTapped()
     func filterButtonTapped()
+    func searchViewTapped()
 }
 
 class HomePresenter {
@@ -21,6 +28,19 @@ class HomePresenter {
     private let fetchPokemonUseCase: FetchPokemonUseCaseProtocol
     
     private weak var view: HomePresenterView?
+    private var page = 1
+    private var _items: [PaginationResultItem] = []
+    
+    private var isLoading = false {
+        didSet { view?.showLoading(status: isLoading) }
+    }
+    
+    private var error: Error? {
+        didSet {
+            guard let error = error else { return }
+            view?.show(error: error)
+        }
+    }
     
     // MARK: Public Methods
     
@@ -38,6 +58,28 @@ class HomePresenter {
 
 extension HomePresenter: HomeViewPresenter {
     
+    var items: [PaginationResultItem] {
+        return _items
+    }
+    
+    func fetchPokemons() {
+        isLoading = true
+        
+        fetchPokemonsUseCase.execute(page: page) { [weak self] response in
+            do {
+                self?._items = try response.get()
+            } catch {
+                self?.error = error
+            }
+            
+            self?.isLoading = false
+        }
+    }
+    
+    func fetchPokemon(_ name: String) {}
+    
+    func searchViewTapped() {}
+    
     func generationsButtonTapped() {
         view?.showGenerations()
     }
@@ -49,5 +91,7 @@ extension HomePresenter: HomeViewPresenter {
     func filterButtonTapped() {
         view?.showFilter()
     }
+    
+    func loadNextPage() {}
     
 }

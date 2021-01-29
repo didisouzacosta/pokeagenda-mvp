@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="m3z-7Y-rdC">
-                    <rect key="frame" x="165" y="395" width="84" height="106"/>
+                    <rect key="frame" x="165" y="376" width="84" height="144"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eet-FJ-5gD">
                             <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
@@ -43,6 +43,13 @@
                                 <action selector="showGenerationsTapped" destination="-1" eventType="touchUpInside" id="cei-wQ-78N"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Yo-br-STa">
+                            <rect key="frame" x="0.0" y="114" width="84" height="30"/>
+                            <state key="normal" title="Pokemons"/>
+                            <connections>
+                                <action selector="fetchPokemonsTapped" destination="-1" eventType="touchUpInside" id="IoG-kn-wC0"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </stackView>
             </subviews>
@@ -52,7 +59,7 @@
                 <constraint firstItem="m3z-7Y-rdC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lzP-DR-tUr"/>
                 <constraint firstItem="m3z-7Y-rdC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zoA-01-wj4"/>
             </constraints>
-            <point key="canvasLocation" x="-278" y="-25"/>
+            <point key="canvasLocation" x="-267" y="-51"/>
         </view>
     </objects>
     <resources>

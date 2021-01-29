@@ -8,6 +8,8 @@
 import UIKit
 
 protocol HomePresenterView: class {
+    func showLoading(status: Bool)
+    func show(error: Error)
     func showFilter()
     func showGenerations()
     func showSort()
@@ -23,9 +25,21 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchData()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func fetchData() {
+        presenter.fetchPokemons()
     }
     
     // MARK: - Actions
+    
+    @IBAction func fetchPokemonsTapped() {
+        presenter.fetchPokemons()
+    }
     
     @IBAction func showGenerationsTapped() {
         presenter.generationsButtonTapped()
@@ -42,6 +56,15 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomePresenterView {
+    
+    func showLoading(status: Bool) {
+        guard !status else { return }
+        alert(title: "Finalizado", message: "\(presenter.items.count) resultados")
+    }
+    
+    func show(error: Error) {
+        alert(error: error)
+    }
     
     func showFilter() {
         print("Exibir controle")
