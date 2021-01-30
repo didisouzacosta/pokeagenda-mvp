@@ -7,8 +7,15 @@
 
 import Foundation
 
+struct HomeListItem {
+    let isLoading: Bool
+    let error: Error?
+    let pokemon: Pokemon?
+    let paginationItem: PaginationResultItem
+}
+
 protocol HomeViewPresenter {
-    var items: [PaginationResultItem] { get }
+    var items: [HomeListItem] { get }
     
     func fetchPokemons()
     func fetchPokemon(_ name: String)
@@ -29,7 +36,10 @@ class HomePresenter {
     
     private weak var view: HomePresenterView?
     private var page = 1
-    private var _items: [PaginationResultItem] = []
+    
+    private var paginationItems: [PaginationResultItem] = [] {
+        didSet { view?.reloadData() }
+    }
     
     private var isLoading = false {
         didSet { view?.showLoading(status: isLoading) }
@@ -58,8 +68,15 @@ class HomePresenter {
 
 extension HomePresenter: HomeViewPresenter {
     
-    var items: [PaginationResultItem] {
-        return _items
+    var items: [HomeListItem] {
+        return paginationItems.map { item in
+            return .init(
+                isLoading: true,
+                error: nil,
+                pokemon: nil,
+                paginationItem: item
+            )
+        }
     }
     
     func fetchPokemons() {
@@ -67,7 +84,7 @@ extension HomePresenter: HomeViewPresenter {
         
         fetchPokemonsUseCase.execute(page: page) { [weak self] response in
             do {
-                self?._items = try response.get()
+                self?.paginationItems = try response.get()
             } catch {
                 self?.error = error
             }
@@ -76,7 +93,9 @@ extension HomePresenter: HomeViewPresenter {
         }
     }
     
-    func fetchPokemon(_ name: String) {}
+    func fetchPokemon(_ name: String) {
+        
+    }
     
     func searchViewTapped() {}
     

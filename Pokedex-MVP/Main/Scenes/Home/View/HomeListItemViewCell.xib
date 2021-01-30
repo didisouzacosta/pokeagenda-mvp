@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeListItemViewCell" rowHeight="106" id="o96-AA-sPq" customClass="HomeListItemViewCell" customModule="Pokedex_MVP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="106"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o96-AA-sPq" id="vgV-ep-zu8">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="106"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xp-h2-TtB">
+                        <rect key="frame" x="20" y="19" width="374" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="4Xp-h2-TtB" firstAttribute="top" secondItem="vgV-ep-zu8" secondAttribute="topMargin" constant="8" id="Yl7-ro-a3F"/>
+                    <constraint firstItem="4Xp-h2-TtB" firstAttribute="leading" secondItem="vgV-ep-zu8" secondAttribute="leadingMargin" id="cjH-u0-u8r"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="4Xp-h2-TtB" secondAttribute="bottom" constant="8" id="o4L-lg-Egs"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4Xp-h2-TtB" secondAttribute="trailing" id="rz3-mO-CRs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="titleLabel" destination="4Xp-h2-TtB" id="vzF-1f-xwj"/>
+            </connections>
+            <point key="canvasLocation" x="287" y="80"/>
+        </tableViewCell>
+    </objects>
+</document>

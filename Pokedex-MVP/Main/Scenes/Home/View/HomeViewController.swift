@@ -8,6 +8,7 @@
 import UIKit
 
 protocol HomePresenterView: class {
+    func reloadData()
     func showLoading(status: Bool)
     func show(error: Error)
     func showFilter()
@@ -21,15 +22,47 @@ class HomeViewController: UIViewController {
     
     var presenter: HomeViewPresenter!
     
+    // MARK: - Private Properties
+    
+    private var dataSource: TableViewDataSource! {
+        didSet { tableView.reloadData() }
+    }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loaderView: UIActivityIndicatorView!
+    
     // MARK: - Public Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fetchData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     // MARK: - Private Methods
+    
+    private func setupView() {}
+    
+    private func setupDataSource() {
+        let itemsBuilders = presenter.items.map(HomeListItemCellBuilder.init)
+        let section = TableViewSection(cellBuilders: itemsBuilders)
+        
+        dataSource = TableViewDataSource(
+            sections: [section],
+            tableView: tableView
+        )
+    }
     
     private func fetchData() {
         presenter.fetchPokemons()
@@ -57,9 +90,12 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: HomePresenterView {
     
+    func reloadData() {
+        setupDataSource()
+    }
+    
     func showLoading(status: Bool) {
-        guard !status else { return }
-        alert(title: "Finalizado", message: "\(presenter.items.count) resultados")
+        status ? loaderView.startAnimating() : loaderView.stopAnimating()
     }
     
     func show(error: Error) {
