@@ -17,6 +17,6 @@ public struct Pagination<T: Codable>: Codable {
     }
 }
 
-public struct PaginationResultItem: Codable {
+public struct PaginationResultItem: Codable, Equatable {
     let name: String
 }

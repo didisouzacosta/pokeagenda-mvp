@@ -10,6 +10,7 @@ import UIKit
 
 protocol TableViewDataSourceDelegate {
     func didSelect(rowAt indexPath: IndexPath)
+    func willDisplay(rowAt indexPath: IndexPath)
 }
 
 final class TableViewDataSource: NSObject {
@@ -62,6 +63,14 @@ extension TableViewDataSource: UITableViewDataSource {
         numberOfRowsInSection section: Int
     ) -> Int {
         return sections[section].numberOfRows
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath
+    ) {
+        delegate?.willDisplay(rowAt: indexPath)
     }
     
     func tableView(

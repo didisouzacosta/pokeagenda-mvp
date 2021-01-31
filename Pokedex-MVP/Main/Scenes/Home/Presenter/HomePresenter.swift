@@ -10,7 +10,7 @@ import Foundation
 enum HomeListItemState {
     case pokemon(Pokemon)
     case error(Error)
-    case isLoading(Bool)
+    case isLoading
 }
 
 struct HomeListItem {
@@ -18,12 +18,12 @@ struct HomeListItem {
 }
 
 protocol HomeViewPresenter {
-    var items: [HomeListItem] { get }
+    var listItems: [HomeListItem] { get }
     
     func fetchPokemons()
-    func fetchPokemon(_ name: String)
     func loadNextPage()
-    
+    func didSelect(row: Int)
+    func willDisplay(row: Int)
     func generationsButtonTapped()
     func sortButtonTapped()
     func filterButtonTapped()
@@ -38,10 +38,19 @@ class HomePresenter {
     private let fetchPokemonUseCase: FetchPokemonUseCaseProtocol
     
     private weak var view: HomePresenterView?
+    private var fetchingPokemonsList: [String] = []
     private var page = 1
     
-    private var paginationItems: [PaginationResultItem] = [] {
+    private var _listItems: [HomeListItem] = [] {
         didSet { view?.reloadData() }
+    }
+    
+    private var paginationItems: [PaginationResultItem] = [] {
+        didSet {
+            _listItems = paginationItems.map { _ in
+                .init(state: .isLoading)
+            }
+        }
     }
     
     private var isLoading = false {
@@ -55,7 +64,7 @@ class HomePresenter {
         }
     }
     
-    // MARK: Public Methods
+    // MARK: - Public Methods
     
     init(
         view: HomePresenterView,
@@ -67,14 +76,39 @@ class HomePresenter {
         self.fetchPokemonUseCase = fetchPokemonUseCase
     }
     
+    // MARK: - Private Methods
+    
+    private func fetchPokemon(with item: PaginationResultItem) {
+        guard let index = paginationItems.firstIndex(where: { (paginationItem) -> Bool in
+            return paginationItem == item
+        }) else { return }
+        
+        let homeListItem = _listItems[index]
+        
+        guard case .isLoading = homeListItem.state else { return }
+        
+        guard !fetchingPokemonsList.contains(item.name) else { return }
+        
+        fetchingPokemonsList.append(item.name)
+        
+        fetchPokemonUseCase.execute(item.name) { [weak self] response in
+            self?.fetchingPokemonsList.removeAll { $0 == item.name }
+            
+            do {
+                let pokemon = try response.get()
+                self?._listItems[index] = .init(state: .pokemon(pokemon))
+            } catch {
+                self?._listItems[index] = .init(state: .error(error))
+            }
+        }
+    }
+    
 }
 
 extension HomePresenter: HomeViewPresenter {
     
-    var items: [HomeListItem] {
-        return paginationItems.map { item in
-            return .init(state: .isLoading(true))
-        }
+    var listItems: [HomeListItem] {
+        return _listItems
     }
     
     func fetchPokemons() {
@@ -91,11 +125,17 @@ extension HomePresenter: HomeViewPresenter {
         }
     }
     
-    func fetchPokemon(_ name: String) {
+    func searchViewTapped() {
         
     }
     
-    func searchViewTapped() {}
+    func didSelect(row: Int) {
+        print(row)
+    }
+    
+    func willDisplay(row: Int) {
+        fetchPokemon(with: paginationItems[row])
+    }
     
     func generationsButtonTapped() {
         view?.showGenerations()

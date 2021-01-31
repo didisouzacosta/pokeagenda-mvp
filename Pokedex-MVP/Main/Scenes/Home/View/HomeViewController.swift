@@ -25,7 +25,10 @@ class HomeViewController: UIViewController {
     // MARK: - Private Properties
     
     private var dataSource: TableViewDataSource! {
-        didSet { tableView.reloadData() }
+        didSet {
+            dataSource.delegate = self
+            tableView.reloadData()
+        }
     }
     
     // MARK: - Outlets
@@ -55,7 +58,7 @@ class HomeViewController: UIViewController {
     private func setupView() {}
     
     private func setupDataSource() {
-        let itemsBuilders = presenter.items.map(HomeListItemCellBuilder.init)
+        let itemsBuilders = presenter.listItems.map(HomeListItemCellBuilder.init)
         let section = TableViewSection(cellBuilders: itemsBuilders)
         
         dataSource = TableViewDataSource(
@@ -112,6 +115,18 @@ extension HomeViewController: HomePresenterView {
     
     func showSort() {
         print("Exibir sort")
+    }
+    
+}
+
+extension HomeViewController: TableViewDataSourceDelegate {
+    
+    func didSelect(rowAt indexPath: IndexPath) {
+        presenter.didSelect(row: indexPath.row)
+    }
+    
+    func willDisplay(rowAt indexPath: IndexPath) {
+        presenter.willDisplay(row: indexPath.row)
     }
     
 }
