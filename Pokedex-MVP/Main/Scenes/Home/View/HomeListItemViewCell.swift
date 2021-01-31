@@ -34,12 +34,6 @@ class HomeListItemViewCell: UITableViewCell {
     
     // MARK: - Public Methods
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.clipsToBounds = false
-        contentView.superview?.clipsToBounds = false
-    }
-    
     func configure(with item: HomeListItem) {
         switch item.state {
         case .isLoading:
@@ -48,7 +42,7 @@ class HomeListItemViewCell: UITableViewCell {
             setup(with: error)
         case .pokemon(let pokemon):
             setupBox(with: pokemon.color)
-            setup(pokemonNumber: "#001")
+            setup(pokemonNumber: pokemon.order)
             setup(pokemonName: pokemon.name)
             setup(pokemonImage: pokemon.image)
         }

@@ -38,9 +38,6 @@ extension HomeListItemCellBuilder: TableViewCellBuilder {
             for: indexPath
         ) as! HomeListItemViewCell
         
-        cell.contentView.clipsToBounds = false
-        cell.contentView.superview?.clipsToBounds = false
-        
         cell.configure(with: homeListItem)
         
         return cell

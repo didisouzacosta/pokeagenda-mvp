@@ -16,6 +16,10 @@ struct PokemonViewModel {
         return pokemon.name.capitalized
     }
     
+    var order: String {
+        return "#\(pokemon.order)"
+    }
+    
     var image: URL {
         return pokemon.sprites.other.officialArtwork.frontDefault
     }

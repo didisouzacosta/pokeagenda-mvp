@@ -9,6 +9,7 @@ import Foundation
 
 public struct Pokemon: Codable {
     let name: String
+    let order: Int
     let weight: Int
     let types: [TypeItem]
     let sprites: Sprites
