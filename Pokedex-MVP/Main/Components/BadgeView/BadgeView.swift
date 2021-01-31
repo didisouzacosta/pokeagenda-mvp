@@ -47,6 +47,7 @@ final class BadgeView: UIView {
     
     private func setupTitle() {
         titleLabel.textColor = Colors.text.white
+        titleLabel.font = Typography.pokemonType
         titleLabel.text = type.rawValue.capitalized
     }
     
