@@ -35,11 +35,24 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loaderView: UIActivityIndicatorView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var sortButton: UIButton!
+    @IBOutlet weak var generationsButton: UIButton!
     
     // MARK: - Public Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupView()
+        setupTitle()
+        setupDescription()
+        setupGenerationsButton()
+        setupFilterButton()
+        setupSortButton()
+        
         fetchData()
     }
     
@@ -57,6 +70,18 @@ class HomeViewController: UIViewController {
     
     private func setupView() {}
     
+    private func setupTitle() {
+        titleLabel.font = Typography.applicationTitle
+        titleLabel.textColor = Colors.text.black
+        titleLabel.text = "Pokedex"
+    }
+    
+    private func setupDescription() {
+        descriptionLabel.font = Typography.description
+        descriptionLabel.textColor = Colors.text.gray
+        descriptionLabel.text = "Search for Pokémon by name or using the National Pokédex number."
+    }
+    
     private func setupDataSource() {
         let itemsBuilders = presenter.listItems.map(HomeListItemCellBuilder.init)
         let section = TableViewSection(cellBuilders: itemsBuilders)
@@ -65,6 +90,24 @@ class HomeViewController: UIViewController {
             sections: [section],
             tableView: tableView
         )
+    }
+    
+    private func setupGenerationsButton() {
+        generationsButton.setImage(Assets.icon.generations, for: .normal)
+        generationsButton.tintColor = Colors.text.black
+        generationsButton.backgroundColor = .clear
+    }
+    
+    private func setupFilterButton() {
+        filterButton.setImage(Assets.icon.filter, for: .normal)
+        filterButton.tintColor = Colors.text.black
+        filterButton.backgroundColor = .clear
+    }
+    
+    private func setupSortButton() {
+        sortButton.setImage(Assets.icon.sort, for: .normal)
+        sortButton.tintColor = Colors.text.black
+        sortButton.backgroundColor = .clear
     }
     
     private func fetchData() {
