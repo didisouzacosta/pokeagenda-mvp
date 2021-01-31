@@ -397,6 +397,7 @@
 		B385E20325B98D880017E94D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B3B6533125C616E2009EE4EC /* Bio */,
 				B382C5EA25C5764E00142F0F /* Presenter */,
 				B382C5E925C5764100142F0F /* View */,
 			);
@@ -482,6 +483,13 @@
 				B39992D125BE349200486D05 /* GenerationRepositoryTests.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		B3B6533125C616E2009EE4EC /* Bio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bio;
 			sourceTree = "<group>";
 		};
 		B3C9D23825BE315F008770FE /* Generation */ = {

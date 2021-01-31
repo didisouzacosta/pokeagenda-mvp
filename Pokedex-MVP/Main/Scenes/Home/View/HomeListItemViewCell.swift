@@ -31,7 +31,14 @@ class HomeListItemViewCell: UITableViewCell {
     // MARK: - Public Methods
     
     func configure(with item: HomeListItem) {
-        titleLabel.text = item.paginationItem.name
+        switch item.state {
+        case .isLoading:
+            titleLabel.text = "Carregando..."
+        case .error:
+            titleLabel.text = "Não foi possível carregar o pokemon"
+        case .pokemon(let pokemon):
+            titleLabel.text = pokemon.types[0].type.name
+        }
     }
     
 }

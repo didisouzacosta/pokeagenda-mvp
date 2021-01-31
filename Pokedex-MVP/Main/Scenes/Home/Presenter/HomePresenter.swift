@@ -7,11 +7,14 @@
 
 import Foundation
 
+enum HomeListItemState {
+    case pokemon(Pokemon)
+    case error(Error)
+    case isLoading(Bool)
+}
+
 struct HomeListItem {
-    let isLoading: Bool
-    let error: Error?
-    let pokemon: Pokemon?
-    let paginationItem: PaginationResultItem
+    let state: HomeListItemState
 }
 
 protocol HomeViewPresenter {
@@ -70,12 +73,7 @@ extension HomePresenter: HomeViewPresenter {
     
     var items: [HomeListItem] {
         return paginationItems.map { item in
-            return .init(
-                isLoading: true,
-                error: nil,
-                pokemon: nil,
-                paginationItem: item
-            )
+            return .init(state: .isLoading(true))
         }
     }
     
