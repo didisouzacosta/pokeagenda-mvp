@@ -26,19 +26,48 @@ class HomeListItemViewCell: UITableViewCell {
     
     // MARK: - Private Properties
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var boxView: UIView!
+    @IBOutlet weak var loadingView: UIActivityIndicatorView!
     
     // MARK: - Public Methods
     
     func configure(with item: HomeListItem) {
         switch item.state {
         case .isLoading:
-            titleLabel.text = "Carregando..."
-        case .error:
-            titleLabel.text = "Não foi possível carregar o pokemon"
-        case .pokemon(let pokemon):
-            titleLabel.text = pokemon.types[0].type.name
+            setupLoading()
+        case .error(let error):
+            setup(with: error)
+        case .pokemon:
+            setupBox()
+            setup(pokemonNumber: "#001")
+            setup(pokemonName: "Bulbasour")
         }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupLoading() {
+        loadingView.startAnimating()
+    }
+    
+    private func setup(with error: Error) {
+        nameLabel.text = "Não foi possível carregar o pokemon"
+    }
+    
+    private func setupBox() {
+        boxView.layer.cornerRadius = 10
+    }
+    
+    private func setup(pokemonNumber: String) {
+        numberLabel.font = Typography.pokemonNumber
+        numberLabel.text = pokemonNumber
+    }
+    
+    private func setup(pokemonName: String) {
+        nameLabel.font = Typography.pokemonName
+        nameLabel.text = pokemonName
     }
     
 }
