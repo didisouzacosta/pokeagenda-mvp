@@ -17,7 +17,7 @@ struct PokemonViewModel {
     }
     
     var order: String {
-        return "#\(pokemon.order)"
+        return String(format: "#%03d", pokemon.order)
     }
     
     var image: URL {
