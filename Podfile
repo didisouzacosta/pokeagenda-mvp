@@ -8,6 +8,7 @@ target 'Pokedex-MVP' do
   pod 'Alamofire', '~> 5.2'
   pod 'RxSwift', '6.0.0'
   pod 'RxCocoa', '6.0.0'
+  pod 'Nuke', '~> 9.0'
   
   target 'Pokedex-MVPTests' do
     inherit! :search_paths

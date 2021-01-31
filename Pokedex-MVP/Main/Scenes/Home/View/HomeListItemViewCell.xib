@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wga-x1-cPV">
-                        <rect key="frame" x="20" y="31" width="509" height="174"/>
+                        <rect key="frame" x="20" y="31" width="509" height="115"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball-pattern" translatesAutoresizingMaskIntoConstraints="NO" id="Zz2-xs-Ylz">
-                                <rect key="frame" x="308" y="0.0" width="201" height="174"/>
+                                <rect key="frame" x="376" y="0.0" width="133" height="115"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Zz2-xs-Ylz" secondAttribute="height" multiplier="67:58" id="drr-fT-H3g"/>
                                 </constraints>
@@ -54,23 +54,33 @@
                                     <constraint firstAttribute="width" secondItem="D32-wu-oyw" secondAttribute="height" multiplier="162:61" id="h3n-p8-nAV"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sDP-jI-eip">
+                                <rect key="frame" x="359" y="-30" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sDP-jI-eip" secondAttribute="height" multiplier="1:1" id="7Rv-hx-zCZ"/>
+                                    <constraint firstAttribute="height" constant="130" id="y9M-UO-XZs"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8hd-WT-aQr" secondAttribute="trailing" constant="20" id="26D-lb-9k1"/>
+                            <constraint firstAttribute="trailing" secondItem="sDP-jI-eip" secondAttribute="trailing" constant="20" id="49q-mG-pbn"/>
                             <constraint firstItem="D32-wu-oyw" firstAttribute="top" secondItem="Wga-x1-cPV" secondAttribute="top" id="K6P-B1-yX4"/>
                             <constraint firstItem="Zz2-xs-Ylz" firstAttribute="top" secondItem="Wga-x1-cPV" secondAttribute="top" id="MzF-FC-2A9"/>
                             <constraint firstAttribute="bottom" secondItem="Zz2-xs-Ylz" secondAttribute="bottom" id="N3n-7s-ixy"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8hd-WT-aQr" secondAttribute="bottom" constant="20" id="OKm-9J-byS"/>
                             <constraint firstItem="8hd-WT-aQr" firstAttribute="leading" secondItem="Wga-x1-cPV" secondAttribute="leading" constant="20" id="PJw-k5-lPW"/>
                             <constraint firstItem="D32-wu-oyw" firstAttribute="width" secondItem="Wga-x1-cPV" secondAttribute="width" multiplier="0.3" id="PtN-D7-BWa"/>
+                            <constraint firstItem="sDP-jI-eip" firstAttribute="top" secondItem="Wga-x1-cPV" secondAttribute="top" constant="-30" id="REt-KA-sFf"/>
                             <constraint firstAttribute="trailing" secondItem="Zz2-xs-Ylz" secondAttribute="trailing" id="T0T-3g-8I8"/>
                             <constraint firstItem="D32-wu-oyw" firstAttribute="centerX" secondItem="Wga-x1-cPV" secondAttribute="centerX" multiplier="1/1.5" id="YJy-aJ-X7A"/>
+                            <constraint firstAttribute="bottom" secondItem="sDP-jI-eip" secondAttribute="bottom" constant="20" id="gk0-3f-4Px"/>
                             <constraint firstItem="8hd-WT-aQr" firstAttribute="top" secondItem="Wga-x1-cPV" secondAttribute="top" constant="20" id="zYO-RG-Biu"/>
                         </constraints>
                     </view>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="WN5-k6-vSs">
-                        <rect key="frame" x="256" y="89.5" width="37" height="37"/>
+                        <rect key="frame" x="256" y="60" width="37" height="37"/>
                     </activityIndicatorView>
                 </subviews>
                 <constraints>
@@ -87,6 +97,7 @@
                 <outlet property="loadingView" destination="WN5-k6-vSs" id="u6J-px-ftJ"/>
                 <outlet property="nameLabel" destination="GdF-KG-oKK" id="7yH-5l-NpD"/>
                 <outlet property="numberLabel" destination="g4j-qi-6b6" id="5qN-hr-r8T"/>
+                <outlet property="pokemonImageView" destination="sDP-jI-eip" id="ymK-4N-lSB"/>
             </connections>
             <point key="canvasLocation" x="-331.15942028985512" y="39.508928571428569"/>
         </tableViewCell>
