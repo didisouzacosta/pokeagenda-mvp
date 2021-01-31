@@ -42,7 +42,7 @@ class HomeListItemViewCell: UITableViewCell {
         case .error(let error):
             setup(with: error)
         case .pokemon(let pokemon):
-            setupBox(with: pokemon.color)
+            setupBox(with: Colors.backgroundType.color(with: pokemon.primaryType))
             setup(pokemonNumber: pokemon.order)
             setup(pokemonName: pokemon.name)
             setup(pokemonImage: pokemon.image)

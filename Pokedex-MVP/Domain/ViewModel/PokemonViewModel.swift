@@ -38,10 +38,6 @@ struct PokemonViewModel {
         return types.first!
     }
     
-    var color: UIColor {
-        return Colors.type.color(with: primaryType)
-    }
-    
     // MARK: - Private Properties
     
     private let pokemon: Pokemon
