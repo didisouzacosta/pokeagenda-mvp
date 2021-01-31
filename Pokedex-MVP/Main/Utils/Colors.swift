@@ -36,7 +36,7 @@ extension Colors {
         let ice = UIColor.hex("#61CEC0")
         let normal = UIColor.hex("#9DA0AA")
         let poison = UIColor.hex("#A552CC")
-        let pyshic = UIColor.hex("#EA5D60")
+        let psychic = UIColor.hex("#EA5D60")
         let rock = UIColor.hex("#BAAB82")
         let steel = UIColor.hex("#417D9A")
         let water = UIColor.hex("#4A90DA")
@@ -58,7 +58,7 @@ extension Colors {
             case .ice: return ice
             case .normal: return normal
             case .poison: return poison
-            case .pyshic: return pyshic
+            case .psychic: return psychic
             case .rock: return rock
             case .steel: return steel
             case .water: return water

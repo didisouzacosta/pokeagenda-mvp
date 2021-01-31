@@ -31,6 +31,7 @@ class HomeListItemViewCell: UITableViewCell {
     @IBOutlet weak var pokemonImageView: UIImageView!
     @IBOutlet weak var boxView: UIView!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet weak var badgesStack: UIStackView!
     
     // MARK: - Public Methods
     
@@ -45,6 +46,7 @@ class HomeListItemViewCell: UITableViewCell {
             setup(pokemonNumber: pokemon.order)
             setup(pokemonName: pokemon.name)
             setup(pokemonImage: pokemon.image)
+            setupBadges(types: pokemon.types)
         }
     }
     
@@ -81,6 +83,12 @@ class HomeListItemViewCell: UITableViewCell {
     
     private func setup(pokemonImage: URL) {
         pokemonImageView.loadImage(with: pokemonImage)
+    }
+    
+    private func setupBadges(types: [PokemonType]) {
+        badgesStack.subviews.forEach { $0.removeFromSuperview() }
+        let badges = types.map { BadgeView(type: $0) }
+        badges.forEach { badgesStack.addArrangedSubview($0) }
     }
     
 }

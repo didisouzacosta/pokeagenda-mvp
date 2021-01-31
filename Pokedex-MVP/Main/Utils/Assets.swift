@@ -46,7 +46,7 @@ extension Assets {
         let dragon = UIImage(named: "dragon-type-icon")!
         let eletric = UIImage(named: "eletric-type-icon")!
         let fairy = UIImage(named: "fairy-type-icon")!
-        let fighing = UIImage(named: "fighting-type-icon")!
+        let fighting = UIImage(named: "fighting-type-icon")!
         let flying = UIImage(named: "flying-type-icon")!
         let ghost = UIImage(named: "ghost-type-icon")!
         let grass = UIImage(named: "grass-type-icon")!
@@ -55,6 +55,31 @@ extension Assets {
         let psychic = UIImage(named: "psychic-type-icon")!
         let rock = UIImage(named: "rock-type-icon")!
         let steel = UIImage(named: "steel-type-icon")!
+        let unknown = UIImage(named: "normal-type-icon")!
+        
+        func icon(with type: PokemonType) -> UIImage {
+            switch type {
+            case .bug: return bug
+            case .dark: return dark
+            case .dragon: return dragon
+            case .eletric: return eletric
+            case .fairy: return fairy
+            case .fighting: return fighting
+            case .fire: return fire
+            case .flying: return flying
+            case .ghost: return ghost
+            case .grass: return grass
+            case .ground: return ground
+            case .ice: return ice
+            case .normal: return normal
+            case .poison: return poison
+            case .psychic: return psychic
+            case .rock: return rock
+            case .steel: return steel
+            case .water: return water
+            case .unknown: return unknown
+            }
+        }
     }
     
 }

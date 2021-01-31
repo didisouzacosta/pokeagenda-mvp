@@ -22,7 +22,7 @@ public enum PokemonType: String, Codable {
     case ice = "ice"
     case normal = "normal"
     case poison = "poison"
-    case pyshic = "pyshic"
+    case psychic = "psychic"
     case rock = "rock"
     case steel = "steel"
     case water = "water"
