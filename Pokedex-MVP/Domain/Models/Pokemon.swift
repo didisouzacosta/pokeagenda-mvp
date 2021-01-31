@@ -8,6 +8,7 @@
 import Foundation
 
 public struct Pokemon: Codable {
+    let name: String
     let weight: Int
     let types: [TypeItem]
     let sprites: Sprites
@@ -15,11 +16,7 @@ public struct Pokemon: Codable {
 
 public struct TypeItem: Codable {
     let slot: Int
-    let type: Type
-    
-    struct `Type`: Codable {
-        let name: String?
-    }
+    let type: PokemonType
 }
 
 public struct Sprites: Codable {

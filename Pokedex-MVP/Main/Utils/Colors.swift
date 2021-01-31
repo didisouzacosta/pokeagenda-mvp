@@ -40,6 +40,31 @@ extension Colors {
         let rock = UIColor.hex("#BAAB82")
         let steel = UIColor.hex("#417D9A")
         let water = UIColor.hex("#4A90DA")
+        let unknown = UIColor.hex("#000000")
+        
+        func color(with type: PokemonType) -> UIColor {
+            switch type {
+            case .bug: return bug
+            case .dark: return dark
+            case .dragon: return dragon
+            case .eletric: return eletric
+            case .fairy: return fairy
+            case .fighting: return fighting
+            case .fire: return fire
+            case .flying: return flying
+            case .ghost: return ghost
+            case .grass: return grass
+            case .ground: return ground
+            case .ice: return ice
+            case .normal: return normal
+            case .poison: return poison
+            case .pyshic: return pyshic
+            case .rock: return rock
+            case .steel: return steel
+            case .water: return water
+            case .unknown: return unknown
+            }
+        }
     }
     
     struct HeightColor {

@@ -41,10 +41,10 @@ class HomeListItemViewCell: UITableViewCell {
         case .error(let error):
             setup(with: error)
         case .pokemon(let pokemon):
-            setupBox()
+            setupBox(with: pokemon.color)
             setup(pokemonNumber: "#001")
-            setup(pokemonName: "Bulbasour")
-            setup(pokemonImage: pokemon.sprites.other.officialArtwork.frontDefault)
+            setup(pokemonName: pokemon.name)
+            setup(pokemonImage: pokemon.image)
         }
     }
     
@@ -58,17 +58,20 @@ class HomeListItemViewCell: UITableViewCell {
         nameLabel.text = "Não foi possível carregar o pokemon"
     }
     
-    private func setupBox() {
+    private func setupBox(with color: UIColor) {
         boxView.layer.cornerRadius = 10
+        boxView.backgroundColor = color
     }
     
     private func setup(pokemonNumber: String) {
         numberLabel.font = Typography.pokemonNumber
+        numberLabel.textColor = Colors.text.white
         numberLabel.text = pokemonNumber
     }
     
     private func setup(pokemonName: String) {
         nameLabel.font = Typography.pokemonName
+        nameLabel.textColor = Colors.text.white
         nameLabel.text = pokemonName
     }
     

@@ -27,10 +27,10 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8hd-WT-aQr">
-                                <rect key="frame" x="20" y="20" width="469" height="41"/>
+                                <rect key="frame" x="20" y="20" width="336" height="41"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="OQK-vd-5EG">
-                                        <rect key="frame" x="0.0" y="0.0" width="469" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="336" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4j-qi-6b6">
                                                 <rect key="frame" x="0.0" y="0.0" width="38.5" height="20.5"/>
@@ -64,7 +64,6 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="8hd-WT-aQr" secondAttribute="trailing" constant="20" id="26D-lb-9k1"/>
                             <constraint firstAttribute="trailing" secondItem="sDP-jI-eip" secondAttribute="trailing" constant="20" id="49q-mG-pbn"/>
                             <constraint firstItem="D32-wu-oyw" firstAttribute="top" secondItem="Wga-x1-cPV" secondAttribute="top" id="K6P-B1-yX4"/>
                             <constraint firstItem="Zz2-xs-Ylz" firstAttribute="top" secondItem="Wga-x1-cPV" secondAttribute="top" id="MzF-FC-2A9"/>
@@ -73,6 +72,7 @@
                             <constraint firstItem="8hd-WT-aQr" firstAttribute="leading" secondItem="Wga-x1-cPV" secondAttribute="leading" constant="20" id="PJw-k5-lPW"/>
                             <constraint firstItem="D32-wu-oyw" firstAttribute="width" secondItem="Wga-x1-cPV" secondAttribute="width" multiplier="0.3" id="PtN-D7-BWa"/>
                             <constraint firstItem="sDP-jI-eip" firstAttribute="top" secondItem="Wga-x1-cPV" secondAttribute="top" constant="-30" id="REt-KA-sFf"/>
+                            <constraint firstItem="Zz2-xs-Ylz" firstAttribute="leading" secondItem="8hd-WT-aQr" secondAttribute="trailing" constant="20" id="Sl8-ZQ-4of"/>
                             <constraint firstAttribute="trailing" secondItem="Zz2-xs-Ylz" secondAttribute="trailing" id="T0T-3g-8I8"/>
                             <constraint firstItem="D32-wu-oyw" firstAttribute="centerX" secondItem="Wga-x1-cPV" secondAttribute="centerX" multiplier="1/1.5" id="YJy-aJ-X7A"/>
                             <constraint firstAttribute="bottom" secondItem="sDP-jI-eip" secondAttribute="bottom" constant="20" id="gk0-3f-4Px"/>
@@ -99,7 +99,7 @@
                 <outlet property="numberLabel" destination="g4j-qi-6b6" id="5qN-hr-r8T"/>
                 <outlet property="pokemonImageView" destination="sDP-jI-eip" id="ymK-4N-lSB"/>
             </connections>
-            <point key="canvasLocation" x="-331.15942028985512" y="39.508928571428569"/>
+            <point key="canvasLocation" x="-218" y="89"/>
         </tableViewCell>
     </objects>
     <resources>

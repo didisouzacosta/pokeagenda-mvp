@@ -8,7 +8,7 @@
 import Foundation
 
 enum HomeListItemState {
-    case pokemon(Pokemon)
+    case pokemon(PokemonViewModel)
     case error(Error)
     case isLoading
 }
@@ -96,7 +96,7 @@ class HomePresenter {
             
             do {
                 let pokemon = try response.get()
-                self?._listItems[index] = .init(state: .pokemon(pokemon))
+                self?._listItems[index] = .init(state: .pokemon(.init(pokemon)))
             } catch {
                 self?._listItems[index] = .init(state: .error(error))
             }
