@@ -34,6 +34,12 @@ class HomeListItemViewCell: UITableViewCell {
     
     // MARK: - Public Methods
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.clipsToBounds = false
+        contentView.superview?.clipsToBounds = false
+    }
+    
     func configure(with item: HomeListItem) {
         switch item.state {
         case .isLoading:
@@ -61,6 +67,10 @@ class HomeListItemViewCell: UITableViewCell {
     private func setupBox(with color: UIColor) {
         boxView.layer.cornerRadius = 10
         boxView.backgroundColor = color
+        boxView.layer.shadowColor = color.cgColor
+        boxView.layer.shadowOpacity = 0.3
+        boxView.layer.shadowOffset = .init(width: 0, height: 10)
+        boxView.layer.shadowRadius = 20
     }
     
     private func setup(pokemonNumber: String) {

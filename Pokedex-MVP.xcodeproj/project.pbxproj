@@ -307,7 +307,6 @@
 		B382C5EA25C5764E00142F0F /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				B382C5E125C5743800142F0F /* HomeListItemCellBuilder.swift */,
 				B3A6C20D25C2BC8B00ADB720 /* HomePresenter.swift */,
 			);
 			path = Presenter;
@@ -421,7 +420,7 @@
 		B385E20325B98D880017E94D /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B3B6533125C616E2009EE4EC /* Bio */,
+				B3B6533125C616E2009EE4EC /* Builder */,
 				B382C5EA25C5764E00142F0F /* Presenter */,
 				B382C5E925C5764100142F0F /* View */,
 			);
@@ -509,11 +508,12 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		B3B6533125C616E2009EE4EC /* Bio */ = {
+		B3B6533125C616E2009EE4EC /* Builder */ = {
 			isa = PBXGroup;
 			children = (
+				B382C5E125C5743800142F0F /* HomeListItemCellBuilder.swift */,
 			);
-			path = Bio;
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		B3C9D23825BE315F008770FE /* Generation */ = {

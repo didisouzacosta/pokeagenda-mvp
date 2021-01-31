@@ -70,6 +70,7 @@ extension TableViewDataSource: UITableViewDataSource {
         willDisplay cell: UITableViewCell,
         forRowAt indexPath: IndexPath
     ) {
+        cell.layer.zPosition = (CGFloat)(tableView.numberOfRows(inSection: 0) - indexPath.row)
         delegate?.willDisplay(rowAt: indexPath)
     }
     
