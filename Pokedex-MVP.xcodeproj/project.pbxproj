@@ -62,6 +62,8 @@
 		B3AAC56A25BC622C00E42043 /* AssetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AAC56925BC622C00E42043 /* AssetsTests.swift */; };
 		B3B6534325C64DC7009EE4EC /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6534225C64DC7009EE4EC /* UIImageExtension.swift */; };
 		B3C9D23525BE28C8008770FE /* FetchPokemonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9D23425BE28C8008770FE /* FetchPokemonsUseCase.swift */; };
+		B3D2802325C80B040082994C /* SearchInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D2802225C80B040082994C /* SearchInputView.swift */; };
+		B3D2802925C80B0D0082994C /* SearchInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3D2802825C80B0D0082994C /* SearchInputView.xib */; };
 		B3D8D7C225BAE40A007E68B7 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D8D7C125BAE40A007E68B7 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +138,8 @@
 		B3AAC56925BC622C00E42043 /* AssetsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTests.swift; sourceTree = "<group>"; };
 		B3B6534225C64DC7009EE4EC /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		B3C9D23425BE28C8008770FE /* FetchPokemonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPokemonsUseCase.swift; sourceTree = "<group>"; };
+		B3D2802225C80B040082994C /* SearchInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputView.swift; sourceTree = "<group>"; };
+		B3D2802825C80B0D0082994C /* SearchInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchInputView.xib; sourceTree = "<group>"; };
 		B3D8D7C125BAE40A007E68B7 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		C4CC712EDFD8FEE760EF2080 /* Pods-Pokedex-MVP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex-MVP.debug.xcconfig"; path = "Target Support Files/Pods-Pokedex-MVP/Pods-Pokedex-MVP.debug.xcconfig"; sourceTree = "<group>"; };
 		E643606DFBFE171B76EF2E94 /* Pods_Pokedex_MVP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokedex_MVP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,6 +287,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B37E3C5525C8081600A76439 /* SearchInputView */ = {
+			isa = PBXGroup;
+			children = (
+				B3D2802225C80B040082994C /* SearchInputView.swift */,
+				B3D2802825C80B0D0082994C /* SearchInputView.xib */,
+			);
+			path = SearchInputView;
+			sourceTree = "<group>";
+		};
 		B37EF75625C6B4C7005C491E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +332,7 @@
 		B382C5E925C5764100142F0F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B37E3C5525C8081600A76439 /* SearchInputView */,
 				B385E1D525B98C740017E94D /* HomeViewController.swift */,
 				B3A6C21925C2C3F600ADB720 /* HomeViewController.xib */,
 				B382C5DB25C5736400142F0F /* HomeListItemViewCell.swift */,
@@ -645,6 +659,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B372657A25C707D600A7FF1A /* BadgeView.xib in Resources */,
+				B3D2802925C80B0D0082994C /* SearchInputView.xib in Resources */,
 				B382C5E625C575A000142F0F /* HomeListItemViewCell.xib in Resources */,
 				B385E1DE25B98C750017E94D /* LaunchScreen.storyboard in Resources */,
 				B385E1DB25B98C750017E94D /* Assets.xcassets in Resources */,
@@ -762,6 +777,7 @@
 				B3D8D7C225BAE40A007E68B7 /* ColorExtension.swift in Sources */,
 				B385E1D225B98C740017E94D /* AppDelegate.swift in Sources */,
 				B382C5DC25C5736400142F0F /* HomeListItemViewCell.swift in Sources */,
+				B3D2802325C80B040082994C /* SearchInputView.swift in Sources */,
 				B38C5D1E25B9958600B83845 /* Assets.swift in Sources */,
 				B3A6C21425C2C2E400ADB720 /* ControllerFactory.swift in Sources */,
 				B36E3D8F25BDA1BD0067F8BF /* MemoryCache.swift in Sources */,

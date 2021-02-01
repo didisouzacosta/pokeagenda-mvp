@@ -31,6 +31,12 @@ class HomeViewController: UIViewController {
         }
     }
     
+    private lazy var searchInputView: SearchInputView = {
+        let input = SearchInputView()
+        input.placeholder = "What Pokemon are you looking for?"
+        return input
+    }()
+    
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
@@ -40,6 +46,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var generationsButton: UIButton!
+    @IBOutlet weak var extraHeaderContentStackView: UIStackView!
     
     // MARK: - Public Methods
     
@@ -52,6 +59,7 @@ class HomeViewController: UIViewController {
         setupGenerationsButton()
         setupFilterButton()
         setupSortButton()
+        setupSearchInputView()
         
         fetchData()
     }
@@ -108,6 +116,10 @@ class HomeViewController: UIViewController {
         sortButton.setImage(Assets.icon.sort, for: .normal)
         sortButton.tintColor = Colors.text.black
         sortButton.backgroundColor = .clear
+    }
+    
+    private func setupSearchInputView() {
+        extraHeaderContentStackView.addArrangedSubview(searchInputView)
     }
     
     private func fetchData() {

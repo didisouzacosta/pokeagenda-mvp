@@ -19,6 +19,7 @@ extension Assets {
         let filter = UIImage(named: "filter-icon")!
         let sort = UIImage(named: "sort-icon")!
         let generations = UIImage(named: "generations-icon")!
+        let search = UIImage(named: "search-icon")!
         let heigth = HeigthIcon()
         let weight = WeightIcon()
         let type = TypeIcon()
