@@ -19,6 +19,7 @@
                 <outlet property="sortButton" destination="4xk-jx-DeR" id="dA5-eN-3tO"/>
                 <outlet property="tableView" destination="Tjc-XI-YoC" id="gkJ-5B-wrQ"/>
                 <outlet property="titleLabel" destination="qK3-kp-UK6" id="sio-bn-GXL"/>
+                <outlet property="topConstraint" destination="Ooq-p9-dzy" id="Scb-ur-Ct5"/>
                 <outlet property="view" destination="iN0-l3-epB" id="mXR-Q5-xhD"/>
             </connections>
         </placeholder>

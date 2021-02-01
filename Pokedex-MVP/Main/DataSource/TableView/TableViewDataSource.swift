@@ -11,6 +11,11 @@ import UIKit
 protocol TableViewDataSourceDelegate {
     func didSelect(rowAt indexPath: IndexPath)
     func willDisplay(rowAt indexPath: IndexPath)
+    func didScroll(_ scrollView: UIScrollView)
+}
+
+extension TableViewDataSourceDelegate {
+    func didScroll(_ scrollView: UIScrollView) {}
 }
 
 final class TableViewDataSource: NSObject {
@@ -88,6 +93,10 @@ extension TableViewDataSource: UITableViewDataSource {
     ) -> CGFloat {
         let section = sections[indexPath.section]
         return section.cellHeight(forCellAt: indexPath)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate?.didScroll(scrollView)
     }
     
 }

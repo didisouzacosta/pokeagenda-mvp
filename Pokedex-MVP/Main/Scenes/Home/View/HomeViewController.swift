@@ -47,6 +47,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var generationsButton: UIButton!
     @IBOutlet weak var extraHeaderContentStackView: UIStackView!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     // MARK: - Public Methods
     
@@ -176,6 +177,20 @@ extension HomeViewController: HomePresenterView {
 
 extension HomeViewController: TableViewDataSourceDelegate {
     
+    func didScroll(_ scrollView: UIScrollView) {
+        var offsetY = scrollView.contentOffset.y
+        
+        if offsetY < 0 {
+            offsetY = 0
+        }
+        
+        if offsetY > 190 {
+            offsetY = 190
+        }
+        
+        topConstraint.constant = -offsetY
+    }
+    
     func didSelect(rowAt indexPath: IndexPath) {
         presenter.didSelect(row: indexPath.row)
     }
@@ -185,4 +200,3 @@ extension HomeViewController: TableViewDataSourceDelegate {
     }
     
 }
-

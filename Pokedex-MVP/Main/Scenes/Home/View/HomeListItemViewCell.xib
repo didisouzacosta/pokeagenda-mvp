@@ -95,6 +95,7 @@
                         <rect key="frame" x="272" y="62" width="37" height="37"/>
                     </activityIndicatorView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="Wga-x1-cPV" firstAttribute="leading" secondItem="vgV-ep-zu8" secondAttribute="leadingMargin" constant="16" id="Eza-Jb-Pxv"/>
                     <constraint firstItem="Wga-x1-cPV" firstAttribute="top" secondItem="vgV-ep-zu8" secondAttribute="topMargin" constant="20" id="LOK-di-mQZ"/>
@@ -104,6 +105,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="Wga-x1-cPV" secondAttribute="bottom" id="t9A-9T-cBF"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="badgesStack" destination="G95-DU-wbi" id="iUS-s6-ivu"/>
                 <outlet property="boxView" destination="Wga-x1-cPV" id="1bC-kS-XhT"/>

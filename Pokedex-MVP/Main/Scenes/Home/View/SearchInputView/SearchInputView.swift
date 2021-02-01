@@ -8,9 +8,23 @@
 import Foundation
 import UIKit
 
+protocol SearchInputViewDelegate {
+    func searchShouldBeginEditing() -> Bool
+}
+
+extension SearchInputViewDelegate {
+    
+    func searchShouldBeginEditing() -> Bool {
+        return true
+    }
+    
+}
+
 final class SearchInputView: UIView {
     
     // MARK: - Public Properties
+    
+    var delegate: SearchInputViewDelegate?
     
     var placeholder: String? {
         didSet { textField.placeholder = placeholder }
@@ -41,7 +55,8 @@ final class SearchInputView: UIView {
     // MARK: - Private Methods
     
     private func setupTextField() {
-        textField.font = Typography.description 
+        textField.font = Typography.description
+        textField.delegate = self
     }
     
     private func setupIcon() {
@@ -52,6 +67,14 @@ final class SearchInputView: UIView {
     private func setupContentView() {
         contentView.layer.cornerRadius = 10
         contentView.backgroundColor = Colors.background.defaultInput
+    }
+    
+}
+
+extension SearchInputView: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        delegate?.searchShouldBeginEditing() ?? true
     }
     
 }
