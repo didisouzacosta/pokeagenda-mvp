@@ -54,6 +54,7 @@ class HomeListItemViewCell: UITableViewCell {
     
     private func setupLoading() {
         loadingView.startAnimating()
+        boxView.isHidden = true
     }
     
     private func setup(with error: Error) {
@@ -61,6 +62,7 @@ class HomeListItemViewCell: UITableViewCell {
     }
     
     private func setupBox(with color: UIColor) {
+        boxView.isHidden = false
         boxView.layer.cornerRadius = 10
         boxView.backgroundColor = color
         boxView.layer.shadowColor = color.cgColor

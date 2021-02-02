@@ -184,8 +184,8 @@ extension HomeViewController: TableViewDataSourceDelegate {
             offsetY = 0
         }
         
-        if offsetY > 190 {
-            offsetY = 190
+        if offsetY > 180 {
+            offsetY = 180
         }
         
         topConstraint.constant = -offsetY

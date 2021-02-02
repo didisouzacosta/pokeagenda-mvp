@@ -49,16 +49,16 @@
                             <rect key="frame" x="28" y="68" width="358" height="183"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="zZ1-nA-7AD">
-                                    <rect key="frame" x="10" y="0.0" width="338" height="167"/>
+                                    <rect key="frame" x="8" y="0.0" width="342" height="167"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="frG-ZY-KaX">
-                                            <rect key="frame" x="0.0" y="0.0" width="338" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="105"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="psw-rE-8EB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="338" height="40"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="40"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WYz-fk-fUC">
-                                                            <rect key="frame" x="202" y="0.0" width="136" height="40"/>
+                                                            <rect key="frame" x="206" y="0.0" width="136" height="40"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfX-Yy-4wf">
                                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -96,7 +96,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aDk-xi-tld">
-                                                    <rect key="frame" x="0.0" y="56" width="338" height="49"/>
+                                                    <rect key="frame" x="0.0" y="56" width="342" height="49"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qK3-kp-UK6">
                                                             <rect key="frame" x="0.0" y="0.0" width="28.5" height="20.5"/>
@@ -115,7 +115,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V2q-uZ-uKu">
-                                            <rect key="frame" x="0.0" y="137" width="338" height="30"/>
+                                            <rect key="frame" x="0.0" y="137" width="342" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" placeholder="YES" id="Rt1-cq-Gdw"/>
                                             </constraints>
@@ -126,9 +126,9 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="zZ1-nA-7AD" firstAttribute="top" secondItem="eVB-nK-ZSG" secondAttribute="top" id="NZy-rT-erz"/>
-                                <constraint firstItem="zZ1-nA-7AD" firstAttribute="leading" secondItem="eVB-nK-ZSG" secondAttribute="leading" constant="10" id="eeC-tZ-4cf"/>
+                                <constraint firstItem="zZ1-nA-7AD" firstAttribute="leading" secondItem="eVB-nK-ZSG" secondAttribute="leading" constant="8" id="eeC-tZ-4cf"/>
                                 <constraint firstAttribute="bottom" secondItem="zZ1-nA-7AD" secondAttribute="bottom" constant="16" id="gHV-nY-b0d"/>
-                                <constraint firstAttribute="trailing" secondItem="zZ1-nA-7AD" secondAttribute="trailing" constant="10" id="wOZ-80-Ymm"/>
+                                <constraint firstAttribute="trailing" secondItem="zZ1-nA-7AD" secondAttribute="trailing" constant="8" id="wOZ-80-Ymm"/>
                             </constraints>
                         </view>
                     </subviews>
