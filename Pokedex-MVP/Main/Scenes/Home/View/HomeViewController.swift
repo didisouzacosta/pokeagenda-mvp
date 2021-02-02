@@ -46,7 +46,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var generationsButton: UIButton!
-    @IBOutlet weak var extraHeaderContentStackView: UIStackView!
+    @IBOutlet weak var extraHeaderContentStack: UIStackView!
+    @IBOutlet weak var primaryHeaderContentStack: UIStackView!
+    @IBOutlet weak var headerStack: UIStackView!
+    @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     // MARK: - Public Methods
@@ -54,13 +57,13 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
         setupTitle()
         setupDescription()
         setupGenerationsButton()
         setupFilterButton()
         setupSortButton()
         setupSearchInputView()
+        setupSeparator()
         
         fetchData()
     }
@@ -77,7 +80,9 @@ class HomeViewController: UIViewController {
     
     // MARK: - Private Methods
     
-    private func setupView() {}
+    private func setupSeparator() {
+        separatorView.alpha = 0
+    }
     
     private func setupTitle() {
         titleLabel.font = Typography.applicationTitle
@@ -128,18 +133,40 @@ class HomeViewController: UIViewController {
     }
     
     private func setupSearchInputView() {
-        extraHeaderContentStackView.addArrangedSubview(searchInputView)
+        extraHeaderContentStack.addArrangedSubview(searchInputView)
     }
     
     private func fetchData() {
         presenter.fetchPokemons()
     }
     
-    // MARK: - Actions
-    
-    @IBAction func fetchPokemonsTapped() {
-        presenter.fetchPokemons()
+    private func scrollHeader(with contentOffset: CGPoint) {
+        let headerHeight = headerStack.bounds.height
+        let extraHeaderHeight = extraHeaderContentStack.bounds.height
+        let minHeight = headerHeight - extraHeaderHeight
+        let offsetY = contentOffset.y
+        let fadeOffset: CGFloat = 66
+        
+        var finalHeight = offsetY
+        
+        if offsetY < 0 {
+            finalHeight = 0
+        }
+        
+        if offsetY > minHeight {
+            finalHeight = minHeight
+        }
+        
+        let fadeOutPercentage = ((minHeight - fadeOffset) - offsetY) / 100
+        let fadeInPercentage = minHeight * offsetY / 100
+        
+        primaryHeaderContentStack.alpha = fadeOutPercentage
+        separatorView.alpha = fadeInPercentage / 100
+        
+        topConstraint.constant = -finalHeight
     }
+    
+    // MARK: - Actions
     
     @IBAction func showGenerationsTapped() {
         presenter.generationsButtonTapped()
@@ -186,17 +213,7 @@ extension HomeViewController: HomePresenterView {
 extension HomeViewController: TableViewDataSourceDelegate {
     
     func didScroll(_ scrollView: UIScrollView) {
-        var offsetY = scrollView.contentOffset.y
-        
-        if offsetY < 0 {
-            offsetY = 0
-        }
-        
-        if offsetY > 180 {
-            offsetY = 180
-        }
-        
-        topConstraint.constant = -offsetY
+        scrollHeader(with: scrollView.contentOffset)
     }
     
     func didSelect(rowAt indexPath: IndexPath) {

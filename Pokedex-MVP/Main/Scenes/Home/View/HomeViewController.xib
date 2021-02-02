@@ -12,10 +12,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Pokedex_MVP" customModuleProvider="target">
             <connections>
                 <outlet property="descriptionLabel" destination="rXj-d5-t1o" id="q0N-dB-J8n"/>
-                <outlet property="extraHeaderContentStackView" destination="V2q-uZ-uKu" id="DLP-Ys-SNV"/>
+                <outlet property="extraHeaderContentStack" destination="V2q-uZ-uKu" id="Qy9-Dm-LHS"/>
                 <outlet property="filterButton" destination="v1b-Ci-RRx" id="jZy-dJ-dEy"/>
                 <outlet property="generationsButton" destination="hfX-Yy-4wf" id="PVG-7Q-Iun"/>
+                <outlet property="headerStack" destination="zZ1-nA-7AD" id="aJf-Te-Y6P"/>
                 <outlet property="loaderView" destination="uU7-4j-58L" id="SNs-7g-p2s"/>
+                <outlet property="primaryHeaderContentStack" destination="frG-ZY-KaX" id="tXL-Vy-evP"/>
+                <outlet property="separatorView" destination="pa8-Fb-leZ" id="Rh2-Lh-oTc"/>
                 <outlet property="sortButton" destination="4xk-jx-DeR" id="dA5-eN-3tO"/>
                 <outlet property="tableView" destination="Tjc-XI-YoC" id="gkJ-5B-wrQ"/>
                 <outlet property="titleLabel" destination="qK3-kp-UK6" id="sio-bn-GXL"/>
@@ -36,14 +39,14 @@
                     </constraints>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tjc-XI-YoC">
-                    <rect key="frame" x="0.0" y="259" width="414" height="637"/>
+                    <rect key="frame" x="0.0" y="252" width="414" height="644"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="uU7-4j-58L">
-                    <rect key="frame" x="188.5" y="559" width="37" height="37"/>
+                    <rect key="frame" x="188.5" y="555.5" width="37" height="37"/>
                 </activityIndicatorView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5w-zI-0YV">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="259"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="252"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVB-nK-ZSG">
                             <rect key="frame" x="28" y="68" width="358" height="183"/>
@@ -126,17 +129,28 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="zZ1-nA-7AD" firstAttribute="top" secondItem="eVB-nK-ZSG" secondAttribute="top" id="NZy-rT-erz"/>
+                                <constraint firstAttribute="bottom" secondItem="zZ1-nA-7AD" secondAttribute="bottom" constant="16" id="dic-o0-KHl"/>
                                 <constraint firstItem="zZ1-nA-7AD" firstAttribute="leading" secondItem="eVB-nK-ZSG" secondAttribute="leading" constant="8" id="eeC-tZ-4cf"/>
-                                <constraint firstAttribute="bottom" secondItem="zZ1-nA-7AD" secondAttribute="bottom" constant="16" id="gHV-nY-b0d"/>
                                 <constraint firstAttribute="trailing" secondItem="zZ1-nA-7AD" secondAttribute="trailing" constant="8" id="wOZ-80-Ymm"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pa8-Fb-leZ">
+                            <rect key="frame" x="0.0" y="251" width="414" height="1"/>
+                            <color key="backgroundColor" systemColor="systemGray5Color"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="V8x-Fa-CV5"/>
+                                <constraint firstAttribute="height" constant="1" id="r24-YW-TBa"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="pa8-Fb-leZ" secondAttribute="bottom" id="Jq6-ji-iSe"/>
                         <constraint firstAttribute="trailingMargin" secondItem="eVB-nK-ZSG" secondAttribute="trailing" constant="20" id="Pi6-UZ-I3s"/>
+                        <constraint firstAttribute="trailing" secondItem="pa8-Fb-leZ" secondAttribute="trailing" id="f7H-c0-2Q2"/>
+                        <constraint firstItem="pa8-Fb-leZ" firstAttribute="leading" secondItem="a5w-zI-0YV" secondAttribute="leading" id="jHg-LP-xct"/>
+                        <constraint firstItem="pa8-Fb-leZ" firstAttribute="top" secondItem="eVB-nK-ZSG" secondAttribute="bottom" id="nZW-1h-R9H"/>
                         <constraint firstItem="eVB-nK-ZSG" firstAttribute="top" secondItem="a5w-zI-0YV" secondAttribute="topMargin" constant="16" id="qjO-kN-mrl"/>
-                        <constraint firstAttribute="bottomMargin" secondItem="eVB-nK-ZSG" secondAttribute="bottom" id="roE-Yr-uae"/>
                         <constraint firstItem="eVB-nK-ZSG" firstAttribute="leading" secondItem="a5w-zI-0YV" secondAttribute="leadingMargin" constant="20" id="v7K-gz-i5z"/>
                     </constraints>
                 </view>
@@ -157,13 +171,16 @@
                 <constraint firstItem="uU7-4j-58L" firstAttribute="centerY" secondItem="Tjc-XI-YoC" secondAttribute="centerY" id="rp0-5H-2Z0"/>
                 <constraint firstItem="4nw-eG-QWg" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="z8L-gy-Ml0"/>
             </constraints>
-            <point key="canvasLocation" x="-1428" y="-167"/>
+            <point key="canvasLocation" x="-1428.985507246377" y="-167.41071428571428"/>
         </view>
     </objects>
     <resources>
         <image name="pokeball-header-pattern" width="414" height="207"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
