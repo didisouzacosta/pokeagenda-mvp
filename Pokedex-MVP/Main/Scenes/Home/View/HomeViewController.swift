@@ -92,7 +92,15 @@ class HomeViewController: UIViewController {
     }
     
     private func setupDataSource() {
-        let itemsBuilders = presenter.listItems.map(HomeListItemCellBuilder.init)
+        let itemsBuilders = presenter.listItems.map { item -> HomeListItemCellBuilder in
+            let cell = HomeListItemCellBuilder(homeListItem: item)
+            cell.retryHandler = { [weak self] row in
+                self?.presenter.retryFetchPokemon(with: row)
+                
+            }
+            return cell
+        }
+        
         let section = TableViewSection(cellBuilders: itemsBuilders)
         
         dataSource = TableViewDataSource(

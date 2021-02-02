@@ -8,15 +8,22 @@
 import Foundation
 import UIKit
 
-struct HomeListItemCellBuilder {
+class HomeListItemCellBuilder {
     
     // MARK: - Public Properties
     
-    let homeListItem: HomeListItem
+    var retryHandler: ((Int) -> Void)?
     
     // MARK: - Private Properties
     
+    private let homeListItem: HomeListItem
     private let reuseIdentifier = HomeListItemViewCell.identifier
+    
+    // MARK: - Public Methods
+    
+    init(homeListItem: HomeListItem) {
+        self.homeListItem = homeListItem
+    }
     
 }
 
@@ -39,6 +46,9 @@ extension HomeListItemCellBuilder: TableViewCellBuilder {
         ) as! HomeListItemViewCell
         
         cell.configure(with: homeListItem)
+        cell.retryHandler = { [weak self] in
+            self?.retryHandler?(indexPath.row)
+        }
         
         return cell
     }

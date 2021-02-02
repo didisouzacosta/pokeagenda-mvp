@@ -24,14 +24,19 @@ class HomeListItemViewCell: UITableViewCell {
         return HomeListItemViewCell.identifier
     }
     
+    var retryHandler: (() -> Void)?
+    
     // MARK: - Private Properties
     
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var pokemonImageView: UIImageView!
     @IBOutlet weak var boxView: UIView!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     @IBOutlet weak var badgesStack: UIStackView!
+    @IBOutlet weak var errorButton: UIButton!
+    @IBOutlet weak var errorStack: UIStackView!
     
     // MARK: - Public Methods
     
@@ -53,15 +58,19 @@ class HomeListItemViewCell: UITableViewCell {
     // MARK: - Private Methods
     
     private func setupLoading() {
-        loadingView.startAnimating()
         boxView.isHidden = true
+        errorStack.isHidden = true
+        loadingView.startAnimating()
     }
     
     private func setup(with error: Error) {
-        nameLabel.text = "Não foi possível carregar o pokemon"
+        errorStack.isHidden = false
+        errorLabel.text = "Não foi possível carregar o pokemon"
+        errorButton.layer.cornerRadius = 8
     }
     
     private func setupBox(with color: UIColor) {
+        errorStack.isHidden = true
         boxView.isHidden = false
         boxView.layer.cornerRadius = 10
         boxView.backgroundColor = color
@@ -91,6 +100,12 @@ class HomeListItemViewCell: UITableViewCell {
         badgesStack.subviews.forEach { $0.removeFromSuperview() }
         let badges = types.map { BadgeView(type: $0) }
         badges.forEach { badgesStack.addArrangedSubview($0) }
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction private func retry() {
+        retryHandler?()
     }
     
 }

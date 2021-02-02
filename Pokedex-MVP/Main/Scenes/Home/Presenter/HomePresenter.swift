@@ -28,6 +28,7 @@ protocol HomeViewPresenter {
     func sortButtonTapped()
     func filterButtonTapped()
     func searchViewTapped()
+    func retryFetchPokemon(with row: Int)
 }
 
 class HomePresenter {
@@ -74,6 +75,10 @@ class HomePresenter {
         self.view = view
         self.fetchPokemonsUseCase = fetchPokemonsUseCase
         self.fetchPokemonUseCase = fetchPokemonUseCase
+    }
+    
+    func retryFetchPokemon(with row: Int) {
+        fetchPokemon(with: paginationItems[row])
     }
     
     // MARK: - Private Methods
