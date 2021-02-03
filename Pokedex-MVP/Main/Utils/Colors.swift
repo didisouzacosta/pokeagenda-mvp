@@ -136,6 +136,7 @@ extension Colors {
         let black = UIColor.hex("#17171B")
         let gray = UIColor.hex("#747476")
         let text = UIColor.hex("#17171B")
+        let textNumber = UIColor.hex("#17171B", alpha: 0.6)
     }
     
     struct BackgroundColor {

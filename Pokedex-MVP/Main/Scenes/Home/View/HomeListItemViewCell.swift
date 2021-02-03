@@ -82,7 +82,7 @@ class HomeListItemViewCell: UITableViewCell {
     
     private func setup(pokemonNumber: String) {
         numberLabel.font = Typography.pokemonNumber
-        numberLabel.textColor = Colors.text.white
+        numberLabel.textColor = Colors.text.textNumber
         numberLabel.text = pokemonNumber
     }
     
