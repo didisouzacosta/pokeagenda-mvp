@@ -45,7 +45,7 @@ extension Assets {
         let bug = UIImage(named: "bug-type-icon")!
         let dark = UIImage(named: "dark-type-icon")!
         let dragon = UIImage(named: "dragon-type-icon")!
-        let eletric = UIImage(named: "eletric-type-icon")!
+        let eletric = UIImage(named: "electric-type-icon")!
         let fairy = UIImage(named: "fairy-type-icon")!
         let fighting = UIImage(named: "fighting-type-icon")!
         let flying = UIImage(named: "flying-type-icon")!
@@ -63,7 +63,7 @@ extension Assets {
             case .bug: return bug
             case .dark: return dark
             case .dragon: return dragon
-            case .eletric: return eletric
+            case .electric: return eletric
             case .fairy: return fairy
             case .fighting: return fighting
             case .fire: return fire

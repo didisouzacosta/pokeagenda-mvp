@@ -48,7 +48,7 @@ extension Colors {
             case .bug: return bug
             case .dark: return dark
             case .dragon: return dragon
-            case .eletric: return eletric
+            case .electric: return eletric
             case .fairy: return fairy
             case .fighting: return fighting
             case .fire: return fire
@@ -72,7 +72,7 @@ extension Colors {
         let bug = UIColor.hex("#8BD674")
         let dark = UIColor.hex("#6F6E78")
         let dragon = UIColor.hex("#7383B9")
-        let eletric = UIColor.hex("#F2CB55")
+        let electric = UIColor.hex("#F2CB55")
         let fairy = UIColor.hex("#EBA8C3")
         let fighting = UIColor.hex("#EB4971")
         let fire = UIColor.hex("#FFA756")
@@ -94,7 +94,7 @@ extension Colors {
             case .bug: return bug
             case .dark: return dark
             case .dragon: return dragon
-            case .eletric: return eletric
+            case .electric: return electric
             case .fairy: return fairy
             case .fighting: return fighting
             case .fire: return fire

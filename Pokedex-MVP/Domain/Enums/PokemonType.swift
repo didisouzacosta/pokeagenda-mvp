@@ -11,7 +11,7 @@ public enum PokemonType: String, Codable {
     case bug = "bug"
     case dark = "dark"
     case dragon = "dragon"
-    case eletric = "eletric"
+    case electric = "electric"
     case fairy = "fairy"
     case fighting = "fighting"
     case fire = "fire"

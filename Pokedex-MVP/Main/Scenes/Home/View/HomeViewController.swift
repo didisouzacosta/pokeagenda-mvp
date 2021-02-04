@@ -31,6 +31,19 @@ class HomeViewController: UIViewController {
         }
     }
     
+    private var section: TableViewSection {
+        let itemsBuilders = presenter.listItems.map { item -> HomeListItemCellBuilder in
+            let cell = HomeListItemCellBuilder(homeListItem: item)
+            cell.retryHandler = { [weak self] row in
+                self?.presenter.retryFetchPokemon(with: row)
+                
+            }
+            return cell
+        }
+        
+        return TableViewSection(cellBuilders: itemsBuilders)
+    }
+    
     private lazy var searchInputView: SearchInputView = {
         let input = SearchInputView()
         input.placeholder = "What Pokemon are you looking for?"
@@ -64,6 +77,7 @@ class HomeViewController: UIViewController {
         setupSortButton()
         setupSearchInputView()
         setupSeparator()
+        setupDataSource()
         
         fetchData()
     }
@@ -97,17 +111,6 @@ class HomeViewController: UIViewController {
     }
     
     private func setupDataSource() {
-        let itemsBuilders = presenter.listItems.map { item -> HomeListItemCellBuilder in
-            let cell = HomeListItemCellBuilder(homeListItem: item)
-            cell.retryHandler = { [weak self] row in
-                self?.presenter.retryFetchPokemon(with: row)
-                
-            }
-            return cell
-        }
-        
-        let section = TableViewSection(cellBuilders: itemsBuilders)
-        
         dataSource = TableViewDataSource(
             sections: [section],
             tableView: tableView
@@ -185,11 +188,16 @@ class HomeViewController: UIViewController {
 extension HomeViewController: HomePresenterView {
     
     func reloadData() {
-        setupDataSource()
+        dataSource.sections = [section]
     }
     
     func showLoading(status: Bool) {
-        status ? loaderView.startAnimating() : loaderView.stopAnimating()
+//        guard presenter.listItems.count < 0 else {
+//            loaderView.stopAnimating()
+//            return
+//        }
+//        status ? loaderView.startAnimating() : loaderView.stopAnimating()
+        loaderView.stopAnimating()
     }
     
     func show(error: Error) {
@@ -222,6 +230,10 @@ extension HomeViewController: TableViewDataSourceDelegate {
     
     func willDisplay(rowAt indexPath: IndexPath) {
         presenter.willDisplay(row: indexPath.row)
+        
+        if indexPath.row == presenter.listItems.count - 1 {
+            presenter.loadNextPage()
+        }
     }
     
 }

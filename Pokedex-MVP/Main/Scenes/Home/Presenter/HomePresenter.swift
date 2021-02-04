@@ -48,9 +48,10 @@ class HomePresenter {
     
     private var paginationItems: [PaginationResultItem] = [] {
         didSet {
-            _listItems = paginationItems.map { _ in
-                .init(state: .isLoading)
-            }
+            let start = oldValue.count
+            let limit = paginationItems.count - 1
+            let newItems = paginationItems[start...limit]
+            _listItems += newItems.map { _ in .init(state: .isLoading) }
         }
     }
     
@@ -98,7 +99,7 @@ class HomePresenter {
         
         fetchPokemonUseCase.execute(item.name) { [weak self] response in
             self?.fetchingPokemonsList.removeAll { $0 == item.name }
-            
+
             do {
                 let pokemon = try response.get()
                 self?._listItems[index] = .init(state: .pokemon(.init(pokemon)))
@@ -121,7 +122,7 @@ extension HomePresenter: HomeViewPresenter {
         
         fetchPokemonsUseCase.execute(page: page) { [weak self] response in
             do {
-                self?.paginationItems = try response.get()
+                self?.paginationItems += try response.get()
             } catch {
                 self?.error = error
             }
@@ -154,6 +155,12 @@ extension HomePresenter: HomeViewPresenter {
         view?.showFilter()
     }
     
-    func loadNextPage() {}
+    func loadNextPage() {
+        guard !isLoading else { return }
+        guard listItems.count > 10 else { return }
+        
+        page += 1
+        fetchPokemons()
+    }
     
 }

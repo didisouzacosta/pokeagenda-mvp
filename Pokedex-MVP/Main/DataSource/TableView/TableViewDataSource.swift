@@ -24,15 +24,23 @@ final class TableViewDataSource: NSObject {
     
     var delegate: TableViewDataSourceDelegate?
     
+    var sections: [TableViewSection] {
+        didSet {
+            registerCells()
+            tableView?.reloadData()
+        }
+    }
+    
     // MARK: - Private Properties
     
     private weak var tableView: UITableView?
     
-    private let sections: [TableViewSection]
-    
     // MARK: - Public Methods
     
-    init(sections: [TableViewSection], tableView: UITableView) {
+    init(
+        sections: [TableViewSection],
+        tableView: UITableView
+    ) {
         self.sections = sections
         self.tableView = tableView
         
@@ -51,9 +59,7 @@ final class TableViewDataSource: NSObject {
         
         sections
             .flatMap { $0.cellBuilders }
-            .forEach { cell in
-                cell.registerCell(in: tableView)
-        }
+            .forEach { $0.registerCell(in: tableView) }
     }
 }
 

@@ -35,7 +35,7 @@ class AssetsTests: XCTestCase {
         expect(Assets.icon.type.bug).to(be(UIImage(named: "bug-type-icon")))
         expect(Assets.icon.type.dark).to(be(UIImage(named: "dark-type-icon")))
         expect(Assets.icon.type.dragon).to(be(UIImage(named: "dragon-type-icon")))
-        expect(Assets.icon.type.eletric).to(be(UIImage(named: "eletric-type-icon")))
+        expect(Assets.icon.type.eletric).to(be(UIImage(named: "electric-type-icon")))
         expect(Assets.icon.type.fairy).to(be(UIImage(named: "fairy-type-icon")))
         expect(Assets.icon.type.fighing).to(be(UIImage(named: "fighting-type-icon")))
         expect(Assets.icon.type.fire).to(be(UIImage(named: "fire-type-icon")))
