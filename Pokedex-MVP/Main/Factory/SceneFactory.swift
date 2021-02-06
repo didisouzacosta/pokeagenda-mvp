@@ -28,21 +28,16 @@ class SceneFactory {
         return view
     }
     
-    static func makeSearchScene() -> SearchViewController {
+    static func makeSearchScene(delegate: SearchViewPresenterDelegate) -> SearchViewController {
 //        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
 //        let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
         
         let view = SearchViewController()
         
-//        let presenter = HomePresenter(
-//            view: view,
-//            fetchPokemonsUseCase: fetchPokemonsUseCase,
-//            fetchPokemonUseCase: fetchPokemonUseCase
-//        )
-//
-//        presenter.delegate = delegate
-//
-//        view.presenter = presenter
+        let presenter = SearchPresenter(view: view)
+        presenter.delegate = delegate
+        
+        view.presenter = presenter
         
         return view
     }
@@ -85,7 +80,7 @@ class SceneFactory {
         return view
     }
     
-    static func makeSorthScene() -> SortViewController {
+    static func makeSortScene() -> SortViewController {
 //        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
 //        let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
         

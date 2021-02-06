@@ -36,6 +36,7 @@
 		B36E3D9325BDA7C90067F8BF /* MemoryCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36E3D9225BDA7C90067F8BF /* MemoryCacheTests.swift */; };
 		B372657A25C707D600A7FF1A /* BadgeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B372657925C707D600A7FF1A /* BadgeView.xib */; };
 		B372657E25C712A400A7FF1A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B372657D25C712A400A7FF1A /* UIViewExtension.swift */; };
+		B37265A325CF41C0007D7F05 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37265A225CF41C0007D7F05 /* SearchPresenter.swift */; };
 		B37EF75F25C6B60C005C491E /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37EF75725C6B4E6005C491E /* PokemonViewModel.swift */; };
 		B37EF78825C6CA29005C491E /* PokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37EF78725C6CA29005C491E /* PokemonType.swift */; };
 		B381D1FE25C7071E00FF6183 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B381D1FD25C7071E00FF6183 /* BadgeView.swift */; };
@@ -125,6 +126,7 @@
 		B36E3D9225BDA7C90067F8BF /* MemoryCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCacheTests.swift; sourceTree = "<group>"; };
 		B372657925C707D600A7FF1A /* BadgeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeView.xib; sourceTree = "<group>"; };
 		B372657D25C712A400A7FF1A /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		B37265A225CF41C0007D7F05 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		B37EF75725C6B4E6005C491E /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
 		B37EF78725C6CA29005C491E /* PokemonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonType.swift; sourceTree = "<group>"; };
 		B381D1FD25C7071E00FF6183 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
@@ -319,6 +321,14 @@
 				B36E3D8E25BDA1BD0067F8BF /* MemoryCache.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B37265A125CF41B2007D7F05 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B37265A225CF41C0007D7F05 /* SearchPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		B37E3C5525C8081600A76439 /* SearchInputView */ = {
@@ -623,6 +633,7 @@
 		B3F47AF725CF2DB7000F7A1D /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				B37265A125CF41B2007D7F05 /* Presenter */,
 				B3F47B0A25CF2E31000F7A1D /* View */,
 			);
 			path = Search;
@@ -925,6 +936,7 @@
 				B36E3D8F25BDA1BD0067F8BF /* MemoryCache.swift in Sources */,
 				B3115A9B25BDEC9E001C6BF4 /* StringExtension.swift in Sources */,
 				B3F47B0725CF2E20000F7A1D /* SearchViewController.swift in Sources */,
+				B37265A325CF41C0007D7F05 /* SearchPresenter.swift in Sources */,
 				B3B6534325C64DC7009EE4EC /* UIImageExtension.swift in Sources */,
 				B37EF78825C6CA29005C491E /* PokemonType.swift in Sources */,
 				B382C5E225C5743800142F0F /* HomeListItemCellBuilder.swift in Sources */,

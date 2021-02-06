@@ -8,4 +8,20 @@
 import Foundation
 import UIKit
 
-final class PokemonViewController: UIViewController {}
+final class PokemonViewController: UIViewController {
+    
+    // MARK - Public Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupTitle()
+    }
+    
+    // MARK - Private Methods
+    
+    private func setupTitle() {
+        navigationItem.title = "Pokemon"
+    }
+    
+}

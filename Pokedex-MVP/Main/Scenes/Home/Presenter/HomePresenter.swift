@@ -43,7 +43,7 @@ class HomePresenter {
     
     // MARK: Public Properties
     
-    weak var delegate: HomeViewPresenterDelegate?
+    var delegate: HomeViewPresenterDelegate?
     
     // MARK: Private Properties
     

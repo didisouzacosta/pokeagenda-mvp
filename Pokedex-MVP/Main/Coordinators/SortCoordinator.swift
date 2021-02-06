@@ -13,7 +13,7 @@ final class SortCoordinator: BaseCoordinator {
     // MARK: - Public Methods
     
     override func start() {
-        let controller = SceneFactory.makeSorthScene()
+        let controller = SceneFactory.makeSortScene()
         navigationController.present(controller, animated: true)
     }
     
