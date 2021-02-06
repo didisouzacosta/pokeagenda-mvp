@@ -40,6 +40,7 @@ class HomePresenter {
     
     private weak var view: HomePresenterView?
     private var fetchingPokemonsList: [String] = []
+    private var paginationIsEnded = false
     private var page = 1
     
     private var _listItems: [HomeListItem] = []
@@ -123,7 +124,13 @@ extension HomePresenter: HomeViewPresenter {
         
         fetchPokemonsUseCase.execute(page: page) { [weak self] response in
             do {
-                self?.paginationItems += try response.get()
+                let newItems = try response.get()
+                
+                if newItems.isEmpty {
+                    self?.paginationIsEnded = true
+                } else {
+                    self?.paginationItems += newItems
+                }
             } catch {
                 self?.error = error
             }
@@ -158,7 +165,8 @@ extension HomePresenter: HomeViewPresenter {
     
     func loadNextPage() {
         guard !isLoading else { return }
-        guard listItems.count > 10 else { return }
+        guard !listItems.isEmpty else { return }
+        guard !paginationIsEnded else { return }
         
         page += 1
         fetchPokemons()
