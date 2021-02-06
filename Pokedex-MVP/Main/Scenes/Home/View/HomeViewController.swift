@@ -9,6 +9,7 @@ import UIKit
 
 protocol HomePresenterView: class {
     func reloadData()
+    func update(row: Int)
     func showLoading(status: Bool)
     func show(error: Error)
     func showFilter()
@@ -189,15 +190,25 @@ extension HomeViewController: HomePresenterView {
     
     func reloadData() {
         dataSource.sections = [section]
+        dataSource.reloadData()
+    }
+    
+    func update(row: Int) {
+        let itemBuilder = HomeListItemCellBuilder(homeListItem: presenter.listItems[row])
+        itemBuilder.retryHandler = { [weak self] row in
+            self?.presenter.retryFetchPokemon(with: row)
+        }
+        
+        dataSource.sections[0].cellBuilders[row] = itemBuilder
+        dataSource.reloadRow(at: IndexPath(item: row, section: 0))
     }
     
     func showLoading(status: Bool) {
-//        guard presenter.listItems.count < 0 else {
-//            loaderView.stopAnimating()
-//            return
-//        }
-//        status ? loaderView.startAnimating() : loaderView.stopAnimating()
-        loaderView.stopAnimating()
+        guard presenter.listItems.count < 0 else {
+            loaderView.stopAnimating()
+            return
+        }
+        status ? loaderView.startAnimating() : loaderView.stopAnimating()
     }
     
     func show(error: Error) {
@@ -229,7 +240,7 @@ extension HomeViewController: TableViewDataSourceDelegate {
     }
     
     func willDisplay(rowAt indexPath: IndexPath) {
-        presenter.willDisplay(row: indexPath.row)
+        presenter.fetchPokemon(at: indexPath.row)
         
         if indexPath.row == presenter.listItems.count - 1 {
             presenter.loadNextPage()

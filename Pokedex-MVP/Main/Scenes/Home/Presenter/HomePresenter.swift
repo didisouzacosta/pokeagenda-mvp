@@ -21,9 +21,9 @@ protocol HomeViewPresenter {
     var listItems: [HomeListItem] { get }
     
     func fetchPokemons()
+    func fetchPokemon(at row: Int)
     func loadNextPage()
     func didSelect(row: Int)
-    func willDisplay(row: Int)
     func generationsButtonTapped()
     func sortButtonTapped()
     func filterButtonTapped()
@@ -42,9 +42,7 @@ class HomePresenter {
     private var fetchingPokemonsList: [String] = []
     private var page = 1
     
-    private var _listItems: [HomeListItem] = [] {
-        didSet { view?.reloadData() }
-    }
+    private var _listItems: [HomeListItem] = []
     
     private var paginationItems: [PaginationResultItem] = [] {
         didSet {
@@ -52,6 +50,7 @@ class HomePresenter {
             let limit = paginationItems.count - 1
             let newItems = paginationItems[start...limit]
             _listItems += newItems.map { _ in .init(state: .isLoading) }
+            view?.reloadData()
         }
     }
     
@@ -106,6 +105,8 @@ class HomePresenter {
             } catch {
                 self?._listItems[index] = .init(state: .error(error))
             }
+            
+            self?.view?.update(row: index)
         }
     }
     
@@ -139,7 +140,7 @@ extension HomePresenter: HomeViewPresenter {
         print(row)
     }
     
-    func willDisplay(row: Int) {
+    func fetchPokemon(at row: Int) {
         fetchPokemon(with: paginationItems[row])
     }
     

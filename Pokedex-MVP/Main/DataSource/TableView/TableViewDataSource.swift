@@ -25,10 +25,7 @@ final class TableViewDataSource: NSObject {
     var delegate: TableViewDataSourceDelegate?
     
     var sections: [TableViewSection] {
-        didSet {
-            registerCells()
-            tableView?.reloadData()
-        }
+        didSet { registerCells() }
     }
     
     // MARK: - Private Properties
@@ -50,6 +47,14 @@ final class TableViewDataSource: NSObject {
         tableView.dataSource = self
         
         registerCells()
+    }
+    
+    func reloadData() {
+        tableView?.reloadData()
+    }
+    
+    func reloadRow(at indexPath: IndexPath) {
+        tableView?.reloadRows(at: [indexPath], with: .none)
     }
     
     // MARK: - Private Methods

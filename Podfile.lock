@@ -2,47 +2,23 @@ PODS:
   - Alamofire (5.4.1)
   - Nimble (9.0.0)
   - Nuke (9.2.4)
-  - RxBlocking (6.0.0):
-    - RxSwift (= 6.0.0)
-  - RxCocoa (6.0.0):
-    - RxRelay (= 6.0.0)
-    - RxSwift (= 6.0.0)
-  - RxRelay (6.0.0):
-    - RxSwift (= 6.0.0)
-  - RxSwift (6.0.0)
-  - RxTest (6.0.0):
-    - RxSwift (= 6.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - Nimble
   - Nuke (~> 9.0)
-  - RxBlocking (= 6.0.0)
-  - RxCocoa (= 6.0.0)
-  - RxSwift (= 6.0.0)
-  - RxTest (= 6.0.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Nimble
     - Nuke
-    - RxBlocking
-    - RxCocoa
-    - RxRelay
-    - RxSwift
-    - RxTest
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
   Nuke: 44439f7a92e665a4f927ecd73cb51f91d93b0e0c
-  RxBlocking: c025b8c6fe08c5b18c039b5b11d41ec413f8a59e
-  RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
-  RxRelay: 8d593be109c06ea850df027351beba614b012ffb
-  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
-  RxTest: ddef4052e63cb116f5b73510488c3113c37c62e5
 
-PODFILE CHECKSUM: 505f4e04482cc4e498942de2ac75eaf9fc7c0b7a
+PODFILE CHECKSUM: 28b85acb1755b29524eab3019b469c90b3e41134
 
 COCOAPODS: 1.10.0
