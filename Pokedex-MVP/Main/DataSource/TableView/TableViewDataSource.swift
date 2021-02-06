@@ -26,7 +26,10 @@ final class TableViewDataSource: NSObject {
     var delegate: TableViewDataSourceDelegate?
     
     var sections: [TableViewSection] {
-        didSet { registerCells() }
+        didSet {
+            registerCells()
+            tableView?.reloadData()
+        }
     }
     
     // MARK: - Private Properties
@@ -52,10 +55,6 @@ final class TableViewDataSource: NSObject {
         tableView.estimatedRowHeight = 140
         
         registerCells()
-    }
-    
-    func reloadRow(at indexPath: IndexPath) {
-        tableView?.reloadRows(at: [indexPath], with: .automatic)
     }
     
     // MARK: - Private Methods

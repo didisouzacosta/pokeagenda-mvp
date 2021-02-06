@@ -190,7 +190,6 @@ extension HomeViewController: HomePresenterView {
     
     func reloadData() {
         dataSource.sections = [section]
-        tableView.reloadData()
     }
     
     func update(row: Int) {
@@ -200,7 +199,6 @@ extension HomeViewController: HomePresenterView {
         }
         
         dataSource.sections[0].cellBuilders[row] = itemBuilder
-        dataSource.reloadRow(at: IndexPath(item: row, section: 0))
     }
     
     func showLoading(status: Bool) {
