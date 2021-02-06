@@ -77,6 +77,11 @@
 		B3F47B1E25CF2F46000F7A1D /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F47B1D25CF2F46000F7A1D /* FilterViewController.xib */; };
 		B3F47B2225CF2F59000F7A1D /* GenerationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F47B2125CF2F59000F7A1D /* GenerationsViewController.xib */; };
 		B3F47B2625CF2F6C000F7A1D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F47B2525CF2F6C000F7A1D /* SearchViewController.xib */; };
+		B3F47B2A25CF3126000F7A1D /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F47B2925CF3126000F7A1D /* SearchCoordinator.swift */; };
+		B3F47B2E25CF31C4000F7A1D /* SortCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F47B2D25CF31C4000F7A1D /* SortCoordinator.swift */; };
+		B3F47B3225CF31DB000F7A1D /* FilterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F47B3125CF31DB000F7A1D /* FilterCoordinator.swift */; };
+		B3F47B3625CF31F6000F7A1D /* GenerationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F47B3525CF31F6000F7A1D /* GenerationsCoordinator.swift */; };
+		B3F47B3A25CF3266000F7A1D /* PokemonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F47B3925CF3266000F7A1D /* PokemonCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +170,11 @@
 		B3F47B1D25CF2F46000F7A1D /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		B3F47B2125CF2F59000F7A1D /* GenerationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenerationsViewController.xib; sourceTree = "<group>"; };
 		B3F47B2525CF2F6C000F7A1D /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		B3F47B2925CF3126000F7A1D /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		B3F47B2D25CF31C4000F7A1D /* SortCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCoordinator.swift; sourceTree = "<group>"; };
+		B3F47B3125CF31DB000F7A1D /* FilterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCoordinator.swift; sourceTree = "<group>"; };
+		B3F47B3525CF31F6000F7A1D /* GenerationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationsCoordinator.swift; sourceTree = "<group>"; };
+		B3F47B3925CF3266000F7A1D /* PokemonCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCoordinator.swift; sourceTree = "<group>"; };
 		D6AD848FE999B0382AD2B4E8 /* Pods-Pokedex-MVP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex-MVP.debug.xcconfig"; path = "Target Support Files/Pods-Pokedex-MVP/Pods-Pokedex-MVP.debug.xcconfig"; sourceTree = "<group>"; };
 		F600465238A3CD0EAB225849 /* Pods_Pokedex_MVPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokedex_MVPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F679554CAB6763CC9992ED9C /* Pods-Pokedex-MVP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex-MVP.release.xcconfig"; path = "Target Support Files/Pods-Pokedex-MVP/Pods-Pokedex-MVP.release.xcconfig"; sourceTree = "<group>"; };
@@ -535,6 +545,11 @@
 			children = (
 				B3F47ABB25CF21FF000F7A1D /* Coordinator.swift */,
 				B3F47AEF25CF226C000F7A1D /* ApplicationCoordinator.swift */,
+				B3F47B2925CF3126000F7A1D /* SearchCoordinator.swift */,
+				B3F47B2D25CF31C4000F7A1D /* SortCoordinator.swift */,
+				B3F47B3125CF31DB000F7A1D /* FilterCoordinator.swift */,
+				B3F47B3525CF31F6000F7A1D /* GenerationsCoordinator.swift */,
+				B3F47B3925CF3266000F7A1D /* PokemonCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -883,6 +898,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3F47B3A25CF3266000F7A1D /* PokemonCoordinator.swift in Sources */,
 				B31E50DF25C5671700491C88 /* TableViewSection.swift in Sources */,
 				B3A6C20E25C2BC8B00ADB720 /* HomePresenter.swift in Sources */,
 				B3873D9525B9AE5C00BE6780 /* Typography.swift in Sources */,
@@ -894,10 +910,12 @@
 				B30E623D25C41A8D0031AD62 /* UIViewControllerExtension.swift in Sources */,
 				B31E50E325C5672C00491C88 /* TableViewCellBuilder.swift in Sources */,
 				B3F47B0C25CF2EAD000F7A1D /* SortViewController.swift in Sources */,
+				B3F47B3625CF31F6000F7A1D /* GenerationsCoordinator.swift in Sources */,
 				B3F47AFF25CF2DEC000F7A1D /* FilterViewController.swift in Sources */,
 				B3873D9125B9AE4300BE6780 /* Colors.swift in Sources */,
 				B347F65B25BCB98700D1ECBE /* FetchGenerationsUseCase.swift in Sources */,
 				B3D8D7C225BAE40A007E68B7 /* ColorExtension.swift in Sources */,
+				B3F47B2E25CF31C4000F7A1D /* SortCoordinator.swift in Sources */,
 				B385E1D225B98C740017E94D /* AppDelegate.swift in Sources */,
 				B382C5DC25C5736400142F0F /* HomeListItemViewCell.swift in Sources */,
 				B3D2802325C80B040082994C /* SearchInputView.swift in Sources */,
@@ -910,6 +928,7 @@
 				B3B6534325C64DC7009EE4EC /* UIImageExtension.swift in Sources */,
 				B37EF78825C6CA29005C491E /* PokemonType.swift in Sources */,
 				B382C5E225C5743800142F0F /* HomeListItemCellBuilder.swift in Sources */,
+				B3F47B3225CF31DB000F7A1D /* FilterCoordinator.swift in Sources */,
 				B39992C825BE328300486D05 /* GenerationRepository.swift in Sources */,
 				B347F63325BC9C3600D1ECBE /* Pagination.swift in Sources */,
 				B372657E25C712A400A7FF1A /* UIViewExtension.swift in Sources */,
@@ -917,6 +936,7 @@
 				B3F47ABC25CF21FF000F7A1D /* Coordinator.swift in Sources */,
 				B387D04A25C560C2004B9819 /* TableViewDataSource.swift in Sources */,
 				B3F47B0325CF2E0B000F7A1D /* GenerationsViewController.swift in Sources */,
+				B3F47B2A25CF3126000F7A1D /* SearchCoordinator.swift in Sources */,
 				B3F47AF025CF226C000F7A1D /* ApplicationCoordinator.swift in Sources */,
 				B347F66025BCBA2B00D1ECBE /* PokemonRepository.swift in Sources */,
 				B347F62F25BC9B4200D1ECBE /* PokemonAPI.swift in Sources */,

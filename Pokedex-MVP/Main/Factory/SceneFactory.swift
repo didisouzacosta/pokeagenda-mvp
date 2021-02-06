@@ -28,4 +28,99 @@ class SceneFactory {
         return view
     }
     
+    static func makeSearchScene() -> SearchViewController {
+//        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
+//        let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
+        
+        let view = SearchViewController()
+        
+//        let presenter = HomePresenter(
+//            view: view,
+//            fetchPokemonsUseCase: fetchPokemonsUseCase,
+//            fetchPokemonUseCase: fetchPokemonUseCase
+//        )
+//
+//        presenter.delegate = delegate
+//
+//        view.presenter = presenter
+        
+        return view
+    }
+    
+    static func makeFilterScene() -> FilterViewController {
+//        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
+//        let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
+        
+        let view = FilterViewController()
+        
+//        let presenter = HomePresenter(
+//            view: view,
+//            fetchPokemonsUseCase: fetchPokemonsUseCase,
+//            fetchPokemonUseCase: fetchPokemonUseCase
+//        )
+//
+//        presenter.delegate = delegate
+//
+//        view.presenter = presenter
+        
+        return view
+    }
+    
+    static func makeGenerationsScene() -> GenerationsViewController {
+//        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
+//        let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
+        
+        let view = GenerationsViewController()
+        
+//        let presenter = HomePresenter(
+//            view: view,
+//            fetchPokemonsUseCase: fetchPokemonsUseCase,
+//            fetchPokemonUseCase: fetchPokemonUseCase
+//        )
+//
+//        presenter.delegate = delegate
+//
+//        view.presenter = presenter
+        
+        return view
+    }
+    
+    static func makeSorthScene() -> SortViewController {
+//        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
+//        let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
+        
+        let view = SortViewController()
+        
+//        let presenter = HomePresenter(
+//            view: view,
+//            fetchPokemonsUseCase: fetchPokemonsUseCase,
+//            fetchPokemonUseCase: fetchPokemonUseCase
+//        )
+//
+//        presenter.delegate = delegate
+//
+//        view.presenter = presenter
+        
+        return view
+    }
+    
+    static func makePokemonScene() -> PokemonViewController {
+//        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
+//        let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
+        
+        let view = PokemonViewController()
+        
+//        let presenter = HomePresenter(
+//            view: view,
+//            fetchPokemonsUseCase: fetchPokemonsUseCase,
+//            fetchPokemonUseCase: fetchPokemonUseCase
+//        )
+//
+//        presenter.delegate = delegate
+//
+//        view.presenter = presenter
+        
+        return view
+    }
+    
 }

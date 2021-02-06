@@ -32,23 +32,28 @@ final class ApplicationCoordinator: BaseCoordinator {
 extension ApplicationCoordinator: HomeViewPresenterDelegate {
     
     func showFilter() {
-        print("Show Filter")
+        let coordinator = FilterCoordinator()
+        start(coordinator: coordinator)
     }
     
     func showGenerations() {
-        
+        let coordinator = GenerationsCoordinator()
+        start(coordinator: coordinator)
     }
     
     func showSort() {
-        
+        let coordinator = SortCoordinator()
+        start(coordinator: coordinator)
     }
     
     func showSearch() {
-        
+        let coordinator = SearchCoordinator()
+        start(coordinator: coordinator)
     }
     
-    func show(_ pokemon: Pokemon) {
-        
+    func show(_ pokemon: PokemonIndentifier) {
+        let coordinator = PokemonCoordinator()
+        start(coordinator: coordinator)
     }
     
 }

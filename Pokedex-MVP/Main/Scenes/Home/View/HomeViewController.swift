@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
     
     private lazy var searchInputView: SearchInputView = {
         let input = SearchInputView()
+        input.delegate = self
         input.placeholder = "What Pokemon are you looking for?"
         return input
     }()
@@ -224,6 +225,15 @@ extension HomeViewController: TableViewDataSourceDelegate {
     
     func prefetchRows(at indexPaths: [IndexPath]) {
         indexPaths.forEach { presenter.fetchPokemon(at: $0.row) }
+    }
+    
+}
+
+extension HomeViewController: SearchInputViewDelegate {
+    
+    func searchShouldBeginEditing() -> Bool {
+        presenter.searchViewTapped()
+        return false
     }
     
 }

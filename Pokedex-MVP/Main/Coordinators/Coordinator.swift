@@ -19,4 +19,9 @@ class BaseCoordinator: Coordinator {
     func start() {
         fatalError("Start method should be implemented.")
     }
+    
+    func start(coordinator: Coordinator) {
+        coordinator.navigationController = navigationController
+        coordinator.start()
+    }
 }

@@ -36,7 +36,7 @@ protocol HomeViewPresenterDelegate: class {
     func showGenerations()
     func showSort()
     func showSearch()
-    func show(_ pokemon: Pokemon)
+    func show(_ pokemon: PokemonIndentifier)
 }
 
 class HomePresenter {
@@ -156,7 +156,8 @@ extension HomePresenter: HomeViewPresenter {
     }
     
     func didSelect(row: Int) {
-        print(row)
+        let item = paginationItems[row]
+        delegate?.show(item.name)
     }
     
     func fetchPokemon(at row: Int) {
