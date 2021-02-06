@@ -1,0 +1,54 @@
+//
+//  HomeCoordinator.swift
+//  Pokedex-MVP
+//
+//  Created by Adriano Souza Costa on 06/02/21.
+//
+
+import Foundation
+import UIKit
+
+final class ApplicationCoordinator: BaseCoordinator {
+    
+    // MARK: - Private Properties
+    
+    private let mainWindow: UIWindow
+    
+    // MARK: - Public Methods
+    
+    init(mainWindow: UIWindow) {
+        self.mainWindow = mainWindow
+        super.init()
+    }
+    
+    override func start() {
+        let controller = SceneFactory.makeHomeScene(delegate: self)
+        navigationController.viewControllers = [controller]
+        mainWindow.rootViewController = navigationController
+    }
+    
+}
+
+extension ApplicationCoordinator: HomeViewPresenterDelegate {
+    
+    func showFilter() {
+        print("Show Filter")
+    }
+    
+    func showGenerations() {
+        
+    }
+    
+    func showSort() {
+        
+    }
+    
+    func showSearch() {
+        
+    }
+    
+    func show(_ pokemon: Pokemon) {
+        
+    }
+    
+}

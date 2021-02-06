@@ -12,9 +12,6 @@ protocol HomePresenterView: class {
     func update(row: Int)
     func showLoading(status: Bool)
     func show(error: Error)
-    func showFilter()
-    func showGenerations()
-    func showSort()
 }
 
 class HomeViewController: UIViewController {
@@ -203,18 +200,6 @@ extension HomeViewController: HomePresenterView {
     
     func show(error: Error) {
         alert(error: error)
-    }
-    
-    func showFilter() {
-        print("Exibir controle")
-    }
-    
-    func showGenerations() {
-        print("Exibir generations")
-    }
-    
-    func showSort() {
-        print("Exibir sort")
     }
     
 }

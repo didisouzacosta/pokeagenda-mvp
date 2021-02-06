@@ -1,5 +1,5 @@
 //
-//  ControllerFactory.swift
+//  SceneFactory.swift
 //  Pokedex-MVP
 //
 //  Created by Adriano Souza Costa on 28/01/21.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-class ControllerFactory {
+class SceneFactory {
     
-    static func makeHomeViewController() -> HomeViewController {
+    static func makeHomeScene(delegate: HomeViewPresenterDelegate?) -> HomeViewController {
         let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
         let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
         
@@ -20,6 +20,8 @@ class ControllerFactory {
             fetchPokemonsUseCase: fetchPokemonsUseCase,
             fetchPokemonUseCase: fetchPokemonUseCase
         )
+        
+        presenter.delegate = delegate
         
         view.presenter = presenter
         

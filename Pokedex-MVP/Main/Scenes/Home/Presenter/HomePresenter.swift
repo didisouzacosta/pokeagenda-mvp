@@ -31,7 +31,19 @@ protocol HomeViewPresenter {
     func retryFetchPokemon(with row: Int)
 }
 
+protocol HomeViewPresenterDelegate: class {
+    func showFilter()
+    func showGenerations()
+    func showSort()
+    func showSearch()
+    func show(_ pokemon: Pokemon)
+}
+
 class HomePresenter {
+    
+    // MARK: Public Properties
+    
+    weak var delegate: HomeViewPresenterDelegate?
     
     // MARK: Private Properties
     
@@ -140,7 +152,7 @@ extension HomePresenter: HomeViewPresenter {
     }
     
     func searchViewTapped() {
-        
+        delegate?.showSearch()
     }
     
     func didSelect(row: Int) {
@@ -152,15 +164,15 @@ extension HomePresenter: HomeViewPresenter {
     }
     
     func generationsButtonTapped() {
-        view?.showGenerations()
+        delegate?.showGenerations()
     }
     
     func sortButtonTapped() {
-        view?.showSort()
+        delegate?.showSort()
     }
     
     func filterButtonTapped() {
-        view?.showFilter()
+        delegate?.showFilter()
     }
     
     func loadNextPage() {
