@@ -9,17 +9,7 @@ import UIKit
 
 protocol TableViewCellBuilder {
     
-    var heightCell: CGFloat { get }
-    
     func registerCell(in tableView: UITableView)
     func tableViewCell(at indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell
-    
-}
-
-extension TableViewCellBuilder {
-    
-    var heightCell: CGFloat {
-        return UITableView.automaticDimension
-    }
     
 }

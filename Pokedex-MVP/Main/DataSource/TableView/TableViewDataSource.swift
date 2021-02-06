@@ -11,6 +11,7 @@ import UIKit
 protocol TableViewDataSourceDelegate {
     func didSelect(rowAt indexPath: IndexPath)
     func willDisplay(rowAt indexPath: IndexPath)
+    func prefetchRows(at indexPaths: [IndexPath])
     func didScroll(_ scrollView: UIScrollView)
 }
 
@@ -45,16 +46,16 @@ final class TableViewDataSource: NSObject {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 140
         
         registerCells()
     }
     
-    func reloadData() {
-        tableView?.reloadData()
-    }
-    
     func reloadRow(at indexPath: IndexPath) {
-        tableView?.reloadRows(at: [indexPath], with: .none)
+        tableView?.reloadRows(at: [indexPath], with: .automatic)
     }
     
     // MARK: - Private Methods
@@ -66,6 +67,17 @@ final class TableViewDataSource: NSObject {
             .flatMap { $0.cellBuilders }
             .forEach { $0.registerCell(in: tableView) }
     }
+}
+
+extension TableViewDataSource: UITableViewDataSourcePrefetching {
+    
+    func tableView(
+        _ tableView: UITableView,
+        prefetchRowsAt indexPaths: [IndexPath]
+    ) {
+        delegate?.prefetchRows(at: indexPaths)
+    }
+    
 }
 
 extension TableViewDataSource: UITableViewDataSource {
@@ -96,14 +108,6 @@ extension TableViewDataSource: UITableViewDataSource {
     ) -> UITableViewCell {
         let section = sections[indexPath.section]
         return section.cell(at: indexPath, on: tableView)
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        heightForRowAt indexPath: IndexPath
-    ) -> CGFloat {
-        let section = sections[indexPath.section]
-        return section.cellHeight(forCellAt: indexPath)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

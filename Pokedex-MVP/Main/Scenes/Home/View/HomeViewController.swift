@@ -190,7 +190,7 @@ extension HomeViewController: HomePresenterView {
     
     func reloadData() {
         dataSource.sections = [section]
-        dataSource.reloadData()
+        tableView.reloadData()
     }
     
     func update(row: Int) {
@@ -242,9 +242,13 @@ extension HomeViewController: TableViewDataSourceDelegate {
     func willDisplay(rowAt indexPath: IndexPath) {
         presenter.fetchPokemon(at: indexPath.row)
         
-        if indexPath.row == presenter.listItems.count - 1 {
+        if indexPath.row == presenter.listItems.count - 5 {
             presenter.loadNextPage()
         }
+    }
+    
+    func prefetchRows(at indexPaths: [IndexPath]) {
+        indexPaths.forEach { presenter.fetchPokemon(at: $0.row) }
     }
     
 }

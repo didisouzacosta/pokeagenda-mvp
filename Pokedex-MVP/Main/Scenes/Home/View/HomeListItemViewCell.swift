@@ -40,7 +40,14 @@ class HomeListItemViewCell: UITableViewCell {
     
     // MARK: - Public Methods
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        resetState()
+    }
+    
     func configure(with item: HomeListItem) {
+        resetState()
+        
         switch item.state {
         case .isLoading:
             setupLoading()
@@ -58,8 +65,6 @@ class HomeListItemViewCell: UITableViewCell {
     // MARK: - Private Methods
     
     private func setupLoading() {
-        boxView.isHidden = true
-        errorStack.isHidden = true
         loadingView.startAnimating()
     }
     
@@ -70,7 +75,6 @@ class HomeListItemViewCell: UITableViewCell {
     }
     
     private func setupBox(with color: UIColor) {
-        errorStack.isHidden = true
         boxView.isHidden = false
         boxView.layer.cornerRadius = 10
         boxView.backgroundColor = color
@@ -100,6 +104,12 @@ class HomeListItemViewCell: UITableViewCell {
         badgesStack.subviews.forEach { $0.removeFromSuperview() }
         let badges = types.map { BadgeView(type: $0) }
         badges.forEach { badgesStack.addArrangedSubview($0) }
+    }
+    
+    private func resetState() {
+        boxView.isHidden = true
+        errorStack.isHidden = true
+        loadingView.stopAnimating()
     }
     
     // MARK: - Actions

@@ -30,8 +30,4 @@ extension TableViewSection {
         return row.tableViewCell(at: indexPath, in: tableView)
     }
     
-    func cellHeight(forCellAt indexPath: IndexPath) -> CGFloat {
-        return cellBuilders[indexPath.row].heightCell
-    }
-    
 }
