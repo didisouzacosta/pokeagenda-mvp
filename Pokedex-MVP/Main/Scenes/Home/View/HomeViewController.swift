@@ -32,19 +32,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private var section: TableViewSection {
-        let itemsBuilders = presenter.listItems.map { item -> HomeListItemCellBuilder in
-            let cell = HomeListItemCellBuilder(homeListItem: item)
-            cell.retryHandler = { [weak self] row in
-                self?.presenter.retryFetchPokemon(with: row)
-                
-            }
-            return cell
-        }
-        
-        return TableViewSection(cellBuilders: itemsBuilders)
-    }
-    
     private lazy var searchInputView: SearchInputView = {
         let input = SearchInputView()
         input.placeholder = "What Pokemon are you looking for?"
@@ -112,10 +99,8 @@ class HomeViewController: UIViewController {
     }
     
     private func setupDataSource() {
-        dataSource = TableViewDataSource(
-            sections: [section],
-            tableView: tableView
-        )
+        dataSource = TableViewDataSource(sections: [], tableView: tableView)
+        dataSource.estimatedRowHeight = 174
     }
     
     private func setupGenerationsButton() {
@@ -170,6 +155,15 @@ class HomeViewController: UIViewController {
         topConstraint.constant = -finalHeight
     }
     
+    private func makeItemBuilder(with item: HomeListItem) -> HomeListItemCellBuilder {
+        let cell = HomeListItemCellBuilder(homeListItem: item)
+        cell.retryHandler = { [weak self] row in
+            self?.presenter.retryFetchPokemon(with: row)
+            
+        }
+        return cell
+    }
+    
     // MARK: - Actions
     
     @IBAction func showGenerationsTapped() {
@@ -189,15 +183,13 @@ class HomeViewController: UIViewController {
 extension HomeViewController: HomePresenterView {
     
     func reloadData() {
+        let items = presenter.listItems.map { makeItemBuilder(with: $0) }
+        let section = TableViewSection(cellBuilders: items)
         dataSource.sections = [section]
     }
     
     func update(row: Int) {
-        let itemBuilder = HomeListItemCellBuilder(homeListItem: presenter.listItems[row])
-        itemBuilder.retryHandler = { [weak self] row in
-            self?.presenter.retryFetchPokemon(with: row)
-        }
-        
+        let itemBuilder = makeItemBuilder(with: presenter.listItems[row])
         dataSource.sections[0].cellBuilders[row] = itemBuilder
     }
     

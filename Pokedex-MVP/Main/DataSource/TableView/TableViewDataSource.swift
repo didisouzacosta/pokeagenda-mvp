@@ -24,6 +24,8 @@ final class TableViewDataSource: NSObject {
     // MARK: - Public Properties
     
     var delegate: TableViewDataSourceDelegate?
+    var rowHeight = UITableView.automaticDimension
+    var estimatedRowHeight: CGFloat = 140
     
     var sections: [TableViewSection] {
         didSet {
@@ -51,8 +53,8 @@ final class TableViewDataSource: NSObject {
         tableView.dataSource = self
         tableView.prefetchDataSource = self
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 140
+        tableView.rowHeight = rowHeight
+        tableView.estimatedRowHeight = estimatedRowHeight
         
         registerCells()
     }
