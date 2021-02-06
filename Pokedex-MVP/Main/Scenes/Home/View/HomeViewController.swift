@@ -231,10 +231,10 @@ extension HomeViewController: TableViewDataSourceDelegate {
     
     func willDisplay(rowAt indexPath: IndexPath) {
         presenter.fetchPokemon(at: indexPath.row)
-        
-        if indexPath.row == presenter.listItems.count - 5 {
-            presenter.loadNextPage()
-        }
+    }
+    
+    func onReachedTheEndOfTheScroll() {
+        presenter.loadNextPage()
     }
     
     func prefetchRows(at indexPaths: [IndexPath]) {

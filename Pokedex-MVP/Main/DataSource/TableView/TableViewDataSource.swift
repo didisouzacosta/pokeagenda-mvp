@@ -13,10 +13,13 @@ protocol TableViewDataSourceDelegate {
     func willDisplay(rowAt indexPath: IndexPath)
     func prefetchRows(at indexPaths: [IndexPath])
     func didScroll(_ scrollView: UIScrollView)
+    func onReachedTheEndOfTheScroll()
 }
 
 extension TableViewDataSourceDelegate {
+    func prefetchRows(at indexPaths: [IndexPath]) {}
     func didScroll(_ scrollView: UIScrollView) {}
+    func onReachedTheEndOfTheScroll() {}
 }
 
 final class TableViewDataSource: NSObject {
@@ -113,6 +116,14 @@ extension TableViewDataSource: UITableViewDataSource {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.didScroll(scrollView)
+        
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        
+        if distanceFromBottom < height {
+            delegate?.onReachedTheEndOfTheScroll()
+        }
     }
     
 }
