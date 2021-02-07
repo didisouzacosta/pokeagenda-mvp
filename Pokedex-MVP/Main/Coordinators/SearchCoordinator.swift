@@ -12,24 +12,19 @@ final class SearchCoordinator: BaseCoordinator {
     
     // MARK: - Private Properties
     
-    private let presenterNavigation = UINavigationController()
+//    private let presenterNavigation = UINavigationController()
     
     // MARK: - Public Methods
     
     override func start() {
         let controller = SceneFactory.makeSearchScene(delegate: self)
-        presenterNavigation.viewControllers = [controller]
-        presenterNavigation.navigationBar.prefersLargeTitles = true
-        navigationController.show(presenterNavigation, sender: nil)
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.show(controller, sender: nil)
     }
     
 }
 
 extension SearchCoordinator: SearchViewPresenterDelegate {
-    
-    func cancel() {
-        presenterNavigation.dismiss(animated: true)
-    }
     
     func show(_ pokemon: PokemonIndentifier) {
         let coordinator = PokemonCoordinator()

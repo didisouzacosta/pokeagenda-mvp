@@ -14,7 +14,7 @@ final class GenerationsCoordinator: BaseCoordinator {
     
     override func start() {
         let controller = SceneFactory.makeGenerationsScene()
-        navigationController.present(controller, animated: true)
+        navigationController.presentPanModal(controller)
     }
     
 }

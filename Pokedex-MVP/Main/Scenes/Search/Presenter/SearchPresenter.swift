@@ -8,16 +8,13 @@
 import Foundation
 
 protocol SearchViewPresenter {
-    var listItems: [HomeListItem] { get }
+    var pokemons: [PokemonViewModel] { get }
     
-    func fetchPokemon(at row: Int)
-    func retryFetchPokemon(with row: Int)
+    func search(_ pokemon: PokemonIndentifier)
     func didSelect(row: Int)
-    func cancelTapped()
 }
 
 protocol SearchViewPresenterDelegate: class {
-    func cancel()
     func show(_ pokemon: PokemonIndentifier)
 }
 
@@ -29,32 +26,53 @@ class SearchPresenter {
     
     // MARK: - Private Properties
     
+    private let fetchPokemonUseCase: FetchPokemonUseCaseProtocol
+    
     private weak var view: SearchPresenterView?
+    
+    private var isLoading = false {
+        didSet { view?.showLoading(status: isLoading) }
+    }
+    
+    private var _pokemons: [Pokemon] = [] {
+        didSet { view?.reloadData() }
+    }
     
     // MARK: - Public Methods
     
-    init(view: SearchPresenterView) {
+    init(
+        view: SearchPresenterView,
+        fetchPokemonUseCase: FetchPokemonUseCaseProtocol
+    ) {
         self.view = view
+        self.fetchPokemonUseCase = fetchPokemonUseCase
+    }
+    
+    func search(_ pokemon: PokemonIndentifier) {
+        view?.showLoading(status: true)
+        _pokemons.removeAll()
+        
+        isLoading = true
+        
+        fetchPokemonUseCase.execute(pokemon) { [weak self] response in
+            if let pokemon = try? response.get() {
+                self?._pokemons = [pokemon]
+            }
+            
+            self?.isLoading = false
+        }
     }
     
 }
 
 extension SearchPresenter: SearchViewPresenter {
     
-    var listItems: [HomeListItem] {
-        return []
+    var pokemons: [PokemonViewModel] {
+        return _pokemons.map(PokemonViewModel.init)
     }
-    
-    func fetchPokemon(at row: Int) {}
-    
-    func retryFetchPokemon(with row: Int) {}
     
     func didSelect(row: Int) {
-        delegate?.show("bulbasour")
-    }
-    
-    func cancelTapped() {
-        delegate?.cancel()
+        delegate?.show(pokemons[row].name)
     }
     
 }

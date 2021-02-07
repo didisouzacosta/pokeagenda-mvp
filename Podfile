@@ -7,6 +7,7 @@ target 'Pokedex-MVP' do
   
   pod 'Alamofire', '~> 5.2'
   pod 'Nuke', '~> 9.0'
+  pod 'PanModal'
   
   target 'Pokedex-MVPTests' do
     inherit! :search_paths

@@ -10,7 +10,10 @@ import Foundation
 public typealias PokemonIndentifier = String
 
 public protocol FetchPokemonUseCaseProtocol {
-    func execute(_ identifier: PokemonIndentifier, completionHandler: @escaping (Result<Pokemon, Error>) -> Void)
+    func execute(
+        _ identifier: PokemonIndentifier,
+        completionHandler: @escaping (Result<Pokemon, Error>) -> Void
+    )
 }
 
 public final class FetchPokemonUseCase: FetchPokemonUseCaseProtocol {
@@ -31,7 +34,10 @@ public final class FetchPokemonUseCase: FetchPokemonUseCaseProtocol {
         completionHandler: @escaping (Result<Pokemon, Error>) -> Void
     ) {
         guard identifier.count >= minNameLength else { return }
-        pokemonRepository.fetchPokemon(identifier, completionHandler: completionHandler)
+        pokemonRepository.fetchPokemon(
+            identifier.lowercased(),
+            completionHandler: completionHandler
+        )
     }
     
 }

@@ -10,7 +10,6 @@ import UIKit
 
 protocol SearchPresenterView: class {
     func reloadData()
-    func update(row: Int)
     func showLoading(status: Bool)
     func show(error: Error)
 }
@@ -23,20 +22,28 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private lazy var cancelButton = UIBarButtonItem.init(
-        title: "Cancel",
-        style: .done,
-        target: self,
-        action: #selector(cancelTapped)
-    )
+    private var dataSource: TableViewDataSource! {
+        didSet {
+            dataSource.delegate = self
+            tableViewController.tableView.reloadData()
+        }
+    }
+    
+    private lazy var tableViewController = UITableViewController(style: .plain)
 
     private lazy var searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: nil)
+        let searchController = UISearchController(searchResultsController: tableViewController)
         searchController.searchBar.placeholder = "Pokemon name"
         searchController.searchBar.searchBarStyle = .minimal
         searchController.definesPresentationContext = true
+        searchController.searchResultsUpdater = self
         return searchController
     }()
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
 
     // MARK: - Public Methods
     
@@ -44,8 +51,10 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         setupTitle()
-        setupCancelButton()
         setupSearch()
+        setupDataSource()
+        setupSearchTitle()
+        setupSearchMessage()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,18 +70,25 @@ final class SearchViewController: UIViewController {
         navigationItem.title = "Search"
     }
     
-    private func setupCancelButton() {
-        navigationItem.leftBarButtonItem = cancelButton
-    }
-    
     private func setupSearch() {
         navigationItem.searchController = searchController
     }
     
-    // MARK: Actions
+    private func setupSearchTitle() {
+        titleLabel.font = Typography.filterName
+        titleLabel.text = "Find your pokemon"
+    }
     
-    @IBAction private func cancelTapped() {
-        presenter.cancelTapped()
+    private func setupSearchMessage() {
+        messageLabel.font = Typography.description
+        messageLabel.text = "Use search to find your favorite pokemon."
+    }
+    
+    private func setupDataSource() {
+        dataSource = TableViewDataSource(
+            sections: [],
+            tableView: tableViewController.tableView
+        )
     }
     
 }
@@ -80,11 +96,9 @@ final class SearchViewController: UIViewController {
 extension SearchViewController: SearchPresenterView {
     
     func reloadData() {
-        
-    }
-    
-    func update(row: Int) {
-        
+        let items = presenter.pokemons.map(SearchCellBuilder.init)
+        let section = TableViewSection(cellBuilders: items)
+        dataSource.sections = [section]
     }
     
     func showLoading(status: Bool) {
@@ -92,7 +106,24 @@ extension SearchViewController: SearchPresenterView {
     }
     
     func show(error: Error) {
-        alert(error: error)
+//        alert(error: error)
+    }
+    
+}
+
+extension SearchViewController: TableViewDataSourceDelegate {
+    
+    func didSelect(rowAt indexPath: IndexPath) {
+        presenter.didSelect(row: indexPath.row)
+    }
+    
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let term = searchController.searchBar.text else { return }
+        presenter.search(term)
     }
     
 }

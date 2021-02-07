@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Pokedex_MVP" customModuleProvider="target">
             <connections>
+                <outlet property="messageLabel" destination="j4o-dZ-3tf" id="9zW-CU-JZK"/>
+                <outlet property="titleLabel" destination="Dey-jU-Bpc" id="a80-1D-Gh3"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Wgb-FK-TNF"/>
             </connections>
         </placeholder>
@@ -18,8 +20,34 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cvE-as-o4p">
+                    <rect key="frame" x="87" y="423.5" width="240" height="49"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dey-jU-Bpc">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4o-dZ-3tf">
+                            <rect key="frame" x="0.0" y="28.5" width="240" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="36w-9t-cx4"/>
+                    </constraints>
+                </stackView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="cvE-as-o4p" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="701-c9-e1f"/>
+                <constraint firstItem="cvE-as-o4p" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8yd-zc-Fut"/>
+            </constraints>
             <point key="canvasLocation" x="132" y="125"/>
         </view>
     </objects>

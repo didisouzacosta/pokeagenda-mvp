@@ -7,5 +7,18 @@
 
 import Foundation
 import UIKit
+import PanModal
 
 final class GenerationsViewController: UIViewController {}
+
+extension GenerationsViewController: PanModalPresentable {
+    
+    var panScrollable: UIScrollView? {
+        return nil
+    }
+
+    var longFormHeight: PanModalHeight {
+        return .contentHeight(400)
+    }
+    
+}

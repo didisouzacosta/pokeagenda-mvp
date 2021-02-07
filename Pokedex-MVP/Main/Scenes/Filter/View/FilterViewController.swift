@@ -7,5 +7,18 @@
 
 import Foundation
 import UIKit
+import PanModal
 
 final class FilterViewController: UIViewController {}
+
+extension FilterViewController: PanModalPresentable {
+    
+    var panScrollable: UIScrollView? {
+        return nil
+    }
+    
+    var longFormHeight: PanModalHeight {
+        return .contentHeight(400)
+    }
+    
+}

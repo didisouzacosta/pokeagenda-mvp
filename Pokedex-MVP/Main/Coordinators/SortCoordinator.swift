@@ -14,7 +14,7 @@ final class SortCoordinator: BaseCoordinator {
     
     override func start() {
         let controller = SceneFactory.makeSortScene()
-        navigationController.present(controller, animated: true)
+        navigationController.presentPanModal(controller)
     }
     
 }

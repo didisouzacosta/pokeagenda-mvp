@@ -102,8 +102,8 @@ class HomeListItemViewCell: UITableViewCell {
     
     private func setupBadges(types: [PokemonType]) {
         badgesStack.subviews.forEach { $0.removeFromSuperview() }
-        let badges = types.map { BadgeView(type: $0) }
-        badges.forEach { badgesStack.addArrangedSubview($0) }
+        let badges = types.map(BadgeView.init)
+        badges.forEach(badgesStack.addArrangedSubview)
     }
     
     private func resetState() {

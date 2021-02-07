@@ -17,6 +17,7 @@ protocol TableViewDataSourceDelegate {
 }
 
 extension TableViewDataSourceDelegate {
+    func willDisplay(rowAt indexPath: IndexPath) {}
     func prefetchRows(at indexPaths: [IndexPath]) {}
     func didScroll(_ scrollView: UIScrollView) {}
     func onReachedTheEndOfTheScroll() {}
@@ -55,9 +56,9 @@ final class TableViewDataSource: NSObject {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.prefetchDataSource = self
-        
         tableView.rowHeight = rowHeight
         tableView.estimatedRowHeight = estimatedRowHeight
+        tableView.tableFooterView = .init(frame: .init(x: 0, y: 0, width: 0, height: 1))
         
         registerCells()
     }

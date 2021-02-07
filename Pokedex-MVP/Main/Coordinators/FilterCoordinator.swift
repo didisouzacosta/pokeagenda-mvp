@@ -14,7 +14,7 @@ final class FilterCoordinator: BaseCoordinator {
     
     override func start() {
         let controller = SceneFactory.makeFilterScene()
-        navigationController.present(controller, animated: true)
+        navigationController.presentPanModal(controller)
     }
     
 }

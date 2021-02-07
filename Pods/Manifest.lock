@@ -2,23 +2,27 @@ PODS:
   - Alamofire (5.4.1)
   - Nimble (9.0.0)
   - Nuke (9.2.4)
+  - PanModal (1.2.7)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - Nimble
   - Nuke (~> 9.0)
+  - PanModal
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Nimble
     - Nuke
+    - PanModal
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
   Nuke: 44439f7a92e665a4f927ecd73cb51f91d93b0e0c
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
 
-PODFILE CHECKSUM: 28b85acb1755b29524eab3019b469c90b3e41134
+PODFILE CHECKSUM: 855f84becc55723f99b0bbb5631655646c3c613a
 
 COCOAPODS: 1.10.0

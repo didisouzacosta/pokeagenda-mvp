@@ -29,12 +29,15 @@ class SceneFactory {
     }
     
     static func makeSearchScene(delegate: SearchViewPresenterDelegate) -> SearchViewController {
-//        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
-//        let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
+        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
         
         let view = SearchViewController()
         
-        let presenter = SearchPresenter(view: view)
+        let presenter = SearchPresenter(
+            view: view,
+            fetchPokemonUseCase: fetchPokemonUseCase
+        )
+        
         presenter.delegate = delegate
         
         view.presenter = presenter
