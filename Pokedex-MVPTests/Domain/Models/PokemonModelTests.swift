@@ -15,6 +15,8 @@ class PokemonModelTests: XCTestCase {
     func testEnsureDecodeModel() throws {
         let json = """
         {
+            "name": "bulbasaur",
+            "order": 1,
             "sprites": {
                 "other": {
                     "official-artwork": {
@@ -48,9 +50,9 @@ class PokemonModelTests: XCTestCase {
         expect(pokemon.sprites.other.officialArtwork.frontDefault.absoluteString) == "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
         expect(pokemon.types.count) == 2
         expect(pokemon.types[0].slot) == 1
-        expect(pokemon.types[0].type.name) == "grass"
+        expect(pokemon.types[0].type.rawValue) == "grass"
         expect(pokemon.types[1].slot) == 2
-        expect(pokemon.types[1].type.name) == "poison"
+        expect(pokemon.types[1].type.rawValue) == "poison"
         expect(pokemon.weight) == 69
     }
     

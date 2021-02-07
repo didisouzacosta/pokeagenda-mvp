@@ -112,9 +112,11 @@ class PokemonRepositoryTests: XCTestCase {
     func testShouldReturnDataIfFetchPokemonSuccess() {
         let apiSpy = PokemonAPISpy()
         apiSpy.pokemon = Pokemon(
+            name: "squartle",
+            order: 5,
             weight: 33,
             types: [
-                .init(slot: 1, type: .init(name: "water"))
+                .init(slot: 1, type: .water)
             ],
             sprites: .init(other: .init(officialArtwork: .init(frontDefault: URL(string: "http://www.img.com.br")!)))
         )
@@ -128,7 +130,7 @@ class PokemonRepositoryTests: XCTestCase {
                     let result = try response.get()
                     
                     expect(result.types.first?.slot) == 1
-                    expect(result.types.first?.type.name) == "water"
+                    expect(result.types.first?.type.rawValue) == "water"
                     expect(result.weight) == 33
                     
                     let cache = try cacheSpy.get(
@@ -137,7 +139,7 @@ class PokemonRepositoryTests: XCTestCase {
                     )
                     
                     expect(cache?.types.first?.slot) == 1
-                    expect(cache?.types.first?.type.name) == "water"
+                    expect(cache?.types.first?.type.rawValue) == "water"
                 } catch {
                     fail(error.localizedDescription)
                 }
@@ -155,9 +157,11 @@ class PokemonRepositoryTests: XCTestCase {
         
         try cacheSpy.set(
             Pokemon(
+                name: "lapras",
+                order: 44,
                 weight: 33,
                 types: [
-                    .init(slot: 1, type: .init(name: "water"))
+                    .init(slot: 1, type: .water)
                 ],
                 sprites: .init(other: .init(officialArtwork: .init(frontDefault: URL(string: "http://images.com")!)))
             ),
@@ -170,7 +174,7 @@ class PokemonRepositoryTests: XCTestCase {
                     let result = try response.get()
 
                     expect(result.types.first?.slot) == 1
-                    expect(result.types.first?.type.name) == "water"
+                    expect(result.types.first?.type.rawValue) == "water"
                     expect(result.weight) == 33
                     
                     expect(apiSpy.pokemon).to(beNil())

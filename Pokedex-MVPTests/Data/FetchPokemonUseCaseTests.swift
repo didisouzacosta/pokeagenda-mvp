@@ -17,9 +17,11 @@ class FetchPokemonUseCaseTests: XCTestCase {
         let useCase = FetchPokemonUseCase(repository)
         
         repository.pokemon = Pokemon(
+            name: "charmander",
+            order: 4,
             weight: 22,
             types: [
-                .init(slot: 1, type: .init(name: "fire"))
+                .init(slot: 1, type: .fire)
             ],
             sprites: .init(
                 other: .init(
@@ -36,7 +38,7 @@ class FetchPokemonUseCaseTests: XCTestCase {
                     let result = try response.get()
                     
                     expect(result.types[0].slot) == 1
-                    expect(result.types[0].type.name) == "fire"
+                    expect(result.types[0].type.rawValue) == "fire"
                     expect(repository.name) == "charmander"
                 } catch {
                     fail(error.localizedDescription)

@@ -67,8 +67,10 @@ class PokemonAPITests: XCTestCase {
     func testShouldBeReturnPokemonIfFetchPokemonSuccess() {
         let networkSpy = NetworkSpy()
         networkSpy.result = Pokemon(
+            name: "bulbasaur",
+            order: 1,
             weight: 88,
-            types: [.init(slot: 1, type: .init(name: "grass"))],
+            types: [.init(slot: 1, type: .grass)],
             sprites: .init(other: .init(officialArtwork: .init(frontDefault: URL(string: "https:www.image.com/cover.jpb")!)))
         )
         
@@ -81,7 +83,7 @@ class PokemonAPITests: XCTestCase {
                     
                     expect(result.weight) == 88
                     expect(result.types.first?.slot) == 1
-                    expect(result.types.first?.type.name) == "grass"
+                    expect(result.types.first?.type.rawValue) == "grass"
                     
                     expect(networkSpy.endpoint?.absoluteString) == "https://pokeapi.co/api/v2/pokemon/charmander"
                     expect(networkSpy.method) == .get
