@@ -33,6 +33,11 @@ class SearchPresenter {
     private var isLoading = false {
         didSet {
             guard oldValue != isLoading else { return }
+            
+            if isLoading {
+                view?.noHaveResults(status: false, term: nil)
+            }
+            
             view?.showLoading(status: isLoading)
         }
     }

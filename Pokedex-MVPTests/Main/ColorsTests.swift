@@ -58,7 +58,7 @@ class ColorsTests: XCTestCase {
         expect(Colors.type.ice).to(equal(UIColor.hex("#61CEC0")))
         expect(Colors.type.normal).to(equal(UIColor.hex("#9DA0AA")))
         expect(Colors.type.poison).to(equal(UIColor.hex("#A552CC")))
-        expect(Colors.type.pyshic).to(equal(UIColor.hex("#EA5D60")))
+        expect(Colors.type.psychic).to(equal(UIColor.hex("#EA5D60")))
         expect(Colors.type.rock).to(equal(UIColor.hex("#BAAB82")))
         expect(Colors.type.steel).to(equal(UIColor.hex("#417D9A")))
         expect(Colors.type.water).to(equal(UIColor.hex("#4A90DA")))
