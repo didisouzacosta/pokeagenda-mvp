@@ -103,20 +103,16 @@ class SceneFactory {
     }
     
     static func makePokemonScene() -> PokemonViewController {
-//        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
-//        let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
+        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
         
         let view = PokemonViewController()
         
-//        let presenter = HomePresenter(
-//            view: view,
-//            fetchPokemonsUseCase: fetchPokemonsUseCase,
-//            fetchPokemonUseCase: fetchPokemonUseCase
-//        )
-//
-//        presenter.delegate = delegate
-//
-//        view.presenter = presenter
+        let presenter = PokemonPresenter(
+            view: view,
+            fetchPokemonUseCase: fetchPokemonUseCase
+        )
+
+        view.presenter = presenter
         
         return view
     }

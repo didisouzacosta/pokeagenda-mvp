@@ -15,7 +15,7 @@ protocol SearchViewPresenter {
 }
 
 protocol SearchViewPresenterDelegate: class {
-    func show(_ pokemon: PokemonIndentifier)
+    func show(pokemon identifier: PokemonIndentifier)
 }
 
 class SearchPresenter {
@@ -87,7 +87,7 @@ extension SearchPresenter: SearchViewPresenter {
     }
     
     func didSelect(row: Int) {
-        delegate?.show(pokemons[row].name)
+        delegate?.show(pokemon: pokemons[row].name)
     }
     
 }

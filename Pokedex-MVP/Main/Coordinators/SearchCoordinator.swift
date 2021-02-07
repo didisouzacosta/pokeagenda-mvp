@@ -21,9 +21,10 @@ final class SearchCoordinator: BaseCoordinator {
 
 extension SearchCoordinator: SearchViewPresenterDelegate {
     
-    func show(_ pokemon: PokemonIndentifier) {
+    func show(pokemon identifier: PokemonIndentifier) {
         let coordinator = PokemonCoordinator()
-        start(coordinator: coordinator)
+        coordinator.navigationController = navigationController
+        coordinator.start(with: identifier)
     }
     
 }

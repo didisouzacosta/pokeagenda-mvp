@@ -8,7 +8,18 @@
 import Foundation
 import UIKit
 
+protocol PokemonPresenterView: class {
+    func fetchPokemon(with identifier: PokemonIndentifier)
+    func showLoading(status: Bool)
+    func show(error: Error)
+    func setup(with pokemon: PokemonViewModel)
+}
+
 final class PokemonViewController: UIViewController {
+    
+    // MARK: - Public Properties
+    
+    var presenter: PokemonViewPresenter!
     
     // MARK - Public Methods
     
@@ -26,7 +37,24 @@ final class PokemonViewController: UIViewController {
     // MARK - Private Methods
     
     private func setupTitle() {
-        navigationItem.title = "Pokemon"
+        
     }
     
+}
+
+extension PokemonViewController: PokemonPresenterView {
+    
+    func fetchPokemon(with identifier: PokemonIndentifier) {
+        presenter.fetchPokemon(with: identifier)
+    }
+    
+    func showLoading(status: Bool) {}
+    
+    func show(error: Error) {
+        alert(error: error)
+    }
+    
+    func setup(with pokemon: PokemonViewModel) {
+        print(pokemon)
+    }
 }

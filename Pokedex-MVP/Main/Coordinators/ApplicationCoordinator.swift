@@ -51,9 +51,10 @@ extension ApplicationCoordinator: HomeViewPresenterDelegate {
         start(coordinator: coordinator)
     }
     
-    func show(_ pokemon: PokemonIndentifier) {
+    func show(pokemon identifier: PokemonIndentifier) {
         let coordinator = PokemonCoordinator()
-        start(coordinator: coordinator)
+        coordinator.navigationController = navigationController
+        coordinator.start(with: identifier)
     }
     
 }

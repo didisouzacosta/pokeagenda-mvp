@@ -15,8 +15,13 @@ final class PokemonCoordinator: BaseCoordinator {
     // MARK: - Public Methods
     
     override func start() {
+        fatalError("Start method was not implemented.")
+    }
+    
+    func start(with identifier: PokemonIndentifier) {
         let controller = SceneFactory.makePokemonScene()
         navigationController.show(controller, sender: nil)
+        controller.fetchPokemon(with: identifier)
     }
     
 }
