@@ -18,10 +18,13 @@ public protocol FetchPokemonUseCaseProtocol {
 
 public final class FetchPokemonUseCase: FetchPokemonUseCaseProtocol {
     
+    // MARK: - Public Properties
+    
+    public static let minNameLength = 3
+    
     // MARK: - Private Properties
     
     private let pokemonRepository: PokemonRepositoryProtocol
-    private let minNameLength = 3
     
     // MARK: - Public Methods
     
@@ -33,7 +36,7 @@ public final class FetchPokemonUseCase: FetchPokemonUseCaseProtocol {
         _ identifier: PokemonIndentifier,
         completionHandler: @escaping (Result<Pokemon, Error>) -> Void
     ) {
-        guard identifier.count >= minNameLength else { return }
+        guard identifier.count >= FetchPokemonUseCase.minNameLength else { return }
         pokemonRepository.fetchPokemon(
             identifier.lowercased(),
             completionHandler: completionHandler

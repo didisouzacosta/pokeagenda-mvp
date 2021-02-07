@@ -11,6 +11,7 @@ import UIKit
 protocol SearchPresenterView: class {
     func reloadData()
     func showLoading(status: Bool)
+    func noHaveResults(status: Bool, term: String?)
 }
 
 final class SearchViewController: UIViewController {
@@ -37,6 +38,8 @@ final class SearchViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadStatusLabel: UILabel!
+    @IBOutlet weak var noResultsFoundLabel: UILabel!
     @IBOutlet weak var extraHeaderContentStack: UIStackView!
 
     // MARK: - Public Methods
@@ -47,6 +50,7 @@ final class SearchViewController: UIViewController {
         setupTitle()
         setupSearchInputView()
         setupTableView()
+        setupLoadStatus()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +77,10 @@ final class SearchViewController: UIViewController {
         tableView.tableFooterView = .tableFooterView
     }
     
+    private func setupLoadStatus() {
+        loadStatusLabel.text = "Loading..."
+    }
+    
 }
 
 extension SearchViewController: SearchPresenterView {
@@ -84,7 +92,12 @@ extension SearchViewController: SearchPresenterView {
     }
     
     func showLoading(status: Bool) {
-        
+        loadStatusLabel.isHidden = !status
+    }
+    
+    func noHaveResults(status: Bool, term: String?) {
+        noResultsFoundLabel.isHidden = !status
+        noResultsFoundLabel.text = "No results were found to \(term ?? "current term")"
     }
     
 }

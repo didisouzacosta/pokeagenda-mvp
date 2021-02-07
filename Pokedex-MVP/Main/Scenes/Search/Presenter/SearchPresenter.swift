@@ -31,7 +31,10 @@ class SearchPresenter {
     private weak var view: SearchPresenterView?
     
     private var isLoading = false {
-        didSet { view?.showLoading(status: isLoading) }
+        didSet {
+            guard oldValue != isLoading else { return }
+            view?.showLoading(status: isLoading)
+        }
     }
     
     private var _pokemons: [Pokemon] = [] {
@@ -49,14 +52,21 @@ class SearchPresenter {
     }
     
     func search(_ pokemon: PokemonIndentifier) {
-        view?.showLoading(status: true)
-        _pokemons.removeAll()
+        if pokemon.count < FetchPokemonUseCase.minNameLength {
+            isLoading = false
+            view?.noHaveResults(status: false, term: nil)
+            return
+        }
         
         isLoading = true
         
         fetchPokemonUseCase.execute(pokemon) { [weak self] response in
             if let pokemon = try? response.get() {
                 self?._pokemons = [pokemon]
+                self?.view?.noHaveResults(status: false, term: nil)
+            } else {
+                self?._pokemons.removeAll()
+                self?.view?.noHaveResults(status: true, term: pokemon)
             }
             
             self?.isLoading = false

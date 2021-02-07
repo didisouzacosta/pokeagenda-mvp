@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Pokedex_MVP" customModuleProvider="target">
             <connections>
                 <outlet property="extraHeaderContentStack" destination="SAe-wH-6Kz" id="qkF-6i-b21"/>
+                <outlet property="loadStatusLabel" destination="xtK-vY-EdW" id="VaR-c8-YEF"/>
+                <outlet property="noResultsFoundLabel" destination="ve5-rG-STi" id="STS-U0-bSK"/>
                 <outlet property="tableView" destination="L1a-M7-hVe" id="bhF-72-yg1"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Wgb-FK-TNF"/>
             </connections>
@@ -34,7 +36,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dm8-pc-B59">
                             <rect key="frame" x="8" y="16" width="398" height="46"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="e8o-GA-RDC">
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e8o-GA-RDC">
                                     <rect key="frame" x="8" y="0.0" width="382" height="30"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SAe-wH-6Kz">
@@ -43,6 +45,18 @@
                                                 <constraint firstAttribute="height" constant="30" placeholder="YES" id="UvL-D4-Hfl"/>
                                             </constraints>
                                         </stackView>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="load status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtK-vY-EdW">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no results found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ve5-rG-STi">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </stackView>
                             </subviews>
@@ -93,7 +107,7 @@
                 <constraint firstItem="dd1-Va-SUP" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="jFh-1k-sjU"/>
                 <constraint firstItem="L1a-M7-hVe" firstAttribute="top" secondItem="0ou-E5-Yah" secondAttribute="bottom" id="lt1-qv-SHB"/>
             </constraints>
-            <point key="canvasLocation" x="191" y="71"/>
+            <point key="canvasLocation" x="-104" y="89"/>
         </view>
     </objects>
     <resources>
