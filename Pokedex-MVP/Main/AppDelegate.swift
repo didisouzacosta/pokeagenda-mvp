@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         setupApplicationCoordinator()
+        setupNavigationBar()
         return true
     }
     
@@ -36,6 +37,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.applicationCoordinator = ApplicationCoordinator(mainWindow: window)
         applicationCoordinator.start()
         window.makeKeyAndVisible()
+    }
+    
+    private func setupNavigationBar() {
+        let navigationBar = UINavigationBar.appearance()
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.backgroundColor = .clear
+        navigationBar.isTranslucent = true
+        navigationBar.tintColor = Colors.text.black
     }
 
 }

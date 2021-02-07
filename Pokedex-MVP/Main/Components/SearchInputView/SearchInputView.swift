@@ -9,10 +9,13 @@ import Foundation
 import UIKit
 
 protocol SearchInputViewDelegate {
+    func textDidChange(text: String?)
     func searchShouldBeginEditing() -> Bool
 }
 
 extension SearchInputViewDelegate {
+    
+    func textDidChange(text: String?) {}
     
     func searchShouldBeginEditing() -> Bool {
         return true
@@ -52,11 +55,22 @@ final class SearchInputView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @discardableResult
+    override func becomeFirstResponder() -> Bool {
+        return textField.becomeFirstResponder()
+    }
+    
+    @discardableResult
+    override func resignFirstResponder() -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
     // MARK: - Private Methods
     
     private func setupTextField() {
         textField.font = Typography.description
         textField.delegate = self
+        textField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
     
     private func setupIcon() {
@@ -67,6 +81,12 @@ final class SearchInputView: UIView {
     private func setupContentView() {
         contentView.layer.cornerRadius = 10
         contentView.backgroundColor = Colors.background.defaultInput
+    }
+    
+    // MARK: Actions
+    
+    @IBAction private func textDidChange(textField: UITextField) {
+        delegate?.textDidChange(text: textField.text)
     }
     
 }

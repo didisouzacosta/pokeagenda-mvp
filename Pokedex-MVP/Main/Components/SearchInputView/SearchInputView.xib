@@ -37,7 +37,7 @@
                                                 <constraint firstAttribute="width" secondItem="m7q-hH-CHh" secondAttribute="height" multiplier="1:1" id="bSv-UL-dVH"/>
                                             </constraints>
                                         </imageView>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LgT-Nv-Bvn">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LgT-Nv-Bvn">
                                             <rect key="frame" x="28" y="38.5" width="354" height="34"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="34" id="KcC-hr-p8e"/>

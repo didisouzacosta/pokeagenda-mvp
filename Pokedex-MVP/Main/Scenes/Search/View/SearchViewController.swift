@@ -11,7 +11,6 @@ import UIKit
 protocol SearchPresenterView: class {
     func reloadData()
     func showLoading(status: Bool)
-    func show(error: Error)
 }
 
 final class SearchViewController: UIViewController {
@@ -30,15 +29,13 @@ final class SearchViewController: UIViewController {
     
     private lazy var searchInputView: SearchInputView = {
         let input = SearchInputView()
-//        input.delegate = self
+        input.delegate = self
         input.placeholder = "What Pokemon are you looking for?"
         return input
     }()
     
     // MARK: - Outlets
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var extraHeaderContentStack: UIStackView!
 
@@ -49,6 +46,7 @@ final class SearchViewController: UIViewController {
         
         setupTitle()
         setupSearchInputView()
+        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,9 +56,7 @@ final class SearchViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
        super.viewDidAppear(animated)
-//        DispatchQueue.main.async { [weak self] in
-//            self?.searchController.searchBar.becomeFirstResponder()
-//        }
+        searchInputView.becomeFirstResponder()
    }
     
     // MARK - Private Methods
@@ -73,15 +69,9 @@ final class SearchViewController: UIViewController {
         extraHeaderContentStack.addArrangedSubview(searchInputView)
     }
     
-//    private func setupSearchTitle() {
-//        titleLabel.font = Typography.filterName
-//        titleLabel.text = "Find your pokemon"
-//    }
-//
-//    private func setupSearchMessage() {
-//        messageLabel.font = Typography.description
-//        messageLabel.text = "Use search to find your favorite pokemon."
-//    }
+    private func setupTableView() {
+        tableView.tableFooterView = .tableFooterView
+    }
     
 }
 
@@ -97,10 +87,6 @@ extension SearchViewController: SearchPresenterView {
         
     }
     
-    func show(error: Error) {
-//        alert(error: error)
-    }
-    
 }
 
 extension SearchViewController: TableViewDataSourceDelegate {
@@ -111,10 +97,10 @@ extension SearchViewController: TableViewDataSourceDelegate {
     
 }
 
-extension SearchViewController: UISearchResultsUpdating {
+extension SearchViewController: SearchInputViewDelegate {
     
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let term = searchController.searchBar.text else { return }
+    func textDidChange(text: String?) {
+        guard let term = text else { return }
         presenter.search(term)
     }
     

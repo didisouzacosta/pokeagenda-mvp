@@ -373,6 +373,7 @@
 		B381D1FB25C7070600FF6183 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B37E3C5525C8081600A76439 /* SearchInputView */,
 				B381D1FC25C7071000FF6183 /* BadgeView */,
 			);
 			path = Components;
@@ -390,7 +391,6 @@
 		B382C5E925C5764100142F0F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B37E3C5525C8081600A76439 /* SearchInputView */,
 				B385E1D525B98C740017E94D /* HomeViewController.swift */,
 				B3A6C21925C2C3F600ADB720 /* HomeViewController.xib */,
 				B382C5DB25C5736400142F0F /* HomeListItemViewCell.swift */,
