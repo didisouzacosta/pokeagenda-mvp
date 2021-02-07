@@ -9,10 +9,12 @@ import Foundation
 
 class SceneFactory {
     
+    // MARK: - Private Properties
+    
+    private static let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
+    private static let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
+    
     static func makeHomeScene(delegate: HomeViewPresenterDelegate?) -> HomeViewController {
-        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
-        let fetchPokemonsUseCase = UseCaseFactory.makeFetchPokemonsUseCase()
-        
         let view = HomeViewController()
         
         let presenter = HomePresenter(
@@ -29,8 +31,6 @@ class SceneFactory {
     }
     
     static func makeSearchScene(delegate: SearchViewPresenterDelegate) -> SearchViewController {
-        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
-        
         let view = SearchViewController()
         
         let presenter = SearchPresenter(
@@ -103,8 +103,6 @@ class SceneFactory {
     }
     
     static func makePokemonScene() -> PokemonViewController {
-        let fetchPokemonUseCase = UseCaseFactory.makeFetchPokemonUseCase()
-        
         let view = PokemonViewController()
         
         let presenter = PokemonPresenter(

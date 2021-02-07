@@ -13,11 +13,27 @@ protocol PokemonViewPresenter {
 
 class PokemonPresenter {
     
+    // MARK: - Public Properties
+    
+    private(set) var pokemon: PokemonViewModel? {
+        didSet {
+            guard let pokemon = pokemon else { return }
+            view?.setup(with: pokemon)
+        }
+    }
+    
     // MARK: - Private Properties
     
     private let fetchPokemonUseCase: FetchPokemonUseCase
     
     private weak var view: PokemonPresenterView?
+    
+    private var _pokemon: Pokemon? {
+        didSet {
+            guard let _pokemon = _pokemon else { return }
+            pokemon = .init(_pokemon)
+        }
+    }
     
     private var isLoading = false {
         didSet { view?.showLoading(status: isLoading) }
@@ -42,8 +58,7 @@ extension PokemonPresenter: PokemonViewPresenter {
         
         fetchPokemonUseCase.execute(identifier) { [weak self] response in
             do {
-                let pokemon = try response.get()
-                self?.view?.setup(with: .init(pokemon))
+                self?._pokemon = try response.get()
             } catch {
                 self?.view?.show(error: error)
             }
