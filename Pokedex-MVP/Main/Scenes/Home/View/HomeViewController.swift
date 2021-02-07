@@ -22,12 +22,12 @@ class HomeViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private var dataSource: TableViewDataSource! {
-        didSet {
-            dataSource.delegate = self
-            tableView.reloadData()
-        }
-    }
+    private lazy var dataSource: TableViewDataSource = {
+        let dataSource = TableViewDataSource(sections: [], tableView: tableView)
+        dataSource.estimatedRowHeight = 174
+        dataSource.delegate = self
+        return dataSource
+    }()
     
     private lazy var searchInputView: SearchInputView = {
         let input = SearchInputView()
@@ -63,7 +63,6 @@ class HomeViewController: UIViewController {
         setupSortButton()
         setupSearchInputView()
         setupSeparator()
-        setupDataSource()
         
         fetchData()
     }
@@ -71,11 +70,6 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     // MARK: - Private Methods
@@ -88,17 +82,13 @@ class HomeViewController: UIViewController {
         titleLabel.font = Typography.applicationTitle
         titleLabel.textColor = Colors.text.black
         titleLabel.text = "Pokedex"
+        title = titleLabel.text
     }
     
     private func setupDescription() {
         descriptionLabel.font = Typography.description
         descriptionLabel.textColor = Colors.text.gray
         descriptionLabel.text = "Search for Pokémon by name or using the National Pokédex number."
-    }
-    
-    private func setupDataSource() {
-        dataSource = TableViewDataSource(sections: [], tableView: tableView)
-        dataSource.estimatedRowHeight = 174
     }
     
     private func setupGenerationsButton() {

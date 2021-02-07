@@ -22,28 +22,25 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private var dataSource: TableViewDataSource! {
-        didSet {
-            dataSource.delegate = self
-            tableViewController.tableView.reloadData()
-        }
-    }
+    private lazy var dataSource: TableViewDataSource = {
+        let dataSource = TableViewDataSource(sections: [], tableView: tableView)
+        dataSource.delegate = self
+        return dataSource
+    }()
     
-    private lazy var tableViewController = UITableViewController(style: .plain)
-
-    private lazy var searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: tableViewController)
-        searchController.searchBar.placeholder = "Pokemon name"
-        searchController.searchBar.searchBarStyle = .minimal
-        searchController.definesPresentationContext = true
-        searchController.searchResultsUpdater = self
-        return searchController
+    private lazy var searchInputView: SearchInputView = {
+        let input = SearchInputView()
+//        input.delegate = self
+        input.placeholder = "What Pokemon are you looking for?"
+        return input
     }()
     
     // MARK: - Outlets
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var extraHeaderContentStack: UIStackView!
 
     // MARK: - Public Methods
     
@@ -51,17 +48,19 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         setupTitle()
-        setupSearch()
-        setupDataSource()
-        setupSearchTitle()
-        setupSearchMessage()
+        setupSearchInputView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
        super.viewDidAppear(animated)
-        DispatchQueue.main.async { [weak self] in
-            self?.searchController.searchBar.becomeFirstResponder()
-        }
+//        DispatchQueue.main.async { [weak self] in
+//            self?.searchController.searchBar.becomeFirstResponder()
+//        }
    }
     
     // MARK - Private Methods
@@ -70,26 +69,19 @@ final class SearchViewController: UIViewController {
         navigationItem.title = "Search"
     }
     
-    private func setupSearch() {
-        navigationItem.searchController = searchController
+    private func setupSearchInputView() {
+        extraHeaderContentStack.addArrangedSubview(searchInputView)
     }
     
-    private func setupSearchTitle() {
-        titleLabel.font = Typography.filterName
-        titleLabel.text = "Find your pokemon"
-    }
-    
-    private func setupSearchMessage() {
-        messageLabel.font = Typography.description
-        messageLabel.text = "Use search to find your favorite pokemon."
-    }
-    
-    private func setupDataSource() {
-        dataSource = TableViewDataSource(
-            sections: [],
-            tableView: tableViewController.tableView
-        )
-    }
+//    private func setupSearchTitle() {
+//        titleLabel.font = Typography.filterName
+//        titleLabel.text = "Find your pokemon"
+//    }
+//
+//    private func setupSearchMessage() {
+//        messageLabel.font = Typography.description
+//        messageLabel.text = "Use search to find your favorite pokemon."
+//    }
     
 }
 

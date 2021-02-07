@@ -10,15 +10,10 @@ import UIKit
 
 final class SearchCoordinator: BaseCoordinator {
     
-    // MARK: - Private Properties
-    
-//    private let presenterNavigation = UINavigationController()
-    
     // MARK: - Public Methods
     
     override func start() {
         let controller = SceneFactory.makeSearchScene(delegate: self)
-        navigationController.navigationBar.prefersLargeTitles = true
         navigationController.show(controller, sender: nil)
     }
     

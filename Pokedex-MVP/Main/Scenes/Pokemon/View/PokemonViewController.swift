@@ -18,6 +18,11 @@ final class PokemonViewController: UIViewController {
         setupTitle()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     // MARK - Private Methods
     
     private func setupTitle() {

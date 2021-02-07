@@ -58,7 +58,7 @@ final class TableViewDataSource: NSObject {
         tableView.prefetchDataSource = self
         tableView.rowHeight = rowHeight
         tableView.estimatedRowHeight = estimatedRowHeight
-        tableView.tableFooterView = .init(frame: .init(x: 0, y: 0, width: 0, height: 1))
+        tableView.tableFooterView = .tableFooterView
         
         registerCells()
     }
@@ -137,6 +137,14 @@ extension TableViewDataSource: UITableViewDelegate {
     ) {
         tableView.deselectRow(at: indexPath, animated: true)
         delegate?.didSelect(rowAt: indexPath)
+    }
+    
+}
+
+fileprivate extension UIView {
+    
+    static var tableFooterView: UIView {
+        return .init(frame: .init(x: 0, y: 0, width: 0, height: 1))
     }
     
 }
