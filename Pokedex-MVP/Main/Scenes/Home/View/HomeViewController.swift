@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
     private lazy var searchInputView: SearchInputView = {
         let input = SearchInputView()
         input.delegate = self
-        input.placeholder = "What Pokemon are you looking for?"
+        input.placeholder = "search-placeholder".localized
         return input
     }()
     
@@ -81,14 +81,14 @@ class HomeViewController: UIViewController {
     private func setupTitle() {
         titleLabel.font = Typography.applicationTitle
         titleLabel.textColor = Colors.text.black
-        titleLabel.text = "Pokedex"
+        titleLabel.text = "pokedex".localized
         title = titleLabel.text
     }
     
     private func setupDescription() {
         descriptionLabel.font = Typography.description
         descriptionLabel.textColor = Colors.text.gray
-        descriptionLabel.text = "Search for Pokémon by name or using the National Pokédex number."
+        descriptionLabel.text = "home-description".localized
     }
     
     private func setupGenerationsButton() {

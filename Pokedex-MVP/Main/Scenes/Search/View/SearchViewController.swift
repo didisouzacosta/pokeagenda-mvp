@@ -31,7 +31,7 @@ final class SearchViewController: UIViewController {
     private lazy var searchInputView: SearchInputView = {
         let input = SearchInputView()
         input.delegate = self
-        input.placeholder = "What Pokemon are you looking for?"
+        input.placeholder = "search-placeholder".localized
         return input
     }()
     
@@ -66,7 +66,7 @@ final class SearchViewController: UIViewController {
     // MARK - Private Methods
     
     private func setupTitle() {
-        navigationItem.title = "Search"
+        navigationItem.title = "search-title".localized
     }
     
     private func setupSearchInputView() {
@@ -78,7 +78,7 @@ final class SearchViewController: UIViewController {
     }
     
     private func setupLoadStatus() {
-        loadStatusLabel.text = "Loading..."
+        loadStatusLabel.text = "loading".localized
     }
     
 }
@@ -97,7 +97,7 @@ extension SearchViewController: SearchPresenterView {
     
     func noHaveResults(status: Bool, term: String?) {
         noResultsFoundLabel.isHidden = !status
-        noResultsFoundLabel.text = "No results were found to \(term ?? "current term")"
+        noResultsFoundLabel.text = "no-results".localized(arguments: term ?? "current term")
     }
     
 }

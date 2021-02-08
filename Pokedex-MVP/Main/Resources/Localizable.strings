@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  Pokedex-MVP
+
+  Created by Adriano Souza Costa on 08/02/21.
+  
+*/
+
+// General
+"pokedex" = "Pokedex";
+"search-placeholder" = "What Pokemon are you looking for?";
+"loading" = "Loading...";
+"no-results" = "No results were found to %@";
+
+// Home
+"home-description" = "Search for Pokémon by name or using the National Pokédex number.";
+
+// Search
+"search-title" = "Search";
+
+// Sections
+"stats" = "Stats";
+"abilities" = "Abilities";
+
+// Pokemon Details
+"hp" = "HP";
+"attack" = "Attack";
+"defense" = "Defense";
+"special-attack" = "Special Attack";
+"special-defense" = "Special Defense";
+"speed" = "Speed";

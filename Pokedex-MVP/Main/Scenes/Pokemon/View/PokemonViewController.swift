@@ -108,12 +108,18 @@ final class PokemonViewController: UIViewController {
             cellBuilders: pokemon.stats.map { stat in
                 return PokemonStatCellBuilder.init(stat, type: pokemon.primaryType)
             },
-            header: PokemonSectionHeaderView(title: "Stats", type: pokemon.primaryType)
+            header: PokemonSectionHeaderView(
+                title: "stats".localized,
+                type: pokemon.primaryType
+            )
         )
         
         let abilitiesSection = TableViewSection(
             cellBuilders: pokemon.abilities.map(PokemonAbilityCellBuilder.init),
-            header: PokemonSectionHeaderView(title: "Abilities", type: pokemon.primaryType)
+            header: PokemonSectionHeaderView(
+                title: "abilities".localized,
+                type: pokemon.primaryType
+            )
         )
         
         dataSource.sections = [

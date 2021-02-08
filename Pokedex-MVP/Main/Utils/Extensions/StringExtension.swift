@@ -13,4 +13,22 @@ extension String: LocalizedError {
         return self
     }
     
+    var localized: String {
+        return NSLocalizedString(
+            self,
+            tableName: "Localizable",
+            bundle: Bundle.main,
+            value: "**\(self)**", comment: ""
+        )
+    }
+    
+    func localized(arguments: CVarArg...) -> String {
+        let locale = Locale(identifier: "pt-br")
+        return String(
+            format: self.localized,
+            locale: locale,
+            arguments: arguments
+        )
+    }
+    
 }

@@ -13,7 +13,7 @@ public struct StatViewModel {
     // MARK: - Public Properties
     
     var name: String {
-        return stat.name
+        return stat.name.localized
     }
     
     var value: Double {
