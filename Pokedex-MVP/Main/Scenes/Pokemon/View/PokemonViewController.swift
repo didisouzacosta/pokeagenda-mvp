@@ -27,6 +27,7 @@ final class PokemonViewController: UIViewController {
     
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameTitleLabel: UILabel!
     @IBOutlet weak var pokemonImageView: UIImageView!
     @IBOutlet weak var badgesStack: UIStackView!
     
@@ -39,6 +40,12 @@ final class PokemonViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.navigationBar.tintColor = .white
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.tintColor = Colors.text.black
     }
     
     // MARK - Private Methods
@@ -69,6 +76,11 @@ final class PokemonViewController: UIViewController {
         badges.forEach(badgesStack.addArrangedSubview)
     }
     
+    private func setupTitle(with name: String) {
+        nameTitleLabel.font = Typography.title
+        nameTitleLabel.text = name.uppercased()
+    }
+    
 }
 
 extension PokemonViewController: PokemonPresenterView {
@@ -89,5 +101,6 @@ extension PokemonViewController: PokemonPresenterView {
         setup(pokemonName: pokemon.name)
         setupBadges(types: pokemon.types)
         setup(pokemonImage: pokemon.image)
+        setupTitle(with: pokemon.name)
     }
 }

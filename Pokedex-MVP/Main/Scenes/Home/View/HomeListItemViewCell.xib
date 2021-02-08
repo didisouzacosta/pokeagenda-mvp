@@ -144,7 +144,7 @@
                 <outlet property="numberLabel" destination="g4j-qi-6b6" id="5qN-hr-r8T"/>
                 <outlet property="pokemonImageView" destination="sDP-jI-eip" id="ymK-4N-lSB"/>
             </connections>
-            <point key="canvasLocation" x="-192.0289855072464" y="74.330357142857139"/>
+            <point key="canvasLocation" x="-20" y="29"/>
         </tableViewCell>
     </objects>
     <resources>
