@@ -44,6 +44,10 @@ struct PokemonViewModel {
         }.map { $0.name.capitalized }
     }
     
+    var stats: [Stat] {
+        return pokemon.stats
+    }
+    
     // MARK: - Private Properties
     
     private let pokemon: Pokemon

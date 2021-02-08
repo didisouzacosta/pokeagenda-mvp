@@ -119,7 +119,8 @@ class PokemonRepositoryTests: XCTestCase {
                 .init(slot: 1, type: .water)
             ],
             sprites: .init(other: .init(officialArtwork: .init(frontDefault: URL(string: "http://www.img.com.br")!))),
-            abilities: []
+            abilities: [],
+            stats: []
         )
         
         let cacheSpy = CacheSpy()
@@ -165,7 +166,8 @@ class PokemonRepositoryTests: XCTestCase {
                     .init(slot: 1, type: .water)
                 ],
                 sprites: .init(other: .init(officialArtwork: .init(frontDefault: URL(string: "http://images.com")!))),
-                abilities: []
+                abilities: [],
+                stats: []
             ),
             key: CacheKey("squirtle")
         )

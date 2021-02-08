@@ -30,7 +30,8 @@ class FetchPokemonUseCaseTests: XCTestCase {
                     )
                 )
             ),
-            abilities: []
+            abilities: [],
+            stats: []
         )
         
         waitUntil { done in

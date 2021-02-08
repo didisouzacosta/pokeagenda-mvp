@@ -14,6 +14,7 @@ public struct Pokemon: Codable {
     let types: [TypeItem]
     let sprites: Sprites
     let abilities: [Ability]
+    let stats: [Stat]
 }
 
 public struct Ability: Codable {
@@ -34,7 +35,7 @@ extension Ability {
         if let ability = try container.decode([String: String].self, forKey: .ability)["name"] {
             name = ability
         } else {
-            throw "### The propertie ability does not be read ###"
+            throw "### The propertie ability.name does not be read ###"
         }
     }
     
@@ -42,6 +43,35 @@ extension Ability {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
         try container.encode(slot, forKey: .slot)
+    }
+}
+
+public struct Stat: Codable {
+    let value: Int
+    let name: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case value = "base_stat", name, stat
+    }
+}
+
+extension Stat {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        value = try container.decode(Int.self, forKey: .value)
+        
+        if let stat = try container.decode([String: String].self, forKey: .stat)["name"] {
+            name = stat
+        } else {
+            throw "### The propertie stat.name does not be read ###"
+        }
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(value, forKey: .value)
     }
 }
 
