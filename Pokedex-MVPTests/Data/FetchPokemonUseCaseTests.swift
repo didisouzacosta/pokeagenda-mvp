@@ -29,7 +29,8 @@ class FetchPokemonUseCaseTests: XCTestCase {
                         frontDefault: URL(string: "http://www.img.com")!
                     )
                 )
-            )
+            ),
+            abilities: []
         )
         
         waitUntil { done in

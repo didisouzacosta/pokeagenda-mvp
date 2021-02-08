@@ -38,6 +38,12 @@ struct PokemonViewModel {
         return types.first!
     }
     
+    var abilities: [String] {
+        return pokemon.abilities.sorted { (a, b) -> Bool in
+            return a.slot < b.slot
+        }.map { $0.name.capitalized }
+    }
+    
     // MARK: - Private Properties
     
     private let pokemon: Pokemon

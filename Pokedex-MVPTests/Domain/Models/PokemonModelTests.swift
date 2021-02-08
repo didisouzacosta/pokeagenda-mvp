@@ -39,6 +39,24 @@ class PokemonModelTests: XCTestCase {
                     "url": "https://pokeapi.co/api/v2/type/4/"
                   }
                 }
+            ],
+            "abilities": [
+                {
+                  "ability": {
+                    "name": "overgrow",
+                    "url": "https://pokeapi.co/api/v2/ability/65/"
+                  },
+                  "is_hidden": false,
+                  "slot": 1
+                },
+                {
+                  "ability": {
+                    "name": "chlorophyll",
+                    "url": "https://pokeapi.co/api/v2/ability/34/"
+                  },
+                  "is_hidden": true,
+                  "slot": 3
+                }
               ],
               "weight": 69
         }
@@ -54,6 +72,11 @@ class PokemonModelTests: XCTestCase {
         expect(pokemon.types[1].slot) == 2
         expect(pokemon.types[1].type.rawValue) == "poison"
         expect(pokemon.weight) == 69
+        expect(pokemon.abilities.count) == 2
+        expect(pokemon.abilities[0].name) == "overgrow"
+        expect(pokemon.abilities[0].slot) == 1
+        expect(pokemon.abilities[1].name) == "chlorophyll"
+        expect(pokemon.abilities[1].slot) == 3
     }
     
 }

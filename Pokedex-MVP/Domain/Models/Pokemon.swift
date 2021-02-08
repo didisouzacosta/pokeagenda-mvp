@@ -13,6 +13,36 @@ public struct Pokemon: Codable {
     let weight: Int
     let types: [TypeItem]
     let sprites: Sprites
+    let abilities: [Ability]
+}
+
+public struct Ability: Codable {
+    let name: String
+    let slot: Int
+    
+    private enum CodingKeys: String, CodingKey {
+        case slot, name, ability
+    }
+}
+
+extension Ability {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        slot = try container.decode(Int.self, forKey: .slot)
+        
+        if let ability = try container.decode([String: String].self, forKey: .ability)["name"] {
+            name = ability
+        } else {
+            throw "### The propertie ability does not be read ###"
+        }
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(slot, forKey: .slot)
+    }
 }
 
 public struct TypeItem: Codable {

@@ -71,7 +71,8 @@ class PokemonAPITests: XCTestCase {
             order: 1,
             weight: 88,
             types: [.init(slot: 1, type: .grass)],
-            sprites: .init(other: .init(officialArtwork: .init(frontDefault: URL(string: "https:www.image.com/cover.jpb")!)))
+            sprites: .init(other: .init(officialArtwork: .init(frontDefault: URL(string: "https:www.image.com/cover.jpb")!))),
+            abilities: []
         )
         
         let api = PokemonAPI(network: networkSpy)
