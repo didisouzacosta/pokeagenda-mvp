@@ -34,6 +34,7 @@ final class PokemonViewController: UIViewController {
     @IBOutlet weak var badgesStack: UIStackView!
     @IBOutlet weak var statsView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loaderView: UIActivityIndicatorView?
     
     // MARK - Public Methods
     
@@ -129,7 +130,9 @@ extension PokemonViewController: PokemonPresenterView {
         presenter.fetchPokemon(with: identifier)
     }
     
-    func showLoading(status: Bool) {}
+    func showLoading(status: Bool) {
+        loaderView?.setStatus(status)
+    }
     
     func show(error: Error) {
         alert(error: error)

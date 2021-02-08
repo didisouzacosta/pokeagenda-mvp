@@ -182,11 +182,7 @@ extension HomeViewController: HomePresenterView {
     }
     
     func showLoading(status: Bool) {
-        guard presenter.listItems.count < 0 else {
-            loaderView.stopAnimating()
-            return
-        }
-        status ? loaderView.startAnimating() : loaderView.stopAnimating()
+        loaderView.setStatus(presenter.listItems.isEmpty && status)
     }
     
     func show(error: Error) {
