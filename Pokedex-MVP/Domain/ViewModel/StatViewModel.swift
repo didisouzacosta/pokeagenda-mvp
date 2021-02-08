@@ -25,7 +25,7 @@ public struct StatViewModel {
     }
     
     var percentage: Double {
-        return value * 100 / 100
+        return value
     }
     
     // MARK: - Private Properties
