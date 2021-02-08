@@ -8,32 +8,17 @@
 import Foundation
 
 protocol PokemonViewPresenter {
-    func fetchPokemon(with identifier: PokemonIndentifier)
+    func fetchPokemon()
 }
 
 class PokemonPresenter {
     
-    // MARK: - Public Properties
-    
-    private(set) var pokemon: PokemonViewModel? {
-        didSet {
-            guard let pokemon = pokemon else { return }
-            view?.setup(with: pokemon)
-        }
-    }
-    
     // MARK: - Private Properties
     
     private let fetchPokemonUseCase: FetchPokemonUseCase
+    private let identifier: PokemonIndentifier
     
     private weak var view: PokemonPresenterView?
-    
-    private var _pokemon: Pokemon? {
-        didSet {
-            guard let _pokemon = _pokemon else { return }
-            pokemon = .init(_pokemon)
-        }
-    }
     
     private var isLoading = false {
         didSet { view?.showLoading(status: isLoading) }
@@ -43,22 +28,25 @@ class PokemonPresenter {
     
     init(
         view: PokemonPresenterView,
-        fetchPokemonUseCase: FetchPokemonUseCase
+        fetchPokemonUseCase: FetchPokemonUseCase,
+        pokemon identifier: PokemonIndentifier
     ) {
         self.view = view
         self.fetchPokemonUseCase = fetchPokemonUseCase
+        self.identifier = identifier
     }
     
 }
 
 extension PokemonPresenter: PokemonViewPresenter {
     
-    func fetchPokemon(with identifier: PokemonIndentifier) {
+    func fetchPokemon() {
         isLoading = true
         
         fetchPokemonUseCase.execute(identifier) { [weak self] response in
             do {
-                self?._pokemon = try response.get()
+                let pokemon = try response.get()
+                self?.view?.setup(with: .init(pokemon))
             } catch {
                 self?.view?.show(error: error)
             }

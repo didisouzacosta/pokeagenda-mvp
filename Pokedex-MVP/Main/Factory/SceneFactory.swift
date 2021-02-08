@@ -102,12 +102,13 @@ class SceneFactory {
         return view
     }
     
-    static func makePokemonScene() -> PokemonViewController {
+    static func makePokemonScene(pokemon identifier: PokemonIndentifier) -> PokemonViewController {
         let view = PokemonViewController()
         
         let presenter = PokemonPresenter(
             view: view,
-            fetchPokemonUseCase: fetchPokemonUseCase
+            fetchPokemonUseCase: fetchPokemonUseCase,
+            pokemon: identifier
         )
 
         view.presenter = presenter

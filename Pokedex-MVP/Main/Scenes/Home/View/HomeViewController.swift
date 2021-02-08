@@ -201,8 +201,9 @@ extension HomeViewController: TableViewDataSourceDelegate {
         presenter.didSelect(row: indexPath.row)
     }
     
-    func willDisplay(rowAt indexPath: IndexPath) {
+    func willDisplay(rowAt indexPath: IndexPath, willDisplay cell: UITableViewCell) {
         presenter.fetchPokemon(at: indexPath.row)
+        cell.layer.zPosition = (CGFloat)(tableView.numberOfRows(inSection: 0) - indexPath.row)
     }
     
     func onReachedTheEndOfTheScroll() {

@@ -19,9 +19,8 @@ final class PokemonCoordinator: BaseCoordinator {
     }
     
     func start(with identifier: PokemonIndentifier) {
-        let controller = SceneFactory.makePokemonScene()
+        let controller = SceneFactory.makePokemonScene(pokemon: identifier)
         navigationController.show(controller, sender: nil)
-        controller.fetchPokemon(with: identifier)
     }
     
 }

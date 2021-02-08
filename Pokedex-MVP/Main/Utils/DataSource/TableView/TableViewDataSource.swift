@@ -10,17 +10,24 @@ import UIKit
 
 protocol TableViewDataSourceDelegate {
     func didSelect(rowAt indexPath: IndexPath)
-    func willDisplay(rowAt indexPath: IndexPath)
     func prefetchRows(at indexPaths: [IndexPath])
     func didScroll(_ scrollView: UIScrollView)
     func onReachedTheEndOfTheScroll()
+    func willDisplay(
+        rowAt indexPath: IndexPath,
+        willDisplay cell: UITableViewCell
+    )
 }
 
 extension TableViewDataSourceDelegate {
-    func willDisplay(rowAt indexPath: IndexPath) {}
+    func didSelect(rowAt indexPath: IndexPath) {}
     func prefetchRows(at indexPaths: [IndexPath]) {}
     func didScroll(_ scrollView: UIScrollView) {}
     func onReachedTheEndOfTheScroll() {}
+    func willDisplay(
+        rowAt indexPath: IndexPath,
+        willDisplay cell: UITableViewCell
+    ) {}
 }
 
 final class TableViewDataSource: NSObject {
@@ -134,8 +141,7 @@ extension TableViewDataSource: UITableViewDataSource {
         willDisplay cell: UITableViewCell,
         forRowAt indexPath: IndexPath
     ) {
-        cell.layer.zPosition = (CGFloat)(tableView.numberOfRows(inSection: 0) - indexPath.row)
-        delegate?.willDisplay(rowAt: indexPath)
+        delegate?.willDisplay(rowAt: indexPath, willDisplay: cell)
     }
     
     func tableView(

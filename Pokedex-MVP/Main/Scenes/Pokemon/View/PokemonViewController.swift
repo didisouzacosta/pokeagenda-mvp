@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 protocol PokemonPresenterView: class {
-    func fetchPokemon(with identifier: PokemonIndentifier)
     func showLoading(status: Bool)
     func show(error: Error)
     func setup(with pokemon: PokemonViewModel)
@@ -23,6 +22,8 @@ final class PokemonViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    private let minScrollHeight: CGFloat = 60
+    
     private lazy var dataSource = TableViewDataSource(sections: [], tableView: tableView)
     
     // MARK: Outlets
@@ -35,6 +36,7 @@ final class PokemonViewController: UIViewController {
     @IBOutlet weak var statsView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loaderView: UIActivityIndicatorView?
+    @IBOutlet weak var topConstraint: NSLayoutConstraint?
     
     // MARK - Public Methods
     
@@ -43,6 +45,9 @@ final class PokemonViewController: UIViewController {
         
         setupStatsView()
         setupTableView()
+        setupDataSource()
+        
+        presenter.fetchPokemon()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +75,10 @@ final class PokemonViewController: UIViewController {
     
     private func setupTableView() {
         tableView.tableFooterView = .tableFooterView
+    }
+    
+    private func setupDataSource() {
+        dataSource.delegate = self
     }
     
     private func setupBackground(with type: PokemonType) {
@@ -132,10 +141,6 @@ final class PokemonViewController: UIViewController {
 
 extension PokemonViewController: PokemonPresenterView {
     
-    func fetchPokemon(with identifier: PokemonIndentifier) {
-        presenter.fetchPokemon(with: identifier)
-    }
-    
     func showLoading(status: Bool) {
         loaderView?.setStatus(status)
     }
@@ -153,4 +158,13 @@ extension PokemonViewController: PokemonPresenterView {
         setupTitle(with: pokemon.name)
         setupData(with: pokemon)
     }
+}
+
+extension PokemonViewController: TableViewDataSourceDelegate {
+    
+//    func didScroll(_ scrollView: UIScrollView) {
+//        guard let constraint = topConstraint else { return }
+//        let offsetY = scrollView.contentOffset.y
+//    }
+    
 }
