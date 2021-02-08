@@ -12,13 +12,13 @@ class PokemonStatCellBuilder {
     
     // MARK: - Private Properties
     
-    private let stat: Stat
+    private let stat: StatViewModel
     private let type: PokemonType
     private let reuseIdentifier = PokemonStatViewCell.identifier
     
     // MARK: - Public Methods
     
-    init(_ stat: Stat, type: PokemonType) {
+    init(_ stat: StatViewModel, type: PokemonType) {
         self.stat = stat
         self.type = type
     }

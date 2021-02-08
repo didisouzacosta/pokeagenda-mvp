@@ -36,10 +36,10 @@ class PokemonStatViewCell: UITableViewCell {
     
     // MARK: - Public Methods
     
-    func configure(with stat: Stat, type: PokemonType) {
+    func configure(with stat: StatViewModel, type: PokemonType) {
         setupTitle(stat.name)
-        setupValue(stat.value)
-        setupProgression(stat.value, type: type)
+        setupValue(stat.valueDescription)
+        setupProgression(stat.percentage, type: type)
         setupProgessionContainerView()
     }
     
@@ -49,7 +49,7 @@ class PokemonStatViewCell: UITableViewCell {
         titleLabel.text = name
     }
     
-    private func setupValue(_ value: Double) {
+    private func setupValue(_ value: String) {
         valueLabel.text = "\(value)"
     }
     
@@ -58,10 +58,10 @@ class PokemonStatViewCell: UITableViewCell {
         progressionContainerView.layer.cornerRadius = 2
     }
     
-    private func setupProgression(_ value: Double, type: PokemonType) {
-        let percentage: Double = (value * 100 / 100) / 100
+    private func setupProgression(_ percentage: Double, type: PokemonType) {
+        let multiplier = CGFloat(percentage / 100)
         progressionView.backgroundColor = Colors.type.color(with: type)
-        percentageConstraint = percentageConstraint.setMultiplier(multiplier: CGFloat(percentage))
+        percentageConstraint = percentageConstraint.setMultiplier(multiplier: multiplier)
     }
     
 }
