@@ -161,7 +161,7 @@
                 <constraint firstItem="Sjh-Qc-9g4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="u4d-c3-TG3"/>
                 <constraint firstAttribute="bottom" secondItem="Sjh-Qc-9g4" secondAttribute="bottom" constant="-32" id="xr0-bS-aB3"/>
             </constraints>
-            <point key="canvasLocation" x="-357" y="8"/>
+            <point key="canvasLocation" x="-586" y="-19"/>
         </view>
     </objects>
     <resources>

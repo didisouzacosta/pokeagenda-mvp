@@ -47,7 +47,7 @@ extension Ability {
 }
 
 public struct Stat: Codable {
-    let value: Int
+    let value: Double
     let name: String
     
     private enum CodingKeys: String, CodingKey {
@@ -59,7 +59,7 @@ extension Stat {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        value = try container.decode(Int.self, forKey: .value)
+        value = try container.decode(Double.self, forKey: .value)
         
         if let stat = try container.decode([String: String].self, forKey: .stat)["name"] {
             name = stat

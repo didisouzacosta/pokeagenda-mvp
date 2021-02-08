@@ -78,6 +78,7 @@
 		B3DD4AB125D1187F00D963A2 /* PokemonStatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DD4AB025D1187F00D963A2 /* PokemonStatViewCell.swift */; };
 		B3DD4AB525D118B900D963A2 /* PokemonStatViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3DD4AB425D118B900D963A2 /* PokemonStatViewCell.xib */; };
 		B3DD4ABD25D1193600D963A2 /* PokemonStatCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DD4ABC25D1193600D963A2 /* PokemonStatCellBuilder.swift */; };
+		B3DD4AC525D1213A00D963A2 /* ConstraintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DD4AC425D1213A00D963A2 /* ConstraintExtension.swift */; };
 		B3F47ABC25CF21FF000F7A1D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F47ABB25CF21FF000F7A1D /* Coordinator.swift */; };
 		B3F47AF025CF226C000F7A1D /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F47AEF25CF226C000F7A1D /* ApplicationCoordinator.swift */; };
 		B3F47AFF25CF2DEC000F7A1D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F47AFE25CF2DEC000F7A1D /* FilterViewController.swift */; };
@@ -184,6 +185,7 @@
 		B3DD4AB025D1187F00D963A2 /* PokemonStatViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatViewCell.swift; sourceTree = "<group>"; };
 		B3DD4AB425D118B900D963A2 /* PokemonStatViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonStatViewCell.xib; sourceTree = "<group>"; };
 		B3DD4ABC25D1193600D963A2 /* PokemonStatCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatCellBuilder.swift; sourceTree = "<group>"; };
+		B3DD4AC425D1213A00D963A2 /* ConstraintExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExtension.swift; sourceTree = "<group>"; };
 		B3F47ABB25CF21FF000F7A1D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B3F47AEF25CF226C000F7A1D /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		B3F47AFE25CF2DEC000F7A1D /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 				B30E623C25C41A8D0031AD62 /* UIViewControllerExtension.swift */,
 				B3B6534225C64DC7009EE4EC /* UIImageExtension.swift */,
 				B372657D25C712A400A7FF1A /* UIViewExtension.swift */,
+				B3DD4AC425D1213A00D963A2 /* ConstraintExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1019,6 +1022,7 @@
 				B381D1FE25C7071E00FF6183 /* BadgeView.swift in Sources */,
 				B3F47ABC25CF21FF000F7A1D /* Coordinator.swift in Sources */,
 				B387D04A25C560C2004B9819 /* TableViewDataSource.swift in Sources */,
+				B3DD4AC525D1213A00D963A2 /* ConstraintExtension.swift in Sources */,
 				B3F47B0325CF2E0B000F7A1D /* GenerationsViewController.swift in Sources */,
 				B3F47B2A25CF3126000F7A1D /* SearchCoordinator.swift in Sources */,
 				B3F47AF025CF226C000F7A1D /* ApplicationCoordinator.swift in Sources */,

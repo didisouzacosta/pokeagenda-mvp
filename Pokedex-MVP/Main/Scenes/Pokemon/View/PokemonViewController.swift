@@ -99,7 +99,9 @@ final class PokemonViewController: UIViewController {
     
     private func setupData(with pokemon: PokemonViewModel) {
         let statsSection = TableViewSection(
-            cellBuilders: pokemon.stats.map(PokemonStatCellBuilder.init),
+            cellBuilders: pokemon.stats.map { stat in
+                return PokemonStatCellBuilder.init(stat, type: pokemon.primaryType)
+            },
             header: PokemonSectionHeaderView(title: "Stats", type: pokemon.primaryType)
         )
         

@@ -30,12 +30,17 @@ class PokemonStatViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var progressionView: UIView!
+    @IBOutlet weak var progressionContainerView: UIView!
+    @IBOutlet weak var percentageConstraint: NSLayoutConstraint!
     
     // MARK: - Public Methods
     
-    func configure(with stat: Stat) {
+    func configure(with stat: Stat, type: PokemonType) {
         setupTitle(stat.name)
         setupValue(stat.value)
+        setupProgression(stat.value, type: type)
+        setupProgessionContainerView()
     }
     
     // MARK: - Private Methods
@@ -44,8 +49,19 @@ class PokemonStatViewCell: UITableViewCell {
         titleLabel.text = name
     }
     
-    private func setupValue(_ value: Int) {
+    private func setupValue(_ value: Double) {
         valueLabel.text = "\(value)"
+    }
+    
+    private func setupProgessionContainerView() {
+        progressionContainerView.clipsToBounds = true
+        progressionContainerView.layer.cornerRadius = 2
+    }
+    
+    private func setupProgression(_ value: Double, type: PokemonType) {
+        let percentage: Double = (value * 100 / 100) / 100
+        progressionView.backgroundColor = Colors.type.color(with: type)
+        percentageConstraint = percentageConstraint.setMultiplier(multiplier: CGFloat(percentage))
     }
     
 }

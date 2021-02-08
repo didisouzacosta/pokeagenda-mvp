@@ -13,12 +13,14 @@ class PokemonStatCellBuilder {
     // MARK: - Private Properties
     
     private let stat: Stat
+    private let type: PokemonType
     private let reuseIdentifier = PokemonStatViewCell.identifier
     
     // MARK: - Public Methods
     
-    init(_ stat: Stat) {
+    init(_ stat: Stat, type: PokemonType) {
         self.stat = stat
+        self.type = type
     }
     
 }
@@ -41,7 +43,7 @@ extension PokemonStatCellBuilder: TableViewCellBuilder {
             for: indexPath
         ) as! PokemonStatViewCell
         
-        cell.configure(with: stat)
+        cell.configure(with: stat, type: type)
         
         return cell
     }
