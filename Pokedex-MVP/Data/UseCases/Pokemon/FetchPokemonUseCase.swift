@@ -37,6 +37,7 @@ public final class FetchPokemonUseCase: FetchPokemonUseCaseProtocol {
         completionHandler: @escaping (Result<Pokemon, Error>) -> Void
     ) {
         guard identifier.count >= FetchPokemonUseCase.minNameLength else { return }
+        print(identifier)
         pokemonRepository.fetchPokemon(
             identifier.lowercased(),
             completionHandler: completionHandler

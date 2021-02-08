@@ -86,10 +86,12 @@ final class SearchInputView: UIView {
     // MARK: Actions
     
     @IBAction private func textDidChange(textField: UITextField) {
-        guard let text = textField.text else { return  }
-        Debounce<String>.input(text, comparedAgainst: text) { [weak self] _ in
-            self?.delegate?.textDidChange(text: textField.text)
-        }
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+        perform(#selector(updateSearch(with:)), with: textField.text, afterDelay: 0.5)
+    }
+    
+    @objc private func updateSearch(with text: String?) {
+        delegate?.textDidChange(text: text)
     }
     
 }

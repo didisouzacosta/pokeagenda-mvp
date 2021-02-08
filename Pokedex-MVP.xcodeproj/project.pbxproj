@@ -82,7 +82,6 @@
 		B3DD4ABD25D1193600D963A2 /* PokemonStatCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DD4ABC25D1193600D963A2 /* PokemonStatCellBuilder.swift */; };
 		B3DD4AC525D1213A00D963A2 /* ConstraintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DD4AC425D1213A00D963A2 /* ConstraintExtension.swift */; };
 		B3DD4ACB25D1599D00D963A2 /* StatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DD4ACA25D1599D00D963A2 /* StatViewModel.swift */; };
-		B3EB221125D1F0E000B866BD /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB221025D1F0E000B866BD /* Debounce.swift */; };
 		B3F47ABC25CF21FF000F7A1D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F47ABB25CF21FF000F7A1D /* Coordinator.swift */; };
 		B3F47AF025CF226C000F7A1D /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F47AEF25CF226C000F7A1D /* ApplicationCoordinator.swift */; };
 		B3F47AFF25CF2DEC000F7A1D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F47AFE25CF2DEC000F7A1D /* FilterViewController.swift */; };
@@ -193,7 +192,6 @@
 		B3DD4ABC25D1193600D963A2 /* PokemonStatCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatCellBuilder.swift; sourceTree = "<group>"; };
 		B3DD4AC425D1213A00D963A2 /* ConstraintExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExtension.swift; sourceTree = "<group>"; };
 		B3DD4ACA25D1599D00D963A2 /* StatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewModel.swift; sourceTree = "<group>"; };
-		B3EB221025D1F0E000B866BD /* Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debounce.swift; sourceTree = "<group>"; };
 		B3F47ABB25CF21FF000F7A1D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B3F47AEF25CF226C000F7A1D /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		B3F47AFE25CF2DEC000F7A1D /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -623,7 +621,6 @@
 				B38C5D1D25B9958600B83845 /* Assets.swift */,
 				B3873D9025B9AE4300BE6780 /* Colors.swift */,
 				B3873D9425B9AE5C00BE6780 /* Typography.swift */,
-				B3EB221025D1F0E000B866BD /* Debounce.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1012,7 +1009,6 @@
 				B3DD4ABD25D1193600D963A2 /* PokemonStatCellBuilder.swift in Sources */,
 				B347F65B25BCB98700D1ECBE /* FetchGenerationsUseCase.swift in Sources */,
 				B3D8D7C225BAE40A007E68B7 /* ColorExtension.swift in Sources */,
-				B3EB221125D1F0E000B866BD /* Debounce.swift in Sources */,
 				B3DD4ACB25D1599D00D963A2 /* StatViewModel.swift in Sources */,
 				B3F47B2E25CF31C4000F7A1D /* SortCoordinator.swift in Sources */,
 				B3DD4AA225D112A500D963A2 /* PokemonAbilityViewCell.swift in Sources */,
