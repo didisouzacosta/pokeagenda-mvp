@@ -47,10 +47,12 @@ class PokemonStatViewCell: UITableViewCell {
     
     private func setupTitle(_ name: String) {
         titleLabel.text = name
+        titleLabel.font = Typography.description
     }
     
     private func setupValue(_ value: String) {
         valueLabel.text = "\(value)"
+        valueLabel.font = Typography.description
     }
     
     private func setupProgessionContainerView() {

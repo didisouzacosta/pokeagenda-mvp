@@ -34,6 +34,7 @@ class PokemonAbilityViewCell: UITableViewCell {
     
     func configure(with ability: String) {
         abilityLabel.text = ability
+        abilityLabel.font = Typography.description
     }
     
 }
