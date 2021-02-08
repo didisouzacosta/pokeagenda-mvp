@@ -36,7 +36,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="kf5-nq-uki" secondAttribute="bottom" constant="8" id="sOB-fr-4He"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="131.8840579710145" y="118.52678571428571"/>
+            <point key="canvasLocation" x="-126" y="117"/>
         </view>
     </objects>
     <resources>

@@ -32,23 +32,23 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nz-kr-PMx">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyM-NZ-avp">
-                                    <rect key="frame" x="-187.5" y="-72" width="750" height="119.5"/>
+                                    <rect key="frame" x="-187.5" y="-42" width="750" height="119.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grid-detail-pattern" translatesAutoresizingMaskIntoConstraints="NO" id="Der-rf-ww3">
-                                    <rect key="frame" x="295" y="100" width="80" height="70"/>
+                                    <rect key="frame" x="295" y="140" width="80" height="70"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="HeJ-0J-jif"/>
                                         <constraint firstAttribute="height" constant="70" id="g7m-GY-gzP"/>
                                     </constraints>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbf-gt-L0D">
-                                    <rect key="frame" x="8" y="-8" width="359" height="170"/>
+                                    <rect key="frame" x="8" y="32" width="359" height="170"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="L78-pW-7SY">
                                             <rect key="frame" x="43.5" y="16" width="272" height="138"/>
@@ -132,20 +132,18 @@
                                 <constraint firstAttribute="bottom" secondItem="Pbf-gt-L0D" secondAttribute="bottom" constant="8" id="J4t-2P-q9J"/>
                                 <constraint firstItem="uyM-NZ-avp" firstAttribute="centerX" secondItem="8nz-kr-PMx" secondAttribute="centerX" id="Kzo-3w-oxf"/>
                                 <constraint firstItem="Pbf-gt-L0D" firstAttribute="leading" secondItem="8nz-kr-PMx" secondAttribute="leadingMargin" id="PIH-0U-hqO"/>
-                                <constraint firstItem="Pbf-gt-L0D" firstAttribute="top" secondItem="8nz-kr-PMx" secondAttribute="topMargin" constant="24" id="WYS-cg-9y0">
-                                    <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
+                                <constraint firstItem="Pbf-gt-L0D" firstAttribute="top" secondItem="8nz-kr-PMx" secondAttribute="topMargin" id="WYS-cg-9y0">
+                                    <variation key="heightClass=regular-widthClass=compact" constant="24"/>
                                 </constraint>
                                 <constraint firstItem="uyM-NZ-avp" firstAttribute="width" secondItem="8nz-kr-PMx" secondAttribute="width" multiplier="2" id="dq6-gw-Ocr"/>
-                                <constraint firstItem="uyM-NZ-avp" firstAttribute="top" secondItem="8nz-kr-PMx" secondAttribute="topMargin" constant="-50" id="yNl-Qr-9nl">
-                                    <variation key="heightClass=regular-widthClass=compact" constant="-80"/>
-                                </constraint>
+                                <constraint firstItem="uyM-NZ-avp" firstAttribute="top" secondItem="8nz-kr-PMx" secondAttribute="topMargin" constant="-50" id="yNl-Qr-9nl"/>
                             </constraints>
                         </view>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sjh-Qc-9g4">
-                            <rect key="frame" x="0.0" y="170" width="375" height="529"/>
+                            <rect key="frame" x="0.0" y="210" width="375" height="489"/>
                             <subviews>
                                 <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dZl-n5-trA">
-                                    <rect key="frame" x="32" y="0.0" width="311" height="497"/>
+                                    <rect key="frame" x="32" y="0.0" width="311" height="457"/>
                                     <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </tableView>
                             </subviews>
