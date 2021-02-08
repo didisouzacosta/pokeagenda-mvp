@@ -28,6 +28,8 @@ class SearchPresenter {
     
     private let fetchPokemonUseCase: FetchPokemonUseCaseProtocol
     
+    private var currentTerm: String?
+    
     private weak var view: SearchPresenterView?
     
     private var isLoading = false {
@@ -64,8 +66,11 @@ class SearchPresenter {
         }
         
         isLoading = true
+        currentTerm = pokemon
         
         fetchPokemonUseCase.execute(pokemon) { [weak self] response in
+            guard pokemon == self?.currentTerm else { return }
+            
             if let pokemon = try? response.get() {
                 self?._pokemons = [pokemon]
                 self?.view?.noHaveResults(status: false, term: nil)

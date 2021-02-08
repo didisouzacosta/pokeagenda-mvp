@@ -86,7 +86,10 @@ final class SearchInputView: UIView {
     // MARK: Actions
     
     @IBAction private func textDidChange(textField: UITextField) {
-        delegate?.textDidChange(text: textField.text)
+        guard let text = textField.text else { return  }
+        Debounce<String>.input(text, comparedAgainst: text) { [weak self] _ in
+            self?.delegate?.textDidChange(text: textField.text)
+        }
     }
     
 }
