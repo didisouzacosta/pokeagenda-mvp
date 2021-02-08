@@ -138,14 +138,15 @@
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dZl-n5-trA">
                             <rect key="frame" x="32" y="0.0" width="350" height="682"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemYellowColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="dZl-n5-trA" secondAttribute="bottom" id="6ww-bo-T37"/>
-                        <constraint firstAttribute="trailing" secondItem="dZl-n5-trA" secondAttribute="trailing" constant="32" id="8Oa-Ih-Lhi"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="dZl-n5-trA" secondAttribute="trailing" constant="24" id="8Oa-Ih-Lhi"/>
                         <constraint firstItem="dZl-n5-trA" firstAttribute="top" secondItem="Sjh-Qc-9g4" secondAttribute="top" id="SWL-Mf-4Rn"/>
-                        <constraint firstItem="dZl-n5-trA" firstAttribute="leading" secondItem="Sjh-Qc-9g4" secondAttribute="leading" constant="32" id="XMs-yL-sJJ"/>
+                        <constraint firstItem="dZl-n5-trA" firstAttribute="leading" secondItem="Sjh-Qc-9g4" secondAttribute="leadingMargin" constant="24" id="XMs-yL-sJJ"/>
                     </constraints>
                 </view>
             </subviews>

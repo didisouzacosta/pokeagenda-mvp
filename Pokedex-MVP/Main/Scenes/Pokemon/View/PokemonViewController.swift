@@ -99,12 +99,12 @@ final class PokemonViewController: UIViewController {
     
     private func setupData(with pokemon: PokemonViewModel) {
         let statsSection = TableViewSection(
-            cellBuilders: [],
+            cellBuilders: pokemon.stats.map(PokemonStatCellBuilder.init),
             header: PokemonSectionHeaderView(title: "Stats", type: pokemon.primaryType)
         )
         
         let abilitiesSection = TableViewSection(
-            cellBuilders: [],
+            cellBuilders: pokemon.abilities.map(PokemonAbilityCellBuilder.init),
             header: PokemonSectionHeaderView(title: "Abilities", type: pokemon.primaryType)
         )
         
