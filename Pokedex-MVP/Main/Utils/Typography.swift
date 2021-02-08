@@ -16,5 +16,6 @@ struct Typography {
     static let description = UIFont.systemFont(ofSize: 16)
     static let pokemonNumber = UIFont.boldSystemFont(ofSize: 12)
     static let pokemonType = UIFont.systemFont(ofSize: 12, weight: .medium)
+    static let pokemonSection = UIFont.boldSystemFont(ofSize: 16)
     
 }

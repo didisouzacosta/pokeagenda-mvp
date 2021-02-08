@@ -16,6 +16,8 @@
                 <outlet property="nameTitleLabel" destination="uyM-NZ-avp" id="ZQ1-7y-NOL"/>
                 <outlet property="numberLabel" destination="2EK-v1-Nqb" id="A1b-7X-kW0"/>
                 <outlet property="pokemonImageView" destination="o3b-Ua-ji5" id="Tgc-VH-rfm"/>
+                <outlet property="statsView" destination="Sjh-Qc-9g4" id="AgA-5j-cWr"/>
+                <outlet property="tableView" destination="dZl-n5-trA" id="H16-Ro-0r3"/>
                 <outlet property="view" destination="iN0-l3-epB" id="S1x-iw-ofD"/>
             </connections>
         </placeholder>
@@ -130,15 +132,35 @@
                         <constraint firstItem="uyM-NZ-avp" firstAttribute="top" secondItem="8nz-kr-PMx" secondAttribute="topMargin" constant="-50" id="yNl-Qr-9nl"/>
                     </constraints>
                 </view>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sjh-Qc-9g4">
+                    <rect key="frame" x="0.0" y="246" width="414" height="682"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dZl-n5-trA">
+                            <rect key="frame" x="32" y="0.0" width="350" height="682"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemYellowColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="dZl-n5-trA" secondAttribute="bottom" id="6ww-bo-T37"/>
+                        <constraint firstAttribute="trailing" secondItem="dZl-n5-trA" secondAttribute="trailing" constant="32" id="8Oa-Ih-Lhi"/>
+                        <constraint firstItem="dZl-n5-trA" firstAttribute="top" secondItem="Sjh-Qc-9g4" secondAttribute="top" id="SWL-Mf-4Rn"/>
+                        <constraint firstItem="dZl-n5-trA" firstAttribute="leading" secondItem="Sjh-Qc-9g4" secondAttribute="leading" constant="32" id="XMs-yL-sJJ"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Sjh-Qc-9g4" firstAttribute="top" secondItem="8nz-kr-PMx" secondAttribute="bottom" id="3jT-pr-ASV"/>
+                <constraint firstAttribute="trailing" secondItem="Sjh-Qc-9g4" secondAttribute="trailing" id="EOQ-em-B3F"/>
                 <constraint firstItem="8nz-kr-PMx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VDn-c5-kbF"/>
                 <constraint firstItem="8nz-kr-PMx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="XD7-Qv-5AD"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8nz-kr-PMx" secondAttribute="trailing" id="abt-hg-xze"/>
+                <constraint firstItem="Sjh-Qc-9g4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="u4d-c3-TG3"/>
+                <constraint firstAttribute="bottom" secondItem="Sjh-Qc-9g4" secondAttribute="bottom" constant="-32" id="xr0-bS-aB3"/>
             </constraints>
-            <point key="canvasLocation" x="-100.00000000000001" y="97.767857142857139"/>
+            <point key="canvasLocation" x="-357" y="8"/>
         </view>
     </objects>
     <resources>
@@ -146,6 +168,9 @@
         <image name="grid-detail-pattern" width="65" height="65"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

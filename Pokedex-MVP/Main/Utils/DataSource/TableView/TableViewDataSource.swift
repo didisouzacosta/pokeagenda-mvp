@@ -58,6 +58,10 @@ final class TableViewDataSource: NSObject {
         tableView.prefetchDataSource = self
         tableView.rowHeight = rowHeight
         tableView.estimatedRowHeight = estimatedRowHeight
+        tableView.sectionHeaderHeight = UITableView.automaticDimension;
+        tableView.sectionFooterHeight = UITableView.automaticDimension;
+        tableView.estimatedSectionHeaderHeight = 80;
+        tableView.estimatedSectionFooterHeight = 80;
         
         registerCells()
     }
@@ -85,6 +89,34 @@ extension TableViewDataSource: UITableViewDataSourcePrefetching {
 }
 
 extension TableViewDataSource: UITableViewDataSource {
+    
+    func tableView(
+        _ tableView: UITableView,
+        viewForHeaderInSection section: Int
+    ) -> UIView? {
+        return sections[section].header
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        heightForHeaderInSection section: Int
+    ) -> CGFloat {
+        return sections[section].header == nil ? 0 : UITableView.automaticDimension
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        viewForFooterInSection section: Int
+    ) -> UIView? {
+        return sections[section].footer
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        heightForFooterInSection section: Int
+    ) -> CGFloat {
+        return sections[section].footer == nil ? 0 : UITableView.automaticDimension
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count

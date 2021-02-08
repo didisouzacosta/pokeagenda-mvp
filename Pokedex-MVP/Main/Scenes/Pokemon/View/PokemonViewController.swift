@@ -23,6 +23,8 @@ final class PokemonViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    private lazy var dataSource = TableViewDataSource(sections: [], tableView: tableView)
+    
     // MARK: Outlets
     
     @IBOutlet weak var numberLabel: UILabel!
@@ -30,11 +32,16 @@ final class PokemonViewController: UIViewController {
     @IBOutlet weak var nameTitleLabel: UILabel!
     @IBOutlet weak var pokemonImageView: UIImageView!
     @IBOutlet weak var badgesStack: UIStackView!
+    @IBOutlet weak var statsView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK - Public Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupStatsView()
+        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +56,15 @@ final class PokemonViewController: UIViewController {
     }
     
     // MARK - Private Methods
+    
+    private func setupStatsView() {
+        statsView.layer.cornerRadius = 32
+        statsView.backgroundColor = Colors.background.white
+    }
+    
+    private func setupTableView() {
+        tableView.tableFooterView = .tableFooterView
+    }
     
     private func setupBackground(with type: PokemonType) {
         view.backgroundColor = Colors.backgroundType.color(with: type)
@@ -81,6 +97,23 @@ final class PokemonViewController: UIViewController {
         nameTitleLabel.text = name.uppercased()
     }
     
+    private func setupData(with pokemon: PokemonViewModel) {
+        let statsSection = TableViewSection(
+            cellBuilders: [],
+            header: PokemonSectionHeaderView(title: "Stats", type: pokemon.primaryType)
+        )
+        
+        let abilitiesSection = TableViewSection(
+            cellBuilders: [],
+            header: PokemonSectionHeaderView(title: "Abilities", type: pokemon.primaryType)
+        )
+        
+        dataSource.sections = [
+            statsSection,
+            abilitiesSection
+        ]
+    }
+    
 }
 
 extension PokemonViewController: PokemonPresenterView {
@@ -102,5 +135,6 @@ extension PokemonViewController: PokemonPresenterView {
         setupBadges(types: pokemon.types)
         setup(pokemonImage: pokemon.image)
         setupTitle(with: pokemon.name)
+        setupData(with: pokemon)
     }
 }
