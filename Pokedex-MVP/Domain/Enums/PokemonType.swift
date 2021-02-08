@@ -38,3 +38,11 @@ public enum PokemonType: String, Codable {
         self = Self.init(rawValue: name) ?? .unknown
     }
 }
+
+extension PokemonType {
+    
+    var name: String {
+        return self.rawValue.localized
+    }
+    
+}
