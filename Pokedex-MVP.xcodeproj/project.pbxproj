@@ -272,9 +272,8 @@
 		B3115A9325BDE9DC001C6BF4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				B3AAC56925BC622C00E42043 /* AssetsTests.swift */,
-				B398EDF925BC7FA8009F7666 /* ColorsTests.swift */,
-				B3EB221625D1F47C00B866BD /* StringsTests.swift */,
+				B36ADAFE25D1FEC900D8653E /* Utils */,
+				B36ADAFD25D1FEBA00D8653E /* Presenters */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -358,6 +357,23 @@
 				B31E2FC925C22B630098F3AD /* GenerationRepositorySpy.swift */,
 			);
 			path = Spy;
+			sourceTree = "<group>";
+		};
+		B36ADAFD25D1FEBA00D8653E /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		B36ADAFE25D1FEC900D8653E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B3AAC56925BC622C00E42043 /* AssetsTests.swift */,
+				B398EDF925BC7FA8009F7666 /* ColorsTests.swift */,
+				B3EB221625D1F47C00B866BD /* StringsTests.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		B36E3D7C25BD8ED70067F8BF /* Models */ = {
