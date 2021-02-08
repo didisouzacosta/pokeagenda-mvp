@@ -25,12 +25,13 @@ public struct StatViewModel {
     }
     
     var percentage: Double {
-        return value
+        return value / maxStatus * 100
     }
     
     // MARK: - Private Properties
     
     private let stat: Stat
+    private let maxStatus: Double = 100
     
     // MARK: - Public Methods
     
