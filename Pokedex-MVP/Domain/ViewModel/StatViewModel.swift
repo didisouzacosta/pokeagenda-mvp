@@ -35,7 +35,7 @@ public struct StatViewModel {
     
     // MARK: - Public Methods
     
-    init(stat: Stat) {
+    init(_ stat: Stat) {
         self.stat = stat
     }
     
