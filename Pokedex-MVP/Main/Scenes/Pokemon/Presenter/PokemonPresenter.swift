@@ -15,7 +15,7 @@ class PokemonPresenter {
     
     // MARK: - Private Properties
     
-    private let fetchPokemonUseCase: FetchPokemonUseCase
+    private let fetchPokemonUseCase: FetchPokemonUseCaseProtocol
     private let identifier: PokemonIndentifier
     
     private weak var view: PokemonPresenterView?
@@ -28,7 +28,7 @@ class PokemonPresenter {
     
     init(
         view: PokemonPresenterView,
-        fetchPokemonUseCase: FetchPokemonUseCase,
+        fetchPokemonUseCase: FetchPokemonUseCaseProtocol,
         pokemon identifier: PokemonIndentifier
     ) {
         self.view = view

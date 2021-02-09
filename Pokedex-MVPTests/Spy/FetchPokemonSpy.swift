@@ -24,6 +24,8 @@ class FetchPokemonSpy: FetchPokemonUseCaseProtocol {
             completionHandler(.failure(error))
         } else if let pokemon = pokemon {
             completionHandler(.success(pokemon))
+        } else {
+            completionHandler(.failure("Simulação de erro"))
         }
     }
     
