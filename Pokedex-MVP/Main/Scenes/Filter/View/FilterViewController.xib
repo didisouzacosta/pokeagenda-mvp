@@ -19,8 +19,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filter" translatesAutoresizingMaskIntoConstraints="NO" id="HAC-1j-leN">
-                    <rect key="frame" x="16" y="56" width="398" height="806"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filter" translatesAutoresizingMaskIntoConstraints="NO" id="HAC-1j-leN">
+                    <rect key="frame" x="16" y="56" width="398" height="796"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="HAC-1j-leN" secondAttribute="height" multiplier="1:2" id="3WN-gH-Em0"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -28,10 +31,9 @@
             <constraints>
                 <constraint firstItem="HAC-1j-leN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="SsQ-G9-zgi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="HAC-1j-leN" secondAttribute="trailing" id="VxD-pd-1bk"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="HAC-1j-leN" secondAttribute="bottom" id="ocg-hD-n2G"/>
                 <constraint firstItem="HAC-1j-leN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="wzO-hJ-DU1"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="125"/>
+            <point key="canvasLocation" x="131.8840579710145" y="124.55357142857142"/>
         </view>
     </objects>
     <resources>
