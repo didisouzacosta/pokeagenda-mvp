@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct PokemonViewModel {
+public struct PokemonViewModel {
     
     // MARK: - Public Properties
     

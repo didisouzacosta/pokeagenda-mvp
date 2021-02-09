@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HomeListItemState {
+public enum HomeListItemState {
     case pokemon(PokemonViewModel)
     case error(Error)
     case isLoading
