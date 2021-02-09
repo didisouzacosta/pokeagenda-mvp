@@ -18,7 +18,7 @@ extension FilterViewController: PanModalPresentable {
     }
     
     var longFormHeight: PanModalHeight {
-        return .contentHeight(400)
+        return .maxHeight
     }
     
 }

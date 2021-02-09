@@ -18,7 +18,7 @@ extension GenerationsViewController: PanModalPresentable {
     }
 
     var longFormHeight: PanModalHeight {
-        return .contentHeight(400)
+        return .maxHeight
     }
     
 }

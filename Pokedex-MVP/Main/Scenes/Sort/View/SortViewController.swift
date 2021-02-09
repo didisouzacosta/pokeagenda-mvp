@@ -18,7 +18,7 @@ extension SortViewController: PanModalPresentable {
     }
     
     var longFormHeight: PanModalHeight {
-        return .contentHeight(400)
+        return .contentHeight(500)
     }
     
 }
