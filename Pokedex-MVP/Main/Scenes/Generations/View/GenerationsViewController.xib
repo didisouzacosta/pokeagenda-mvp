@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Generations" translatesAutoresizingMaskIntoConstraints="NO" id="7Gt-Z8-eHm">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="generations-screen-mock" translatesAutoresizingMaskIntoConstraints="NO" id="7Gt-Z8-eHm">
                     <rect key="frame" x="0.0" y="44" width="414" height="812"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="7Gt-Z8-eHm" secondAttribute="height" multiplier="207:406" id="eT4-EO-sER"/>
@@ -37,7 +37,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Generations" width="439" height="843"/>
+        <image name="generations-screen-mock" width="439" height="843"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

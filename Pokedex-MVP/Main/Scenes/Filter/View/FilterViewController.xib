@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filter" translatesAutoresizingMaskIntoConstraints="NO" id="HAC-1j-leN">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filter-screen-mock" translatesAutoresizingMaskIntoConstraints="NO" id="HAC-1j-leN">
                     <rect key="frame" x="16" y="56" width="398" height="796"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="HAC-1j-leN" secondAttribute="height" multiplier="1:2" id="3WN-gH-Em0"/>
@@ -37,7 +37,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Filter" width="459" height="927"/>
+        <image name="filter-screen-mock" width="459" height="927"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

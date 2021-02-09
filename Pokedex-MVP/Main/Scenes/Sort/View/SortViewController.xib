@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sort" translatesAutoresizingMaskIntoConstraints="NO" id="Syg-v1-6Kp">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sort-screen-mock" translatesAutoresizingMaskIntoConstraints="NO" id="Syg-v1-6Kp">
                     <rect key="frame" x="0.0" y="44" width="414" height="500"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="500" id="ggl-uC-Bm4"/>
@@ -37,7 +37,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Sort" width="654" height="790"/>
+        <image name="sort-screen-mock" width="645" height="784"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
