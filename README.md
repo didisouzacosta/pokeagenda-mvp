@@ -3,9 +3,9 @@
 Construção de uma pokédex utilizando Swift com o pattern MVP
 
 <p float="left">
-<img src="./assets/home-screen.png" alt="drawing" width="320"/>
-<img src="./assets/search-screen.png" alt="drawing" width="320"/>
-<img src="./assets/pokemon-screen.png" alt="drawing" width="320"/>
+<img src="./assets/home-screen.png" alt="drawing" width="300"/>
+<img src="./assets/search-screen.png" alt="drawing" width="300"/>
+<img src="./assets/pokemon-screen.png" alt="drawing" width="300"/>
 </p>
 
 ## Como executar o projeto
