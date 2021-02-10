@@ -1,6 +1,6 @@
 # Pokédex MVP
 
-Construção de uma pokédex utilizando Swift com o pattern MVP + Coordinators
+Construção de uma pokédex utilizando Swift com o pattern MVP & View Model & Coordinators
 
 <p float="left">
 <img src="./assets/home-screen.png" alt="drawing" width="260"/>
