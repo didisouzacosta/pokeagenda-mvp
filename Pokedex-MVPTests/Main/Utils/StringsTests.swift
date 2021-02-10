@@ -13,8 +13,8 @@ import Nimble
 class Strings: XCTestCase {
 
     func testEnsureGenrealLocalizableStrings() throws {
-        expect("pokedex".localized) == "Pokedex"
-        expect("search-placeholder".localized) == "What Pokemon are you looking for?"
+        expect("pokedex".localized) == "Pokédex"
+        expect("search-placeholder".localized) == "What Pokémon are you looking for?"
         expect("loading".localized) == "Loading..."
         expect("no-results".localized(arguments: "char")) == "No results were found to char"
     }

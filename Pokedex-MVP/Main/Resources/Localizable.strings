@@ -7,13 +7,13 @@
 */
 
 // General
-"pokedex" = "Pokedex";
+"pokedex" = "Pokédex";
 "search-placeholder" = "What Pokémon are you looking for?";
 "loading" = "Loading...";
 "no-results" = "No results were found to %@";
 
 // Home
-"home-description" = "Search for Pokémon by name or using the National Pokedex number.";
+"home-description" = "Search for Pokémon by name or using the National Pokédex number.";
 
 // Search
 "search-title" = "Search";
