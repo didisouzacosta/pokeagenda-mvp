@@ -53,13 +53,14 @@ final class PokemonViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = Colors.text.white
         navigationController?.navigationBar.barStyle = .black
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.tintColor = Colors.text.black
+        navigationController?.navigationBar.barStyle = .default
     }
     
     // MARK - Private Methods
