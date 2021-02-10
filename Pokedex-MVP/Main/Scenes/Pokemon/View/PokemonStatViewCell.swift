@@ -24,8 +24,6 @@ class PokemonStatViewCell: UITableViewCell {
         return PokemonStatViewCell.identifier
     }
     
-    var retryHandler: (() -> Void)?
-    
     // MARK: - Private Properties
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -63,7 +61,7 @@ class PokemonStatViewCell: UITableViewCell {
     private func setupProgression(_ percentage: Double, type: PokemonType) {
         let multiplier = CGFloat(percentage / 100)
         progressionView.backgroundColor = Colors.type.color(with: type)
-        percentageConstraint = percentageConstraint.setMultiplier(multiplier: multiplier)
+        percentageConstraint = percentageConstraint.set(multiplier: multiplier)
     }
     
 }

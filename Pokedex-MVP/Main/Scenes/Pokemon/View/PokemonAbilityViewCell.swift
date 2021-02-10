@@ -24,8 +24,6 @@ class PokemonAbilityViewCell: UITableViewCell {
         return PokemonAbilityViewCell.identifier
     }
     
-    var retryHandler: (() -> Void)?
-    
     // MARK: - Private Properties
     
     @IBOutlet weak var abilityLabel: UILabel!
