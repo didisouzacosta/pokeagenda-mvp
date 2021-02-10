@@ -54,16 +54,12 @@ final class PokemonViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationController?.navigationBar.tintColor = .white
-        setNeedsStatusBarAppearanceUpdate()
+        navigationController?.navigationBar.barStyle = .black
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.tintColor = Colors.text.black
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
     }
     
     // MARK - Private Methods
