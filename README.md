@@ -19,6 +19,10 @@ Para executar o projeto siga as seguintes instruções:
 5. Também é indicado selecionar a `team` correta em `signing e capabilities`.
 6. Toque em `run`.
 
+## Detalhes adicional
+
+As telas de `filtro`, `sort` e `generations` estão apenas com imagens do layout pois não eram requisitos principais.
+
 ## API
 
 Esse estudo utilizou a API pública https://pokeapi.co/
